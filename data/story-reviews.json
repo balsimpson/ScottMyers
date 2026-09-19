@@ -1,0 +1,2594 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-18",
+  "reviewer": "Codex",
+  "method": "Keyword-assisted shortlist followed by a Codex reading of all 374 candidate loglines. Tags describe only these eight patterns, are not exhaustive, and are not human-verified. No match is not evidence that a pattern is absent. The shortlist is not a representative sample.",
+  "records": [
+    {
+      "id": "1991-04-face-off",
+      "logline": "Dedicated cop has to switch faces with his arch nemesis, the head of the black market for organ transplants, in order to bring him to justice.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1991-18-the-river-wild",
+      "logline": "Family goes on a rafting trip in Montana and is taken hostage by two escaped convicts.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1991-19-cliffhanger",
+      "logline": "Park ranger rescues comrades on a mountain, but terrorists want to do them in.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1991-23-amos-andrew",
+      "logline": "Black homeowner in Martha’s Vineyard is mistaken for a thief. In order to save face, the local sheriff forces a jailed misfit to go into the home pretending to be a criminal who has taken the homeowner hostage.",
+      "patterns": [
+        "rescue",
+        "identity"
+      ]
+    },
+    {
+      "id": "1992-18-the-best-man",
+      "logline": "Mental patient escapes from institution to be best man at his childhood friend’s wedding. When he arrives, the wedding is thrown into a tailspin.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1992-21-krask-adventure-comedy-project",
+      "logline": "Secret agent Nick Steele accidentally teams up with 11-year-old boy and finds that he once had an affair with the lad’s mom. Agent is then convinced that the boy is his son.",
+      "patterns": []
+    },
+    {
+      "id": "1992-31-uncommon-criminal",
+      "logline": "Story takes place in the 1940s on inescapable Alcatraz. The main character, who has mastered previous prison escapes, accomplishes the impossible and flees the city.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1993-01-going-west",
+      "logline": "Killer kidnaps a child of an FBI agent, prompting a cross-country chase.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-04-stone-cold-war",
+      "logline": "Two gang member brothers. When one brother is jailed, the other kidnaps the premier of Russia in hopes of making a deal for his brother’s release.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-10-runner",
+      "logline": "Story focuses on a black female undercover agent for the DEA.",
+      "patterns": []
+    },
+    {
+      "id": "1993-19-nothing-to-lose",
+      "logline": "Frustrated corporate executive in Los Angeles kidnaps armed robber and flees to Arizona desert after finding boss in bed with his wife. Unlikely alliance develops between the two, and they return to California to seek revenge on boss.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-32-bad-to-the-bone",
+      "logline": "Wisecracking, cynical mutt teams up with a ghost to save two kidnapped kids.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-37-grace",
+      "logline": "Two 12-year-old girls become witches to gain revenge on 7th grade princesses and win the hearts of the boys of their dreams.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1993-40-shakespeare-s-sister",
+      "logline": "Wealthy impotent industrialist hires an aspiring lawyer to impregnate his wife. The budding banister and fledgling stud is murdered when his one-night stand turns into a love affair.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "1993-51-tiger-tiger",
+      "logline": "Tiger is captured and taken to LA whereupon he escapes and roams the city’s urban jungle. While the hunter tries to capture the tiger, the police bring in an animal hunter to kill him.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1993-53-the-kid-who-stole-christmas",
+      "logline": "A boy who never gets what he wants for Christmas kidnaps Santa from local mall and finds out Santa is really a petty thief.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-65-pretty-boy-floyd",
+      "logline": "Story of depression era bank robber covers his life from an outlaw to his well-attended funeral in Oklahoma.",
+      "patterns": []
+    },
+    {
+      "id": "1993-67-small-in-the-saddle",
+      "logline": "Set in the old west, the story is about the son of a frontier lawman, who dreams of becoming a desperado. When the holdup of the train taking him away from school is botched, the kid saves the bad guy’s lives thus becoming their mascot on several robberies. Dad has to bring son and bad guys to justice.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1993-73-trapped",
+      "logline": "Set on Maine/Quebec border, the story is about a female Yale forestry school grad and a backwoods’ legend who survive their odd couple partnership to bust an international poaching cabal.",
+      "patterns": []
+    },
+    {
+      "id": "1993-79-john-q",
+      "logline": "Boy needs heart transplant. When hospital turns him down because he has no insurance, the father takes hospital’s emergency room hostage.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1993-81-drastic-measures",
+      "logline": "Woman is raped and trapped in a scheme between rapist and boyfriend.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1993-83-matilda",
+      "logline": "Child trapped in a world of horrid parents until she takes telekinetic revenge. Based on Roald Dahl’s book.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1993-89-assassins",
+      "logline": "Veteran hit man is stalked by younger, hungrier colleague eager to take over as top dog. Vet must survive the attack by enlisting the aid of a female surveillance expert.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1994-04-the-french-teacher",
+      "logline": "Private school students are kidnapped on a camping trip to Yosemite.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-14-already-dead",
+      "logline": "Undercover cop infiltrates New York mob. He endangers wife and son when he finds out mob’s operation has reached global proportions and has ties to the White House.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1994-30-mad-city",
+      "logline": "Disgruntled ex-employee takes museum and its occupants hostage, and a tabloid journalist exploits the situation.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-34-in-contempt",
+      "logline": "Married cops are getting a divorce in an upstairs New York courthouse. In the main courtroom, a major terrorist is brought to trial. After a bungled attempt from the terrorist’s cohorts to break him out, the things hold judge and jury hostage, and the feuding cop couple must work together to save the day.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-68-sevens",
+      "logline": "Futuristic tale about a secret service agent who finds himself stranded in the desert with a bad case of amnesia. While eluding the people trying to kill him, he tries to remember who he is by using the seven belongings he found with him to solve the mystery.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1994-71-exit-now",
+      "logline": "19-year-old who was abandoned by bank robbing father at birth decides to leave home and reunite with his dad by following in his footsteps. This misfit goes on a cross-country journey with aspiring criminal friends to chase a dream, only to find his destiny is not what he expected.",
+      "patterns": []
+    },
+    {
+      "id": "1994-73-air-force-one",
+      "logline": "Terrorist kidnaps the President’s plane.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-79-the-rock",
+      "logline": "“Die Hard” on Alcatraz. Terrorists on Alcatraz hold city of San Francisco hostage with chemical weapons while the FBI releases a master escape artist from another prison to help them get onto the island.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-84-stealth",
+      "logline": "Disgruntled air force lieutenant colonel commandeers a stealth bomber loaded with nuclear warheads and heads for the White House. One of the pilot’s underlings, whose girlfriend has been taken hostage, tries to stop him.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1994-100-gun-shy",
+      "logline": "Dysfunctional romance between shy postal worker and an escaped convict.",
+      "patterns": []
+    },
+    {
+      "id": "1994-103-virus",
+      "logline": "In the future, the president’s son is held hostage inside a virtual reality tour of history.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-08-kyle-supernatural-thriller-project",
+      "logline": "A married woman is lured into a romance with a spirit who roams the family’s new home. The story takes on a deadly turn when the ghost’s agenda is revealed to be one of revenge, and the woman must protect her family.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1995-15-the-metro",
+      "logline": "Wisecracking hostage negotiator and his rookie partner navigate through the craziness of the negotiator’s love life.",
+      "patterns": []
+    },
+    {
+      "id": "1995-27-swiss-family-rubinstein",
+      "logline": "Wealthy Milken-type tycoon and his pampered family crash land on a desert island. They must now survive without servants, hair dryers or corned beef.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1995-37-firestorm",
+      "logline": "“Cliffhanger” in a forest fire. Fireman/smoke jumper must parachute into a Yellowstone Park forest fire to save a female senator, who’s been kidnapped by escaped con.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-39-two-by-two",
+      "logline": "Male and female detectives go undercover to track down a murderer in the world of swinging couples.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1995-44-the-ten-per-cent-man",
+      "logline": "College professor who has finally decided to retire from a career of planning bank heists using virtual reality is pulled back in for one last robbery.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-46-the-master",
+      "logline": "Convicted forger is kidnapped out of jail by two wacky artists and forced to complete the final painting of the last great master, Enrique de Castilla.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-51-the-come-up",
+      "logline": "Black kids who decide to heist hotels.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-55-fled",
+      "logline": "Two escaped convicts on the lam pursue a nest egg one of them left behind while dodging the FBI, the local authorities and the Cuban mob.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1995-57-party-of-four",
+      "logline": "Two women become chums without knowing that the younger woman is having an affair with the older woman’s husband.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "1995-61-outrider",
+      "logline": "Young deputy’s pursuit of a notorious outlaw who escaped from prison.",
+      "patterns": []
+    },
+    {
+      "id": "1995-71-time-time-again",
+      "logline": "Two 40-year-old men travel back in time to their elementary school.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "1995-76-criminal-style",
+      "logline": "A bank robber who never uses a gun is recruited by the CIA.",
+      "patterns": []
+    },
+    {
+      "id": "1995-79-the-colony",
+      "logline": "Setting is an island off the coast of Greece that serves as a safe haven for CIA agents whose cover is blown. A man has to escape the island in order to seek revenge on his arch enemy.",
+      "patterns": [
+        "revenge",
+        "survival"
+      ]
+    },
+    {
+      "id": "1995-81-alias",
+      "logline": "Female “Three Days of the Condor.” A female CIA analyst studies money transactions and notices a strange currency purchase. When she follows the transaction, it leads her to a shell corporation belonging to the CIA. As a result of her discovery, she is targeted by her boss and an attempt is made on her on her life which the CIA believes is successful. In order to survive, she has to assume the identity of the woman who is the head of the shell corporation — a woman who doesn’t exist.",
+      "patterns": [
+        "survival",
+        "identity"
+      ]
+    },
+    {
+      "id": "1995-84-prisoner-of-love",
+      "logline": "When drunk, a lonely, unlucky-in-love woman kidnaps attractive man. When she tries to apologize and release him the next day, he insists on going to the cops, so she holds him until they fall in love.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-91-no-safe-haven",
+      "logline": "A down-on-his luck ex-Marine is tapped by the NSA to make his way to his childhood home of Martha’s Vineyard to help rescue the President and his family when domestic terrorists capture the first lady and their daughter and cut off all access to the island. Reuniting with his estranged mother, the ex-Marine and the President team up to save the first family and bring down the bad guys.",
+      "patterns": [
+        "rescue",
+        "second"
+      ]
+    },
+    {
+      "id": "1995-105-rush-hour",
+      "logline": "An FBI investigator and his hostage negotiator wife who team up to try and figure out where a bomb has been hidden. To make things worse, the terrorist who planted the bomb is killed before the pair can get to him.",
+      "patterns": []
+    },
+    {
+      "id": "1995-124-lunatic-fringe",
+      "logline": "Group of prisoners is recruited to rob another planet’s gold reserves, only to discover that when they reach the planet their real mission is to save thousands of other prisoners being held hostage by a group of intergalactic planet raiders.",
+      "patterns": [
+        "rescue",
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-128-the-long-rains",
+      "logline": "Convict in small Mississippi town escapes prison with two other inmates and attempts to retrieve cache of stolen money and take revenge on the crooked sheriff who framed him for murder.",
+      "patterns": [
+        "revenge",
+        "survival"
+      ]
+    },
+    {
+      "id": "1995-138-dante-s-peak",
+      "logline": "Scientist is called to the rescue when a volcano explodes, threatening a small town. The scientist is forced to take on a slew of officials in his attempt to save the townsfolk.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-145-dante-the-debutante",
+      "logline": "A guy who owes money to the mob and is pressed into being the inside man on the heist of a Long Island mansion becomes a wealthy chauffeur. While waiting for the heist to take place, he falls in love with the millionaire homeowner’s handicapped daughter.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-149-masterpiece",
+      "logline": "A slick heist movie about an art thief who steals a Van Gogh. Subsequently, a female FBI agent tracks him down and then falls in love with him while trying to prove his guilt.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-153-the-greatest-escape",
+      "logline": "Several 12-year-old kids escape from a camp from Hell.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1995-155-first-strike",
+      "logline": "Former member of the Nuclear Emergency Search Team is called to the rescue when a guy steals a nuclear bomb with three warheads. The target: three East coast cities.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-161-the-cell",
+      "logline": "Female scientist journeys inside the mind of a comatose serial killer in order to find out the whereabouts of a girl who the killer kidnapped.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-162-bad-karma",
+      "logline": "A group of bad guys takes hostages at a disco hotel, not realizing that the First Lady is among the captives. They also don’t realize that a secret service agent is in the crowd, even though the First Lady has told him not to follow her. Government tries to keep incident under wraps.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1995-163-mastermind",
+      "logline": "Heist story about an elegant thief who gets out of prison and constructs an elaborate scheme involving a double cross to turn the tables on a Miami crime lord.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1995-166-where-the-money-is",
+      "logline": "Darkly comic spy thriller centers on a bored young nurse who meets a retired bank robber living in a nursing home and persuades him to rob a bank simply to put some excitement in her life.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1996-05-the-third-rail",
+      "logline": "Thriller in the vein of “Hand That Rocks The Cradle.” Hostage negotiator is caught in a web of intrigue when his wife is kidnapped.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1996-14-shut-up-dance",
+      "logline": "A young man uses his passion for dancing to help a woman reconnect with her former dreams.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "1996-25-josiah-s-canon",
+      "logline": "Heist story about a Holocaust survivor who leads the world’s foremost team of bank robbers. The criminal mastermind sets his sights on an impenetrable bank in Switzerland, which purportedly houses money deposited by Weimar Jews killed in concentration’s camps.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1996-54-bankroll",
+      "logline": "A Treasury Department agent ,who is assigned to what seems to be a straightforward robbery at Washington’s Bureau of Printing and engraving, discovers that the crime is the first of a trio of related robberies, all connected to a CIA organized scheme to produce untraceable counterfeit currency.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1996-60-the-retirement-package",
+      "logline": "To keep the woman he loves, a private investigator comes up with a very intricate kidnapping scam.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1996-61-rock-scissors-paper",
+      "logline": "Group of ex-cons who, after failing in the real world, decides to pull off one last heist. The target is their former prison.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1996-73-vertical-limit",
+      "logline": "Young climber who retired after a climbing accident with his father must overcome his fear and scale K2 in order to save his sister who is trapped in a cave.",
+      "patterns": [
+        "survival",
+        "rescue"
+      ]
+    },
+    {
+      "id": "1996-78-shark-island",
+      "logline": "“Count of Monte Cristo” set during the Civil War. Lieutenant is falsely accused of killing Lincoln and is sent to a prison on Shark Island in the Florida Keys. He escapes and seeks revenge on those who falsely accused him.",
+      "patterns": [
+        "revenge",
+        "survival"
+      ]
+    },
+    {
+      "id": "1996-85-baja-triangle",
+      "logline": "A bounty hunters goes to Baja to rescue a client’s wife from kidnappers and finds that the plot is a ruse orchestrated by the bounty hunter’s brother designed to bilk $2 million dollars from client.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1996-89-judge-mental",
+      "logline": "While he’s on the lam, a con man impersonates a judge.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1996-134-the-hairy-bird",
+      "logline": "Secret club of girls at a failing boarding school plots revenge after learning that the school is about to merge with an all-male institution.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1996-135-rules-of-engagement",
+      "logline": "Special operations force must go into the African jungle to rescue a teacher and group of native refugees.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1996-148-rough-diamonds",
+      "logline": "An Americana romance set in the West Virginia coal mining industry, focusing on a miner trapped underground.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1996-154-blastoff",
+      "logline": "Former NASA astronaut and scientist attempt to diffuse a situation in which Mission Control is taken hostage, only to learn that a plan is afoot to hijack a space shuttle.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1997-17-the-big-hit",
+      "logline": "Hit man who’s liked by all gets caught up in kidnapping, gang warfare and dinner with his fiancée’s parents.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1997-47-company-man",
+      "logline": "A son’s relationship with his estranged dad, who is stricken with Alzheimer’s. They form a team when dad is targeted by government hitmen.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "1997-48-all-the-king-s-horses",
+      "logline": "A Newsweek correspondent awaits certain death when an anonymous man rescues him from an airplane crash in the Amazon jungle. He uses his investigative skills to ascertain the man’s identity, and realizes that by exposing his mysterious savior, he may condemn him to death.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "1997-53-company-man",
+      "logline": "A son’s relationship with his estranged dad, who is stricken with Alzheimer’s. They form a team when dad is targeted by government hitmen.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "1997-61-dirty-work",
+      "logline": "Loser finds his calling by opening a business devoted to revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1997-70-payback",
+      "logline": "Based on the novel, “The Hunter,” which has already been produced as a film called, “Point Blank,” starring Lee Marvin. Porter is shot by his wife and best friend and is left to die. When he survives he plots revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1997-72-the-c-word",
+      "logline": "Four women who were seduced by the same guy get their revenge by bringing a fifth woman into the guy’s life.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1997-73-vortex",
+      "logline": "Heist yarn set against the backdrop of natural disasters.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1997-79-school-slut",
+      "logline": "Seventies’ high school students are obsessed with following their self-imposed laws of coolness. When a young girl is accused of breaking the cardinal rule of being promiscuous, she becomes an outcast and teams with other school outcasts for revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1997-103-save-me",
+      "logline": "Gay man tries to become heterosexual after being “rescued” by the Christian ministry and an undercover journalist.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1997-111-pluck",
+      "logline": "Unmarried woman tries to bag a wealthy husband. Posing as a European countess, she finds the man and follows him onto a cruise ship. To get on the boat, though, she has to chaperone a couple from the “Dating Game.” Problems ensue when the man on the date turns out to be her ex-boyfriend.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1997-138-the-travel-agent",
+      "logline": "Set in the year 2010, the U.S. has figured out how to travel in time six months into the future and sends experts in such fields as commerce and the military to give the country a competitive edge. When a group of these time travelers doesn’t come back from a trip, and another envoy comes back dead, an economist, who has served as a travel agent is sent to find out what the problem is. He finds out that the government has been overthrown and that his future self has been the cause of the revolt.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "1998-05-alone",
+      "logline": "The first manned expedition to Mars. When an astronaut is left stranded, he quickly finds out that his government might have hidden deadly secrets about the planet from him.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1998-12-truax-the-defender",
+      "logline": "Human looking alien escapes to Earth from another planet whose inhabitants have been wiped out.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1998-22-faithful",
+      "logline": "A husband receives a blackmail threat alleging that he has been having an adulterous affair. The allegation is untrue, but the man’s otherwise happy marriage starts to fall apart.",
+      "patterns": []
+    },
+    {
+      "id": "1998-24-the-last-word",
+      "logline": "An aging, former lawman has parlayed his years spent in the saddle into a career as a pulp fiction novelist, writing about crimes of gun-toting outlaws. He is thrust back into action after hearing of a robbery that has a familiar smell to it, which leads him on a hunt for his famous nemesis, a legendary outlaw who has also been called to action for one last job.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1998-36-the-mile-high-club",
+      "logline": "A male airport security guard goes undercover to bust a prostitution ring in the sky.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1998-39-nazi-gold",
+      "logline": "A commercial producer becomes involved in a plot to steal Nazi bullion from a Swiss vault, a heist undertaken while the producer is supposedly shooting a commercial in the bank. The thieves’ intent is to give the gold bars to the descendants of Holocaust victims.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1998-42-boomerang",
+      "logline": "An egomaniacal film star storms off a set in Australia and promptly crashes his private plane in the Outback. Stranded amid a tribe of aborigines who are thoroughly unimpressed with his celebrity status, he is found/rescued by a headstrong woman studying that tribe. In their subsequent adventures together, he begins to reclaim himself as a human being.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "1998-45-bitch-bitch-bitch",
+      "logline": "The miracle of science that transforms a mousy teenager into the most popular, beautiful girl on campus, allowing her to take revenge on her clique-ish classmates.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1998-47-something-wicked",
+      "logline": "A power hungry executive schemes to blackmail her corporate rival. When she informs the competition of her plans, the nemesis pushes her in front of a bus. Finding herself in an afterworld limbo, the dead woman talks her way back to earth in the form of a cocktail waitress. Given a second chance, she takes a job at the bottom of her company’s ladder and begins working her way up, realizing along the way that she was living her life completely wrong.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "1998-56-a-leonard-cohen-afterworld",
+      "logline": "Two nineteen-year-old friends during the weekend of Kurt Cobain’s 1994 funeral use the Nirvana frontman’s memorial vigil in Seattle as an excuse to escape from their lives in Las Vegas. As they make their way, they meet an unusual cast of characters and come to terms with life, death and what it means to be an outsider in ’90s America.",
+      "patterns": []
+    },
+    {
+      "id": "1998-69-backcountry",
+      "logline": "The story pits the hero against an insane survivalist who is hiding in a national park and killing the visitors.",
+      "patterns": []
+    },
+    {
+      "id": "1998-72-still-life",
+      "logline": "After the death of their daughter, an estranged couple is forced to confront their past and their relationship with one another while trying to raise their grandchildren.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "1998-77-six-bullets-from-now",
+      "logline": "A spectacular real-life robbery that took place on New Years day, 1972 at the Hotel Pierre in New York.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1998-87-kill-van-kull",
+      "logline": "A double-crossing triangle of Gen-X jewel thieves target the Royal Jewels of Iran. When the leader is betrayed and sent to jail, he breaks out and seeks revenge.",
+      "patterns": [
+        "revenge",
+        "heist",
+        "survival"
+      ]
+    },
+    {
+      "id": "1998-90-gator-farm",
+      "logline": "Animals at an alligator farm have a strange substance which allows them to have a conscience, and with it, they seek revenge on humans.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1998-105-cuba-has-fleas",
+      "logline": "Based on a case of mistaken identity where a man who works in an animal shelter winds up giving orders to the mob.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1998-110-phone-booth",
+      "logline": "Man finds himself trapped in a phone booth, pinned down by an extortionist's sniper rifle.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "1999-01-fresh-kills",
+      "logline": "Two Italian American princesses who take an unconventional form of revenge when the mobster father of one is rubbed out.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1999-03-nowhere-to-hide",
+      "logline": "An accomplished thief while masquerading as a cop must investigate his own robbery. Things get tricky when he discovers there was a double murder that took place during his robbery, and he must investigate and implicate the true murderers while hiding his true identity.",
+      "patterns": [
+        "heist",
+        "identity"
+      ]
+    },
+    {
+      "id": "1999-06-big-momma-s-house",
+      "logline": "An undercover cop who uses many disguises, ends up as a Southern grandmother named “Big Momma” for a lengthy case.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1999-12-the-box",
+      "logline": "17-year-old named Jason has a huge crush on his sexy neighbor, but when men posing as government agents convince him that this new neighbor has a piece of stolen government property, they convince Jason to break into her house to get it. When Jason retrieves the property, a box, he opens it and unleashes terribly demons that he and his friends must capture.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1999-20-if-only",
+      "logline": "A young couple is given a second chance to relive the day when one of them dies… and change the course of events.",
+      "patterns": [
+        "time",
+        "second"
+      ]
+    },
+    {
+      "id": "1999-23-good-god",
+      "logline": "A Harlem con man scams his way into heaven and then begins impersonating God.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "1999-24-other-side-of-simple",
+      "logline": "Two thieves return to their hometown after leaving 10 years earlier due to a botched robbery. They return to pull yet another heist to use one of their younger brothers as a patsy. But this younger, dim-witted brother isn’t as dim-witted as they both believed and hasn’t forgiven them for leaving him behind 10 years earlier.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1999-35-helldorado",
+      "logline": "A bounty hunter is nearly killed by outlaws, but after his amputated limbs are replaced with iron prosthetics, he becomes a one-man vengeance machine bent on exterminating them — in New Mexico during the late 1880’s.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "1999-53-can-t-get-arrested",
+      "logline": "A washed-up, former childhood movie star is taken hostage during a bank robbery. Thrust back into the media limelight, the has-been eventually regains his stardom.",
+      "patterns": [
+        "rescue",
+        "heist"
+      ]
+    },
+    {
+      "id": "1999-67-sonny-bright",
+      "logline": "A government desk jockey becomes involved with a beautiful woman and a big heist.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1999-69-river-road",
+      "logline": "With the theme centered on paranoia and taking place on a border town, a man tries desperately to escape his environment, even if it means giving up everything in his life.",
+      "patterns": []
+    },
+    {
+      "id": "1999-70-wild-kingdom",
+      "logline": "An Animal Control Officer in a future, where animals are bio-genetically engineered, must track down a Cerberus (three-headed hellhound) which escapes from the Greek Mythology Exhibit and starts terrorizing rollerbladers in Central Park.",
+      "patterns": []
+    },
+    {
+      "id": "1999-77-auteurs",
+      "logline": "Centers around two young guys in New York who are “wannabe gangsters,” and decide to make an indie film about a robbery in order to camouflage a heist they are trying to pull off.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "1999-78-cellular",
+      "logline": "Centers around a man who gets a distressing phone call on his cell phone from a woman who has been kidnapped. She has no idea where she is but fears she will be killed in the hands of her captors. The man must find her and save her life before the battery on his cell phone goes dead.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2000-06-red-hood",
+      "logline": "A twist on our favorite tale, “Little Red Riding Hood,” this story starts 10 years later, when Red is 18 and Wolf is terrorizing the Land of Grimm, and she decides to seek revenge on this big-bad Wolf.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2000-12-john-q",
+      "logline": "A family discovers that their son needs a heart operation, but they have no health insurance. Out of pure desperation, the father takes a hospital emergency room hostage in order to help his son.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2000-17-smoking-is-good-for-you",
+      "logline": "A crazy tobacco farmer who kidnaps his dead son’s body and buries it in his tobacco field which results in a miracle harvest. His tobacco no longer causes but rather cures cancer.",
+      "patterns": []
+    },
+    {
+      "id": "2000-24-redemption",
+      "logline": "A policeman accidentally shoots and kills a woman who happens to be a Gulf War veteran’s girlfriend. This vet is set on revenge and kidnaps the cop’s wife and forces the officer to confess to the crime.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "2000-30-kid-s-fears",
+      "logline": "A serial murderer kidnaps the district attorney’s daughter.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2000-36-baby-proof",
+      "logline": "A lawyer hires a hypnotist to help him remember the day his father was arrested for a crime he did not commit. The session goes wrong when the lawyer becomes a two-year-old trapped in a man’s body.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2000-37-leaving-eden",
+      "logline": "A woman has an affair with a man who turns out to be very dangerous.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "2000-40-in-the-lake",
+      "logline": "A wealthy man finds out that his wife has been cheating on him, so he plots revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2000-46-diablo",
+      "logline": "Two US customs drug cops go after the Tijuana drug cartel in revenge for the slaying of one of the cop’s wife.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2000-60-buying-time",
+      "logline": "A time-travel story.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2000-61-edgardo-mortara",
+      "logline": "Centers on the highly publicized event that took place in Bologna, Italy in 1858, in which the papal police kidnapped a 6-yearold Jewish boy claiming that he had been secretly baptized. As the Catholic Church kept this boy a prisoner inside the Vatican, the world became furious and demanded he be returned to his family. This incident eventually took away the Pope’s political power.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2000-62-kung-foo-theater",
+      "logline": "Spoof of all the martial-arts films of the past, but this one centers on a guy who finds himself trapped in one of the films.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2000-68-red-hollow",
+      "logline": "A haunted prison where only the innocent people survive.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2000-73-hard-look",
+      "logline": "An FBI agent tracks down an extremely savvy bank robber.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2000-74-the-wheelman",
+      "logline": "A seasoned heist get-away driver joins up with a group of amateurs who try to pull off the next-to-impossible job of a casino robbery.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2000-76-wipeout",
+      "logline": "Story would be loosely based on surfing legend “Murf the Surf,” who split his time between surfing and jewel heists.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2000-80-diamond-dogs",
+      "logline": "A reformed jewel thief is tempted back into his old profession in order to pull off what could turn out to be the biggest diamond robbery ever.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2000-83-untitled-first-daughter-project",
+      "logline": "The President’s 18-year-old daughter, yearning to experience a normal life, escapes from her Secret Service entourage and embarks on a road trip through Europe.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2000-91-dead-men-walking",
+      "logline": "Escape from a zombie-infested prison.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2001-08-even-steven",
+      "logline": "Two ex-girlfriends seek revenge on their former, shared boyfriend. They scheme up a plan to create the perfect date for him in hopes that he will fall in love and then they will break his heart.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2001-10-go-to-hell-mike-piazza",
+      "logline": "A hot dog vendor blames all the bad things in his life on his childhood friend, the famous Met catcher Mike Piazza. The time comes when he can finally seek his revenge against the catcher when he wins the chance to strike out Piazza in a high-profile charity event.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2001-14-the-rook",
+      "logline": "A doctor befriends a convict while moonlighting at the medical ward of a prison. When the inmate is paroled, he talks the doctor into becoming a rook — a distraction for a bank heist by an infamous thief. After the FBI discovers the doctor’s connection, he must work undercover to stop the thieves’ next heist.",
+      "patterns": [
+        "identity",
+        "heist"
+      ]
+    },
+    {
+      "id": "2001-23-mondo-beyondo",
+      "logline": "Two guys, during their high school reunion, survive a nuclear holocaust and then must save the world from an army of killer robots.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2001-24-shinobi",
+      "logline": "Set during the 17th century, an Englishman in Japan witnesses his family murdered by shogun warriors. A female ninja saves his life and teaches him to seek revenge against the shogun.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2001-33-the-line",
+      "logline": "A Chinese railroad worker and his wife arrive in San Francisco, only to realize that they have been sold into slavery. He vows revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2001-38-traces",
+      "logline": "A janitor suffering from amnesia is duped into thinking he is an undercover agent because he is subconsciously carrying a secret that can link the FBI with an arms scandal.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2001-43-when-it-counts",
+      "logline": "A single mom’s children are kidnapped, and she must plan a very creative way to get them back.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2001-44-scary-poppins",
+      "logline": "A con man tries to escape the law and other conmen he has angered. In order to hide himself, he poses as a nanny and ends up in charge of two very spoiled children.",
+      "patterns": [
+        "survival",
+        "identity"
+      ]
+    },
+    {
+      "id": "2001-48-tracks",
+      "logline": "Four best friends, in their 20’s, hop on a freight train looking for thrills but find themselves in a battle for survival.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2001-52-full-throttle",
+      "logline": "A motorcyclist has only twenty minutes to get from the Beverly Center (mall) to the Santa Monica Pier in order to save his girlfriend from kidnappers, all the while being chased by the police in a case of mistaken identity.",
+      "patterns": [
+        "rescue",
+        "identity"
+      ]
+    },
+    {
+      "id": "2001-55-the-forgotten",
+      "logline": "A man and a woman are brought together after their children are abducted.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2001-63-selling-time",
+      "logline": "A guy, who is having the worst day of his entire life, is given the chance to relive the day but strange things happen to him.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2001-64-mom-s-cookies",
+      "logline": "Two suburban teenagers descend into the world of computer gaming to rescue one of their mothers whose life has been taken over by the Web.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2001-65-better-half",
+      "logline": "A married couple, close to divorce, switches bodies then set out to dismantle each other’s lives.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2001-67-the-wrong-nine-year-old",
+      "logline": "A guy’s life is ruined when a classmate from the 4th grade returns to seek revenge on him for a problem they had in grade school.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2002-29-man-on-a-ledge",
+      "logline": "A guy checks into a New York hotel to commit suicide, so the police shut down the entire block while the town watches. But what the man is actually up to is a jewelry store heist across the street from the hotel.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2002-31-king-s-ransom",
+      "logline": "A rich man plans on divorcing his wife until he realizes that she will get half of his money. In order to avoid this, he arranges his own kidnapping to wipe him out but soon finds out that several other parties have organized real plans of kidnapping him themselves so they can get the ransom money.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2002-45-bankrobber",
+      "logline": "Revolves around a charming bank robber and the female FBI agent who is hunting him down.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2002-49-tulip",
+      "logline": "“Tootsie”-esque story that involves mistaken identity.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2002-55-class-clowns",
+      "logline": "Two best buddies think they’ve found the ultimate in teaching jobs until they end up at their old grammar school, which is still ruled by the same principal who swore revenge on them as kids.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2002-75-inside-man",
+      "logline": "A tough cop matches wits with a clever robber during a hostage situation at a bank.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2002-91-messengers",
+      "logline": "The death of her estranged father forces a Manhattan doctor back to her small-town roots, where she uncovers a dark secret.",
+      "patterns": []
+    },
+    {
+      "id": "2002-95-rpm",
+      "logline": "A pair of outlaw racers tool around in Maseratis, Aston-Martins, Lamborghini’s and Ferraris. They take part in an underground road rally in London, Monaco, Paris and Germany that is wrapped around a heist.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2002-113-snakeskin",
+      "logline": "A man, who specializes in “acquiring” specialty items for the highest bidder, seeks revenge when he’s double-crossed and must recover a priceless relic.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2003-05-we-are-family",
+      "logline": "A young woman, an outcast in her own family, decides to kidnap a guy at gunpoint in order to attend her family Thanksgiving dinner with the perfect date.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2003-10-the-greatest-escape",
+      "logline": "A group of kids who think they’re going to summer camp end up in a juvenile detention facility and must escape the facility’s maniacal proprietor.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2003-12-untitled-wedding-project",
+      "logline": "A jilted bride-to-be goes to the bridal salon to get the deposit on her wedding dress back and ends up taking the workers hostage. During the crisis, she falls in love with the negotiator.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2003-15-top-ten-with-a-bullet",
+      "logline": "A man and his three childhood friends quit their dead-end jobs to hunt the serial killer responsible for the death of his sister in order to get revenge and earn the reward of five million dollars.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2003-25-revolver",
+      "logline": "A woman takes a road trip through the Midwest. Along the way she realizes that she may be reincarnated and that supernatural forces have brought her there to avenge her own murder.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2003-27-the-weatherman",
+      "logline": "A divorced TV weatherman, about to leave Chicago for New York, tries to reconcile with his estranged wife and kids.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2003-52-tangled-up-in-blue",
+      "logline": "A tough female bank robber from the big city has a hit is put out on her, so she is forced to hide out in an idyllic small town, but the town’s effect on her is in some ways more dramatic than the death threat.",
+      "patterns": []
+    },
+    {
+      "id": "2003-55-letting-go",
+      "logline": "Two boomer parents experience severe empty nest syndrome after dropping off their son at college. Instead of dealing with it the hard way, the mother gets deeply involved with her son’s life at school, imagining he is the target of a plot and venturing up to the ivory tower to “rescue” him.",
+      "patterns": []
+    },
+    {
+      "id": "2003-78-between-the-covers",
+      "logline": "Two writers meet and have an affair on a book signing tour — a free-spirited woman and a married man considered to be America’s leading expert on marital problems.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "2003-86-the-weatherman",
+      "logline": "A divorced TV weatherman is about to leave Chicago for New York and tries to reconcile with his estranged wife and kids.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2004-04-the-island",
+      "logline": "A “harvested being” becomes self-aware and must escape the utopian facility where he and others are being kept.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2004-15-red-eye",
+      "logline": "A women is held hostage on an airplane and the captor threatens to kill her father unless she helps him assassinate a wealthy businessman.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2004-19-mud",
+      "logline": "Following three weeks of steady rain in Southern California, a group of people are trapped in a mountaintop art museum during a giant mud slide. As the mud rises, the survivors must get out of the museum and off the mountain before the whole thing comes down.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2004-38-breaking-the-box",
+      "logline": "Four female flight attendants moonlight as jewel thieves until they are blackmailed into pulling off the biggest heist of their lives.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2004-44-furry-vengeance",
+      "logline": "A cutthroat real estate developer encroaches too far on the natural world and finds himself beset by woodland creatures taking their revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2004-59-grounded",
+      "logline": "An intergalactic dictator goes undercover as a high school science teacher after crash-landing in Nebraska.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2004-71-wish",
+      "logline": "Follows the kidnapping of a young boy by a convict and three friends. Set in New England the kidnappers realize that the child is less innocent than he seems.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2005-05-heavy-metal-thunder",
+      "logline": "Two nice, mall food-court employees go undercover in the Hell’s Angels, hoping to collect the million-dollar bounty placed on the gang’s notorious leader.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2005-10-priest",
+      "logline": "A warrior priest disobeys church law by teaming up with a young sheriff and a priestess to track down a band of renegade vampires who have kidnapped his niece.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2005-24-prey",
+      "logline": "A man sets out on a solo hunting expedition in the middle of winter and severely injures his leg. He is rescued by a mysterious trapper whose intentions are more sinister than he leads the hunter to believe.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2005-30-trap-door",
+      "logline": "A hotshot executive has eight hours to tear apart his new Mulholland Drive home and find a safe that contains a clue that will help him save his recently abducted wife.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2005-40-the-forger",
+      "logline": "An imprisoned thief buys his way out of prison when he learns his estranged son has only a few months to live. But his efforts to make up for lost time with the teen are endangered when a crime boss forces him to do one last job.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2005-42-scared-straight",
+      "logline": "A governor’s teenage son is sent to prison as part of Scared Straight, a crime-prevention program that imprisons delinquent teens for a short period in the hopes of deterring them from a life of crime. While the teenager is there, a riot breaks out and the prisoners take him hostage. He teams up with other street kids and a con to stop the riot.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2005-51-witches",
+      "logline": "A young soldier recruits an odd assortment of characters, including a ne’er-do-well witch hunter, to help him rescue his love from an evil warlock.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2006-07-damned",
+      "logline": "An all-American family survives a plane crash only to descend into a backwoods nightmare of demon-fearing religious zealots.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2006-10-shiver",
+      "logline": "A group of New Year’s Eve partiers get in a car crash and are stranded in a Minnesota snowstorm when they stumble upon a nearby home, whose occupant happens to be a widowed doctor obsessed with torture as a scientific study.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2006-23-burt-dickenson-the-most-powerful-magician-on-planet-earth",
+      "logline": "Set in the world of rival Las Vegas magicians, one member of a famous two-man team dies in a risky stunt. The surviving team member must then find a way to rediscover his love for magic.",
+      "patterns": []
+    },
+    {
+      "id": "2006-26-the-art-of-cool",
+      "logline": "A geeky student discovers the classic book “The Art of War,” by Sun Tzu, and uses it as a survival guide for navigating the social politics of high school.",
+      "patterns": []
+    },
+    {
+      "id": "2006-29-live-bet",
+      "logline": "Described as a heist picture set in the underworld of NYC.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2006-31-dead-in-the-water",
+      "logline": "A grieving couple takes a cruise in an attempt to reignite their marriage. When the ship rescues a man at sea, the couple becomes embroiled in a horrific nightmare.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2006-37-shotgun-wedding",
+      "logline": "A girl kidnaps her boyfriend and forces him to marry her in Las Vegas.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2006-42-my-beautiful-coma",
+      "logline": "A married man lives out his dream of having every woman he has ever fantasized about after a near-fatal car accident leaves him in a coma. Complications ensue when his wife enters his dream to “rescue him.”",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2006-44-kidnap",
+      "logline": "After her son is kidnapped at a local mall, a woman embarks on a chase to save him.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2006-45-straight-and-narrow",
+      "logline": "A parolee is forced to pull off one last heist for his future father-in-law.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2006-52-little-lover-boy",
+      "logline": "A small-time crook gets abducted by aliens, swipes their spaceship and teams with an alien pilot for a Robin Hood-inspired intergalactic road trip.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2007-02-sisters-of-mercy",
+      "logline": "A widower father is rescued after his wife’s death by members of her book club, who soon begin running his life with their advice on parenting and dating.",
+      "patterns": []
+    },
+    {
+      "id": "2007-10-con-ed",
+      "logline": "Two escaped cons hide out in college.",
+      "patterns": []
+    },
+    {
+      "id": "2007-46-summer-s-end",
+      "logline": "A group of teens in a small Oregon town survive a deadly virus that wipes out the adult population and must fight for their lives when the military attempts to quarantine the area.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2007-50-the-darkest-hour",
+      "logline": "A group of young people struggle to survive an alien attack.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2007-65-hurt",
+      "logline": "A group of estranged best friends are reunited after another commits suicide. Gathering ends up becoming a bloodbath because the meeting was set up as retribution.",
+      "patterns": [
+        "second",
+        "revenge"
+      ]
+    },
+    {
+      "id": "2008-05-the-low-dweller",
+      "logline": "Set in Indiana in the mid-1980s, a man is released after serving years in prison for murder and wants only to follow through on his promise to marry his long-suffering girlfriend. That is, until he discovers that his loser brother has been murdered after getting involved in a seedy Midwestern gambling racket. While the man did time for a murder he couldn’t avoid, he decides he can’t skip out on his obligation to avenge his brother’s murder.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2008-10-underage",
+      "logline": "A man in his mid- to late 20s goes home with a young woman he’s met in a bar. Later, he discovers she’s only 17 — a fact that allows her to blackmail him into being her boyfriend for the next six months, so she can exact revenge on her ex-boyfriend.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2008-17-the-widow-s-adventure",
+      "logline": "Two widowed sisters embark on an unlikely trip from Chicago to Los Angeles, setting off an odyssey of revelation and reconciliation.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2008-19-thundercade",
+      "logline": "A videogame junkie faces a midlife crisis when he discovers a young punk has beaten the world record he has held since his teens. Determined to reclaim his place in gaming history, he and two friends escape their 9-to-5 lives for a shot to win Thundercade, the world’s ultimate gaming championship.",
+      "patterns": []
+    },
+    {
+      "id": "2008-36-executive-vp-david-m-murch-s-adventures-in-zamethera",
+      "logline": "A cold-hearted investment banker gets a chance to revisit the forgotten, magical land of his childhood imagination and must turn to his estranged 10-year-old son for help to save the land.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2008-37-dan-mintner-badass-for-hire",
+      "logline": "A man, who’s earned every military award, discovers that his billionaire mentor and father figure has been kidnapped.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2008-38-the-ditch",
+      "logline": "Set in the future, a super maximum-security prison has been constructed on Jupiter’s moon where Earth’s worst criminals are incarcerated. When a prison guard’s family is taken hostage, he is coerced into helping the facility’s most notorious terrorist, a man who was scheduled to be executed that day, escape.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2008-45-untitled-wendy-diane-miller-project",
+      "logline": "A college student takes on a summer internship and finds himself trapped in a dangerous affair with the boss’s wife.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "2008-47-wedding-banned",
+      "logline": "A long-divorced couple kidnap their daughter on her wedding day to keep her from making the mistake of her life. The divorced parents rekindle their relationship as they elude cops and the angry groom.",
+      "patterns": [
+        "rescue",
+        "second"
+      ]
+    },
+    {
+      "id": "2008-55-the-family-bond",
+      "logline": "A girl goes on an adventure to rescue her mother with the father she never knew she had, a Bond-like spy.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2008-66-lobo",
+      "logline": "A man receives a photo and letters from his mother’s will, then heads to an isolated town in the Amazon to discover his roots. There, he discovers a near-extinct species of werewolves and his true identity, and he helps the werewolves wage a battle for survival.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2008-71-hunter-killer",
+      "logline": "An American sub commander and a Navy SEAL team must rescue the Russian president and defeat a renegade admiral who’s attempting a coup.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2009-04-conviction",
+      "logline": "A mastermind bank robber serves five years in prison following a botched heist and then is forced by an FBI agent to entrap his protege, who’s in the midst of a multimillion-dollar job.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2009-10-shimmer-lake",
+      "logline": "A sheriff investigates a series of murders as well as the disappearance of a bank robber, The clues lead back to a heist the robber committed.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2009-17-nonstop",
+      "logline": "The passengers on Flight 209 are mysteriously abducted by an alien ship.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2009-24-the-true-memoirs-of-an-international-assassin",
+      "logline": "After a publisher changes a writer’s debut novel about a deadly assassin from fiction to nonfiction, the author finds himself thrust into the world of his lead character and must take on the role of his character for his own survival.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2009-25-kristy",
+      "logline": "A young female college student trapped on a deserted campus is attacked by intruders.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2009-29-everybody-loves-whales",
+      "logline": "In October 1988, three California gray whales are found trapped under the ice of the Arctic Circle. The subsequent rescue attempt becomes a huge global event, as scores of journalists converge on the nearby Eskimo town of Barrow, Alaska, and the U.S. and Soviet government enjoy a rare moment of collaboration. The two-week drama plays out at a time of geopolitical change, with Mikhail Gorbachev in the midst of his glasnost initiative and Ronald Reagan preparing to leave office after his second term. During all of this a nonprofit aid worker and a government worker fall in love.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2009-31-personal-security",
+      "logline": "A tough NYC police detective is forced into bodyguard duty for a spoiled teen heiress who is receiving kidnapping threats.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2009-32-the-gunslinger",
+      "logline": "An ex-Texas Ranger will stop at nothing to find and punish the men who killed his brother and rescue his nephew.",
+      "patterns": [
+        "rescue",
+        "revenge"
+      ]
+    },
+    {
+      "id": "2009-33-the-american-can",
+      "logline": "John Keller, an ex-Marine, orchestrates the rescue of 244 of his New Orleans neighbors after their building, the American Can Co., is flooded in the wake of Hurricane Katrina. The five-story structure sits in eleven feet of water after the breach of the levees.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2009-35-trans-am",
+      "logline": "Set in the deep South, a disgraced sheriff’s deputy and a getaway driver must elude a federal manhunt when they join forces to bring an escaped bank robber to justice.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2009-38-beautiful-girl",
+      "logline": "A shy but brainy high school girl returns for senior year after having slimmed down six dress sizes. She finds herself flirting with the handsome English lit teacher, but the mutual crush turns deadly when the teacher’s obsession with the student compels him to exact maniacal revenge on everyone who was cruel to her.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2009-44-prisoners",
+      "logline": "A small-town man’s daughter is kidnapped and responds in a vigilante fashion by imprisoning a neighbor he suspects committed the crime, while a big-city cop investigates the crimes.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2009-47-central-intelligence",
+      "logline": "An accountant is thrown into the world of international espionage after reconnecting with an old friend through Facebook.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2009-49-supermax",
+      "logline": "Set in a maximum security prison for the supernatural, a guard must join forces with a lethal inmate after a riot ensues in order to fight his way through various monsters and mad men in order to survive.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2009-51-rubicon",
+      "logline": "Described as a female-driven revenge thriller set in a Mexican border town.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2009-52-rehab",
+      "logline": "A man fakes going to rehab to reconnect with a former high school sweetheart, now a rock star and in rehab for her excesses.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2009-63-invasion",
+      "logline": "The survivors of a subway accident in Los Angeles emerge to find a city in ruins and are forced to deal with mobs and a dangerous slime.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2009-65-cancun",
+      "logline": "An out-of-place college kid travels with a girl to Cancun on a break. While there, the girl and her friends are taken hostage by a drug cartel, and he is forced to save them.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2010-10-road-to-nardo",
+      "logline": "Two guys take a road trip to Mexico in order to rescue their friend.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2010-12-down",
+      "logline": "Centers on a guy trapped in an elevator.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2010-16-the-architect",
+      "logline": "A New York City hot-shot up and coming architect, gets the opportunity of a lifetime — to build his dream building in Dubai. Once on the Arabian Peninsula though, he discovers everything was a gigantic set-up which results in a chase to find his kidnapped wife and uncover the bigger conspiracy.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2010-18-tormenta",
+      "logline": "When their yacht becomes stranded in the Mediterranean after a storm, five survivors clash while struggling against the onset of a deadly nautical psychosis.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2010-19-heatseekers",
+      "logline": "A young ex-military pilot infiltrates a gang of aerial “pirates” working out of Bangkok and takes part in an elaborate tower heist using powered gliders and parachutes.",
+      "patterns": [
+        "heist",
+        "identity"
+      ]
+    },
+    {
+      "id": "2010-25-now-you-see-me",
+      "logline": "A crack FBI squad enters a game of cat-and-mouse against a super-team of the world’s greatest illusionists, who pull off a series of daring bank heists during their performances, showering the profits on their audiences while staying one step ahead of the law.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2010-30-tomorrow",
+      "logline": "Max Martin is desperate to save his family on the day of their murder, but he can’t control the short-term time travel phenomenon he’s trapped in.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2010-37-expulsion",
+      "logline": "After an act of terror destroys Earth, a small band of survivors escape to a planet beyond the solar system.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2010-40-snow-white-and-the-huntsman",
+      "logline": "A huntsman is ordered to take Snow White into the woods and kill her but instead lets her go. He acts as a mentor figure, teaching her how to fight and survive.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2010-51-timeless",
+      "logline": "A recently wed man loses his wife and discovers after the fact she has left him a fortune. Haunted by an unresolved issue between himself and his wife, the man invests the money to build a time travel device, just to see her one last time.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2011-06-article-iii",
+      "logline": "A 26-year-old is a law clerk for an aging Supreme Court justice and also the swing vote on the court. The clerk has three days to save the life of his girlfriend when she’s abducted in a plot to sway his boss’s vote.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2011-07-inherit-the-earth",
+      "logline": "A young girl, who is the last survivor on earth, is protected by a group of robots from a pack of zombies that are intelligent and evolved.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2011-08-zombie-pet-shop",
+      "logline": "A mysterious plague sweeps through a mall pet shop, turning all of the animals into zombies. An ordinary pug named Joey must come to the rescue to find the antidote that will save his four-legged friends, as well as the humans that might take them home.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2011-15-the-last-witness",
+      "logline": "Centers on the lone survivor of a bomb attack in Boston.",
+      "patterns": []
+    },
+    {
+      "id": "2011-16-brotherhood-of-scavengers",
+      "logline": "After their adventurous father dies, three brothers who’ve been estranged discover that in order to collect their inheritance, they will have to go out on a scavenger hunt to find treasure he left behind. Clues bring them back to many of the childhood experiences they shared with their father.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2011-22-timelock",
+      "logline": "A contained, ticking clock heist/thriller. INSIDE MAN meets RASHOMON.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2011-26-wild-guns",
+      "logline": "Set shortly after the Civil War, legendary gunslingers Wyatt Earp and Doc Holliday team-up to rescue the daughter of Sitting Bull, who has been kidnapped by a powerful Shaman with mysterious powers who is terrorizing the Western plains.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2011-28-into-the-beautiful",
+      "logline": "A contemporary “Big Chill” with longtime friends reconnecting.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2011-37-inside-the-machine",
+      "logline": "An undercover ATF agent journeys into the heart of the Murder Machine, a vicious cartel ruled by a criminal mastermind.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2011-50-cristo",
+      "logline": "A man is unlawfully sentenced to an infamous prison and escapes, then transforms himself into the mysterious Cristo and systematically destroys the men who manipulated and enslaved him.",
+      "patterns": [
+        "survival",
+        "revenge",
+        "identity"
+      ]
+    },
+    {
+      "id": "2011-60-autobahn",
+      "logline": "Autobahn is the story of a washed-up ex-Formula One driver who wakes up trapped inside a BMW on the side of the Autobahn, Germany’s famed high-speed roadway, which has no general speed limit. He answers a phone ringing in the glove box, only to be told that he has 90 minutes to deliver the bomb-rigged car to a target or his wife and daughter will be killed.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2011-79-tammy",
+      "logline": "The project centers on an overweight woman who is laid off from her job at Hardee’s, discovers her husband is having an affair, and decides to go on a road trip with her alcoholic, foul-mouthed, diabetic grandmother. The script is based on a character created by McCarthy.",
+      "patterns": []
+    },
+    {
+      "id": "2011-87-the-end",
+      "logline": "The film focuses on three completely different storylines that are interconnected by the fact that the players in each one are trying to reconcile the fact that the world is going to end. There is a veteran broadcast in London, a 16-year old girl and her boyfriend in Ann Arbor, Michigan, and a devoted family man in Shanghai. They each try to make peace with their lives before an interstellar event ends the world in just six hours.",
+      "patterns": []
+    },
+    {
+      "id": "2011-90-category-six",
+      "logline": "The film takes a first-person POV through video cameras and cell phones to tell the story of high school students who try to survive the worst hurricane in U.S. history.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2011-92-in-the-company-of-lies",
+      "logline": "Centers on a woman who suspects her husband of having an affair, only to discover he is harboring a much darker secret that threatens her own life.",
+      "patterns": []
+    },
+    {
+      "id": "2011-105-kidnap",
+      "logline": "Movie centers on a woman whose son is kidnapped at a local mall and her subsequent race to find his abductors.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2011-109-the-driver",
+      "logline": "Driver centers on a man whose life suburban existence is flipped on his drive to work when he finds himself coerced to be the wheelman of an assembled group of criminals. The man learns that thieves were not randomly assembled and that the heist leads to a larger mystery.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2012-02-run-all-night",
+      "logline": "In a single night, an aging mob hitman is forced to take on his former boss. The guy has to protect his son and family, and winds up on the run from the mob and the authorities with his estranged son.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2012-04-flashback",
+      "logline": "After becoming the first human to break the speed of light, a NASA pilot is struck with amnesia, and in the search for the memories of who he was, he discovers he has the ability to travel back in time.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2012-06-the-counselor",
+      "logline": "The protagonist in The Counselor is a respected lawyer who thinks he can dip a toe in to the drug business without getting sucked down. It is a bad decision and he tries his best to survive it and get out of a desperate situation.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-10-nsfw",
+      "logline": "NSFW centers on a young paralegal who is trapped in the office with a killer on a mission to destroy files for another corporation.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-16-blood-mountain",
+      "logline": "Spec is described as a gritty survival thriller with action elements.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-18-bloodshot",
+      "logline": "The protagonist is Angelo Mortalli, a ruthless killer for the mob who is set up by the family and framed for a murder. He instead goes into Witness Protection, but is betrayed by an FBI agent guarding him, kidnapped and forcibly subjected to an experimental program in which his body is injected with microscopic computers called nanites. They erase his brain and rebuild it and his body to be a weapon with superhuman strength and healing powers. Bloodshot escapes his makers, and though he isn’t his old self, he tries to figure out who he was. Things get bad for everybody who betrayed him.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-21-lockdown-at-franklin-high",
+      "logline": "Pic is about a straight edge teen girl and her rebellious, socially outcast brother as they try to escape from their prison-like high school which has been locked down and plunged into anarchy and pandemonium due to the attacks of a ravenous, supernatural monster.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-22-off-the-grid",
+      "logline": "A professional “fixer” named Ghost who helps white-collar criminals change their identities and disappear saves a seemingly innocent woman from a violent loan shark. Ghost finds his own life in danger after a private security firm puts a price on his head. He goes “underground” in an attempt to discover who his mystery assailant is and gets caught in a tangled web of betrayal, revenge and murder.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2012-28-slayer",
+      "logline": "Described as a modern-day story about a young doctor whose estranged father dies and he finds out the old man was a dragon and creature slayer. The doctor must become a slayer too.",
+      "patterns": []
+    },
+    {
+      "id": "2012-38-comancheria",
+      "logline": "Two brothers, one an ex-con and the other a divorced father of two kids, face the foreclosure of their family’s West Texas farm. They team for a skillfully calculated bank robbing spree that puts them on a collision course with two Texas Rangers determined to take them down.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2012-53-the-man-in-the-rearview-mirror",
+      "logline": "Set in the 1950s, story follows a man, his wife and her mother who pursue a suspected kidnapper at high speeds on the freeway.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2012-65-acolyte",
+      "logline": "“Acolyte” centers on a rogue government agency that’s using blackmail to coerce everyday citizens into committing acts of domestic terror. The agency mistakenly kidnaps the wife of a retired operative who responds by recruiting a disbanded group of trained “associates” to exact revenge and rescue his wife.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "2012-70-the-last-breath",
+      "logline": "The lone survivor of a suicide pact is haunted by a vengeful otherworldly entity which demands her death.",
+      "patterns": [
+        "survival",
+        "revenge"
+      ]
+    },
+    {
+      "id": "2012-71-lights-out",
+      "logline": "The story focuses on an teenage boy trapped in his house with his sister when a deadly intruder enters the home, and mysterious events occur during the captivity.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2012-84-our-name-is-adam",
+      "logline": "An astronaut who travels back in time and works with his younger self.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2012-91-straight-edge",
+      "logline": "“Edge” is an Los Angeles-set actioner that revolves around a heist gone wrong and follows a slew of colorful characters, ranging from corrupt cops to Southland gang members.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2012-92-52-percent",
+      "logline": "A longtime married couple is contemplating divorce. A clash develops between their daughter, who hopes for reconciliation, and a jaded young divorce attorney unwilling to lose a client without a fight.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2012-99-warden",
+      "logline": "Story centers on a prison warden who — when his wife and son are kidnapped — is blackmailed into helping the American head of a Mexican drug cartel escape from his own high-security facility.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-10-dunkirk",
+      "logline": "The script chronicles the courage of British civilians, men and women who used small boats to cross the English Channel and rescue 200,000 British troops and 140,000 French troops from the advancing Germans. Dunkirk was one of the battles that changed the course of WWII.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2013-11-mecha",
+      "logline": "A young survivor of a robot uprising searches for a way to avoid detection.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-14-marching-band",
+      "logline": "[Gina] Rodriguez… will star as a single mother of a high school trumpet player… When the boy’s estranged musician father turns up, he bonds with his son as he begins teaching traditional Mexican regional music to the school’s marching band.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2013-17-caught-in-the-act",
+      "logline": "Story follows an actor who is confused with a thief he is playing on a crime re-enactment show. His mistaken identity thrusts him into the spotlight of law enforcement and the underworld as he attempts to clear his name.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2013-25-omega-point",
+      "logline": "The story centers on a young man who comes across a mysterious crash site in the woods where he discovers and befriends a god-like artificial intelligence desperate to escape earth.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-32-black-friday",
+      "logline": "Story revolves around a young man desperately trying to save his fiancé when she’s kidnapped inside a mega-mall on the busiest shopping day of the year.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2013-40-cornered",
+      "logline": "Trapped in a desolate strip mall, two young women must outwit and outlast a group of desperate criminals.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-42-party-girl",
+      "logline": "A group of high school students underestimate the power of belief when they use social media to create a new urban myth, and their story of supernatural vengeance spreads so far, so fast, that it takes on a terrifying life of its own.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2013-44-keeping-time",
+      "logline": "Keeping Time is about a for-hire time traveler who specializes in “preventing” bad relationships. He meets his match with a mysterious woman who also claims to be a traveler and is determined to stop him from completing his mission.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2013-54-revelation",
+      "logline": "A high concept thriller with time travel and murder.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2013-56-hostile-engagement",
+      "logline": "A brash young undercover FBI agent must first prove his love and mettle in the field when he seeks the blessing of his fiancée’s menacing undercover CIA agent father.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2013-60-no-quarter",
+      "logline": "Set in Los Angeles in 2007, two friends who were combat Marines and side by side survived some of the toughest fighting in the Iraq War, find themselves on opposite sides of the law. One becomes a star cop in an elite undercover unit while the other gets into a heist crew involved with a drug cartel. These men, who once depended on each other for survival, see their friendship and loyalties put to the test.",
+      "patterns": [
+        "identity",
+        "heist"
+      ]
+    },
+    {
+      "id": "2013-63-children-of-the-gun",
+      "logline": "Set in a desolate near future, two survivors must unite, using their urban athleticism and a weapon from the past to escape their crumbling world, ruthless pursuers and their own violent history.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-64-deprivation",
+      "logline": "A desperate man who, three days after his family dies mysteriously in a fire, discovers he can travel back in time if he never falls asleep.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2013-65-man-of-war",
+      "logline": "An elite Navy Seal who, after escaping from capture, must use all his skills to survive in Europe’s Carpathian mountains in the dead of winter.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2013-95-from-here-to-albion",
+      "logline": "The story is set in a coastal English town, where a tragic accident sets a chain of violence in motion and a malevolent stranger seeks revenge on the perpetrators and the detective who covered it up.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2013-96-the-politician",
+      "logline": "The film is an action comedy that follows a disgraced Governor and his accomplice on the run from the FBI and U.S. Marshals. Along the way, he is kidnapped by a disgruntled constituent, who is crazier than the pol. It’s Bad Santa meets Midnight Run, and the parallel would be Elliot Spitzer was busted for prostitutes, and when he feds discovered he was a white collar criminal, he fled custody.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2014-01-darkness",
+      "logline": "When a woman with night blindness is abducted and wakes in a dark place with strangers, she must use only touch and hearing to decide who and what to believe.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2014-02-slingshot",
+      "logline": "Trapped on a hobbled spacecraft, an astronaut struggles to survive not just the mission, but a crew that’s more dangerous than it seems.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2014-04-vice",
+      "logline": "Vice, which has been described as having a Westworld-meets-Grand Theft Auto vibe, is set on a resort in the future where the staff are lifelike synthetic beings and the rich can live out their darkest fantasies. The pseudo-paradise has an anything goes policy since the memories of the androids reset every night. One female staffer, however, suffers a glitch and is flooded with all her memories. Realizing the horror she has been made to suffer, she vows revenge.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2014-06-red-ice",
+      "logline": "A trucker hauling emergency supplies across the frozen waterways of arctic Canada who must survive an onslaught of mysterious, man-eating creatures.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2014-22-padre",
+      "logline": "A priest, trying to atone for his bloody past as a special ops soldier, witnesses the brutal murder of members from his congregation by a malevolent Sheriff and his deputies. Tortured and left for dead in the desert, he survives. Then, he faces a crisis of conscience and the dawning realization that his past military training and three tours in Afghanistan may have been preparation for what his soul and his heart tell him is right. From there it goes all bad for the crooked cops.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2014-29-the-controller",
+      "logline": "Set in the Swiss Alps, follows the story of a veteran U.S. air commando who teams up with a female U.N. officer to hunt down an escaped dictator and avenge the murder of his brother.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2014-41-in-the-deep",
+      "logline": "A young woman, who is dealing with the recent death of her mother, surfs on an isolated beach and gets stranded 20 yards off shore on a buoy. What lies between her and the shore is a huge great white shark.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2014-44-scarecrow",
+      "logline": "Set at a remote lake house, revolves around a mother and her two young daughters who must fight for survival after falling into a terrifying and bizarre nightmare conceived by a psychopath.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2014-59-dig",
+      "logline": "The action-thriller set in the Appalachian Mountains tracks Sol, a tough-as-nails grave digger out for revenge after his father-in-law kidnaps his daughters.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "2015-02-the-search",
+      "logline": "Centers on an expert tracker who battles his demons while on a journey to rescue his estranged older brother, who has vanished in the wilderness of the Northwest.",
+      "patterns": [
+        "rescue",
+        "second"
+      ]
+    },
+    {
+      "id": "2015-06-darkest-hour",
+      "logline": "Days into his new job as Prime Minister as Britain was getting pounded and on the verge of losing to Germany, Churchill was under pressure to make a deal with Hitler that would have established Britain as a puppet state of the Third Reich. His army stranded in Dunkirk, Churchill instead summoned the courage to fight on. The film is about his decisions, and the actions and immortal speeches in those critical days that defined his place in history and changed the destiny of the world.",
+      "patterns": []
+    },
+    {
+      "id": "2015-07-queen-of-the-air",
+      "logline": "The story of Lillian Leitzel, a trapeze artist who in the early 20th century was one of the biggest stars in the world as she performed for the Ringling Bros. and Barnum & Bailey Circus, and her tragic love affair with Alfredo Codona, who may have been one of the best trapeze artists to ever flip under the big top. The two were tempestuous artists, divas and madly in love.",
+      "patterns": []
+    },
+    {
+      "id": "2015-08-white-boy-rick",
+      "logline": "At the age of 14, [Richard] Wershe became an undercover informant for local and federal law enforcement agencies in the mid-80s, and grew in that role enough to establish himself as a major drug dealer. He went from being an asset to an eyesore for law enforcement in the drug trafficking wars, and he was brought down in 1988–found with 17 pounds of coke at age 17–and sentenced to life without parole.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2015-11-hunt-capture-kill",
+      "logline": "A full out action film about the first female president, who is shot down in Air Force One in the jungles of South America. One military man in charge of her rescue is her only hope for survival.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2015-22-temple",
+      "logline": "A team of highly trained operatives get trapped inside an isolated military compound after its artificial intelligence is shut down. The team begins to experience strange and horrific phenomena as they try to determine who or what killed the team previously stationed there.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2015-27-a-meyers-thanksgiving",
+      "logline": "The pic is a holiday themed comedy about an estranged family facing their first Thanksgiving together since the death of the family matriarch.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2015-34-free-fall",
+      "logline": "When a man joins his estranged daughter on a mountain climb in an attempt to repair their relationship, a tragic accident leaves them stranded hundreds of feet in the air. As a storm sets in, the two must fight against the elements and terrifying heights in order to survive.",
+      "patterns": [
+        "survival",
+        "second"
+      ]
+    },
+    {
+      "id": "2015-38-the-edge-of-normal",
+      "logline": "Tells the story of a woman who escaped captivity from a sadistic sexual predator when she was a teenager. Ten years later, she remains haunted by her memories as she struggles to pull her life together. She finds ultimately herself drawn into a deadly cat-and-mouse game with a clever psychopath who seems to know her every move.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2015-49-met-gala-heist",
+      "logline": "Two estranged sisters create an all-girl team to pull off a heist at the Oscars of fashion, the Met Gala.",
+      "patterns": [
+        "heist",
+        "second"
+      ]
+    },
+    {
+      "id": "2016-28-17-bridges",
+      "logline": "The thriller follows a disgraced detective in the NYPD who is given a shot at redemption. Thrust into a citywide manhunt for a cop killer, he begins to undercover a massive conspiracy that links his fellow cops to a criminal empire and must decide who he is hunting and who is actually hunting him. During the manhunt, Manhattan is completely locked down for the first time in its history – no exit or entry to the island including all 17 bridges.",
+      "patterns": []
+    },
+    {
+      "id": "2016-36-porter-rockwell",
+      "logline": "The story is set in the Utah territory during the mid-1800s gold rush. Rockwell, who became a U.S. Deputy Marshal, reluctantly leads a family of prospectors into the mountains, where they are ambushed and he is left for dead. Fueled by vengeance, Rockwell treks through rugged and snowy terrain to hunt down the gang that kidnapped a rebellious young girl.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "2016-37-the-fall",
+      "logline": "In the midst of an alien invasion, a freshly divorced couple must survive a dangerous real-time journey on foot from downtown Atlanta to the suburbs, where their young children are home alone.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2016-40-red-widow",
+      "logline": "The story follows superspy Sara Drake, who traded in her legendary career for a normal life eight years earlier and went completely off the grid. Forced back into action after a rogue special ops team murders her husband, Drake embarks on a bloody quest for vengeance that leads to the highest rungs of government, uncovering a secret that could shake the foundations of American democracy.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2016-42-the-ridge",
+      "logline": "The Battle of Takur Ghar and the daring rescue of a fallen Navy Seal behind enemy lines",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2016-51-the-silver-arrow",
+      "logline": "An international heist thriller about a group of thieves in the search of the Mercedes-Benz Silver Arrow, a legendary pre-World War II racing car.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2016-57-northeast-kingdom",
+      "logline": "When a vigilant and determined young woman witnesses the betrayal and murder of her father during a smuggler’s drop, she calls in the help of a mysterious female assassin to seek revenge against all those responsible.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2016-66-holland-michigan",
+      "logline": "A Midwestern housewife suspects her husband is having an affair. As she peels back the surface of her seemingly perfect life, she learns her husband might be leading a dark, secret life.",
+      "patterns": []
+    },
+    {
+      "id": "2016-71-highway-one",
+      "logline": "A single mother, a retired soldier who returned from Afghanistan with combat skills as well as injuries and PTSD, must resort to extreme measures when her daughter is kidnapped during a cross country trip they take to start a new life.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2016-72-the-aeronauts",
+      "logline": "based on the true story of balloon pilot Amelia Wren and scientist James Glaisher who, in 1862, embark on an extraordinary journey to discover the secrets of the heavens. In the process, they fly higher in an open balloon than anyone ever has — either before or since. They make breathtaking discoveries, but as they ascend to the highest reaches of the atmosphere, they are forced into an epic fight for survival.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2016-73-the-state",
+      "logline": "The script is an international action thriller about a father in a desperate race to rescue his son.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2016-75-3-1-2",
+      "logline": "Hopeful millennials seek their true potential while surviving the extreme violence of inner-city Chicago, the 3-1-2.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2017-01-slayer",
+      "logline": "A simple fisherman who, when his wife is kidnapped and his village slaughtered, trains for 20 years to become the greatest warrior alive in order to wreak vengeance on the four demonic knights responsible.",
+      "patterns": [
+        "revenge",
+        "rescue"
+      ]
+    },
+    {
+      "id": "2017-03-little-america",
+      "logline": "In a dystopian future, a former American Force Recon member is hired by a Chinese billionaire to go into an American ghetto and rescue his daughter.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2017-04-skyward",
+      "logline": "True story about two families in 1979 who secretly build a homemade hot air balloon in their garage in a plan to escape over the Berlin Wall.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2017-16-the-claim",
+      "logline": "A single father with a criminal background must uncover the whereabouts of his kidnapped daughter while fighting the mysterious claims of another couple who insist that the child is theirs.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2017-17-twin-blades",
+      "logline": "Zoe, an American tech entrepreneur who relocates her company to China, and Maylin, a local female bodyguard hired to protect her struggle to coexist in their daily routine. When Zoe’s life is threatened, the two must put aside their differences and join forces to survive. Write: Ingrid Eskeland-Adetuyi",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2017-25-princesses",
+      "logline": "The film’s premise is likened to The Avengers, with all the classic princesses as the heroines.",
+      "patterns": []
+    },
+    {
+      "id": "2017-26-the-prodigal",
+      "logline": "A modern revenge tale of a soldier who returns to his hometown to solve the mystery of his estranged brother’s death.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2017-27-world-breaker",
+      "logline": "In a not-too-distant future, Earth is under attack from creatures from an alternate world, bent on humanity’s destruction. A father hides his 14-year-old daughter on an island to avoid her conscription in the all-female army and escape the war, but nowhere is truly safe.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2017-36-the-armstrongs",
+      "logline": "A divorced couple in suburbia have to come out of witness protection when their son is kidnapped and their past catches up with them. They find themselves having to reassemble their old team to successfully complete the mission.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2017-44-damascus",
+      "logline": "Damascus takes place after an explosion at the Minneapolis airport. Everyone is on high alert, and with all planes grounded, a stranded teenager pleads with a Somali-American airport shuttle driver to drive him home to Chicago. As the two men cross the Midwest in the dead of winter, they discover that not everything is what it seems. Damascus investigates the seductiveness of extremism and the assumptions made about homeland and security.",
+      "patterns": []
+    },
+    {
+      "id": "2017-55-green-rush",
+      "logline": "An ex-con recently paroled from prison sets out to turn a new leaf and reconnect with his daughter. When she convinces him to help her steal millions in medical marijuana dispensary taxes collected in cash by City Hall once a month in order to evade the federal authorities, he risks everything to make his daughter’s scheme come true.",
+      "patterns": [
+        "second",
+        "heist"
+      ]
+    },
+    {
+      "id": "2017-57-meat",
+      "logline": "A misanthropic man notices bizarre changes in himself, his wife, and the animals inhabiting the territory around their homestead as they attempt to survive self-imposed isolation.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2017-61-the-expansion-project",
+      "logline": "A rookie female marine gets stranded on a hostile planet during humanity’s space colonization.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2018-08-the-beast",
+      "logline": "After a passenger plane goes down in the middle of the Pacific Ocean, a woman finds herself washed ashore and the sole survivor on a mysterious island where she faces her worst fears.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2018-10-intruders",
+      "logline": "A family has to survive an all-night alien home-invasion.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2018-12-thug",
+      "logline": "An ex-journeyman boxer and aging enforcer for a San Pedro Gangster attempts to get back into the lives of his estranged children and clean up the messes of his past while coming to terms with the ruined landscape of his twenty-year career in crime all the while as the criminal underworld won’t loosen their hold on him.",
+      "patterns": [
+        "second"
+      ]
+    },
+    {
+      "id": "2018-14-escape-from-the-north-pole",
+      "logline": "a young girl who, after being told that Santa Claus isn’t real on Christmas Eve, is kidnapped by an evil elf named Bucklebee. After escaping, the young girl teams up with a good elf, a reindeer and a Russian explorer to rescue Santa from a band of evil elves and save the North Pole.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2018-18-aporia",
+      "logline": "Grounded Science Fiction drama with time travel elements.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2018-32-tenfold",
+      "logline": "A former operative returns home for his estranged daughter’s wedding, only to witness her brutally gunned down in a hotel lobby. When the police are unable to help, he decides to rely on his training and instincts to track down the men responsible.",
+      "patterns": []
+    },
+    {
+      "id": "2018-38-wolf-country",
+      "logline": "A beloved Colorado lawman who lives by his own version of the truth is headed for prison. Before he gets there, he escapes custody. A young female sheriff who still believes in right and wrong must go it alone chasing him through the rugged Colorado wilderness. In bringing him to justice she must first come to terms with the complexities of the man who taught her everything and who also happens to be her father.",
+      "patterns": []
+    },
+    {
+      "id": "2019-03-distant",
+      "logline": "After crash-landing on an alien planet, an asteroid miner must make his way across the harsh terrain, running out of oxygen, hunted by strange creatures, to the only other survivor: a woman who is trapped in her escape pod.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2019-07-out-there",
+      "logline": "A mysterious event changes the course of the world and one family struggles to survive.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2019-23-shut-in",
+      "logline": "A single mother is held captive by her violent ex, and her two young children are left at risk. She must do everything to protect them and survive.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2019-24-the-present",
+      "logline": "A young boy figures out a way to repeat the day leading up to his parents’ separation so he can relive the same day and try to keep them from splitting up.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2020-01-the-pinkerton",
+      "logline": "Described as a supernatural western with a revenge element.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2020-07-here-comes-the-flood",
+      "logline": "An elevated, character-driven love-story heist movie, with the heist playing out in increments.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2021-04-void",
+      "logline": "A group of space crew members who begin to turn up dead while attempting to escape from a distant moon where their memories are erased by a magnetic burst every eight hours.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2021-06-parallel",
+      "logline": "A man and woman who traffic in high-end crimes in parallel universes suddenly meet, a development that threatens their boss. Determined to outrun their fates, they fight across these different realities to find one where they can both survive and be together.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2021-07-dark-west",
+      "logline": "A vampire revenge thriller set on the highways of Texas that follows two car thieves who accidentally T-bone a pair of vampires in the middle of the night.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2021-14-stay-frosty",
+      "logline": "After miraculously surviving a bullet to the head, a man has to figure out who wants him dead and why. He needs to stop the assassin while still making it back home in time to spend Christmas with his son.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2021-21-black-choke",
+      "logline": "bank robbery gone wrong.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2021-24-the-dryline",
+      "logline": "A kidnapping and ransom negotiator is tasked with finding a nine-year-old boy who went missing on an Indian Reservation in South Dakota. After finding the boy, she must fight to keep them both alive when they come under attack by the very people who hired her — corrupt FBI agents and cold-blooded police officials who want the boy dead because of what he knows.",
+      "patterns": [
+        "rescue",
+        "survival"
+      ]
+    },
+    {
+      "id": "2022-03-cut-and-run",
+      "logline": "A heist thriller about a group of thieves using high-powered speedboats to rob superyachts, who steal the wrong thing from the wrong group of people.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2022-05-the-girl-with-a-thousand-names",
+      "logline": "A fantastically real story of a child from another world, trapped in our broken reality… without documents, in a detention center for unaccompanied minors and children separated from their families at the U.S. border.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2022-06-galahad",
+      "logline": "A badass ex-American special forces soldier goes on a berserker, come-hell-or-high-water mission to avenge the death of an innocent woman.",
+      "patterns": [
+        "revenge"
+      ]
+    },
+    {
+      "id": "2023-04-the-pick-up",
+      "logline": "A guy who becomes smitten with a woman and finds himself mixed up in a heist attempt.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2023-08-undying",
+      "logline": "A woman, suffocated by motherhood, has an affair with a man she hasn't seen since high school… only to discover a terrifying secret.",
+      "patterns": [
+        "forbidden"
+      ]
+    },
+    {
+      "id": "2023-09-level-up",
+      "logline": "A man wakes up bound and blindfolded in a top-secret facility deep beneath Area 51, soon discovering that he has amazing but inexplicable new abilities. His only hope to escape is the alien he's imprisoned with… and she hates humans. But as they navigate their way out, their unconventional alliance becomes the key to saving the world from an impending global catastrophe.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2024-09-reality-vice",
+      "logline": "Set in the world of a popular housewife reality television series, a female detective goes undercover amidst a group of affluent women.",
+      "patterns": [
+        "identity"
+      ]
+    },
+    {
+      "id": "2024-21-final-score",
+      "logline": "Gamen (50s), the leader of the FBI’s tactical operations team, who recruits ex-Special Forces soldier Andy (30s) to join his unit as they try to take down both the mob and a gang of bank robbers.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2025-01-riding-hurt",
+      "logline": "Described as a high-octane heist film set in the adrenaline-fueled world of professional bull riding.",
+      "patterns": [
+        "heist"
+      ]
+    },
+    {
+      "id": "2025-04-renegotiate",
+      "logline": "A troubled FBI crisis negotiator finds himself stuck in a time loop, re-living the events of a bombing and struggling to stop it before time runs out.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2025-14-incidents",
+      "logline": "A woman escapes from an attempted abduction with no clear motive, vowing thereafter to find her kidnapper and discover why she’s been targeted.",
+      "patterns": [
+        "rescue"
+      ]
+    },
+    {
+      "id": "2025-17-the-survival-list",
+      "logline": "A highbrow reality TV producer named Annie, against her wishes, is assigned to a new show hosted by a famous survival expert, Chopper Lane. However, when a shipwreck strands them on a deserted island, Annie discovers Chopper is a fraud and knows nothing about survival, leaving her in charge of figuring out how to keep them alive. Forced to work together, they begin to discover an unlikely chemistry.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2025-22-crush",
+      "logline": "Survival thriller about a woman hiking alone in the Everglades who wakes to find herself trapped in the crushing coils of a massive python, fighting to stay alive as every breath brings her closer to death.",
+      "patterns": [
+        "survival"
+      ]
+    },
+    {
+      "id": "2025-25-shiver",
+      "logline": "Ne’er-do-well smuggler in the middle of a deadly double-cross while on a job in the Caribbean Sea, resulting in him surrounded by bodies, hostile mercenaries, thirsty sharks, and a deathly time loop.",
+      "patterns": [
+        "time"
+      ]
+    },
+    {
+      "id": "2025-28-the-operator",
+      "logline": "An ex-Tier One Operator who earns a living as one of the CIA’s invisible clean-up men. When he’s ordered to shepherd his most hated target to safety, the mission turns into a high-stakes cat and mouse game for survival.",
+      "patterns": [
+        "survival"
+      ]
+    }
+  ]
+}

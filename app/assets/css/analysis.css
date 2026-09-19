@@ -1,0 +1,140 @@
+.analysis-explorer,
+.analysis-drawer,
+.analysis-select-menu {
+  --ui-bg: var(--archive-paper);
+  --ui-bg-elevated: var(--archive-paper-deep);
+  --ui-bg-accented: var(--archive-paper-deep);
+  --ui-text: var(--archive-ink-soft);
+  --ui-text-highlighted: var(--archive-ink);
+  --ui-text-muted: var(--archive-muted);
+  --ui-text-dimmed: var(--archive-muted);
+  --ui-border: var(--archive-rule);
+  --ui-border-accented: var(--archive-rule);
+  color: var(--archive-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.analysis-explorer .analysis-header-nav { margin-bottom: 2.5rem; }
+.analysis-explorer .analysis-header h1 {
+  max-width: 16ch;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+.analysis-explorer .analysis-intro {
+  max-width: 42rem;
+  margin-top: 1.25rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1.4;
+}
+.analysis-jump-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 1.5rem 0 2rem; font-size: 0.8rem; }
+.analysis-jump-links a,
+.analysis-pattern-note a { color: var(--archive-ink-soft); text-decoration: underline; text-decoration-color: var(--archive-rule); text-underline-offset: 0.3em; }
+.analysis-jump-links a:hover,
+.analysis-pattern-note a:hover { text-decoration-color: currentColor; }
+.analysis-filter-bar { border-block: 1px solid var(--archive-rule); padding: 1.25rem 0 0.8rem; }
+.analysis-select { background: var(--archive-paper); color: var(--archive-ink); border-radius: 0.3rem; min-height: 2.65rem; }
+.analysis-select-menu { background: var(--archive-paper); }
+.analysis-filter-summary { margin: 0.8rem 0 0; color: var(--archive-muted); font-size: 0.8rem; }
+.analysis-filter-summary strong { color: var(--archive-ink); }
+.analysis-explorer .analysis-content { padding-top: 2.75rem; }
+.analysis-explorer .analysis-section { padding-bottom: 3.5rem; scroll-margin-top: 1.5rem; }
+.analysis-explorer .analysis-section:first-child { border-top: 0; padding-top: 0; }
+.analysis-explorer .analysis-section-heading { gap: 1.5rem; }
+.analysis-explorer .analysis-section-heading h2 { max-width: 25ch; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.08; letter-spacing: -0.035em; }
+.analysis-explorer .analysis-chart { margin-top: 1.75rem; }
+.analysis-source-label { flex-shrink: 0; color: var(--archive-muted); font-size: 0.73rem; line-height: 1.5; }
+.analysis-pattern-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(14rem, 1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: 2rem; }
+.analysis-pattern-note { border-left: 1px solid var(--archive-rule); padding-left: 1.5rem; }
+.analysis-pattern-note h3 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.3; }
+.analysis-pattern-note p { margin: 0.8rem 0; font-size: 0.85rem; line-height: 1.6; color: var(--archive-muted); }
+.analysis-pattern-note strong { color: var(--archive-ink); }
+.analysis-pattern-note a { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; font-size: 0.8rem; }
+.analysis-explorer .analysis-bars { gap: 0.6rem; }
+.analysis-bar-button { display: block; width: 100%; padding: 0.35rem 0; text-align: left; cursor: pointer; border-radius: 2px; }
+.analysis-bar-button:disabled { cursor: default; }
+.analysis-bar-button:not(:disabled):hover .analysis-bar-label { color: var(--archive-ink); text-decoration: underline; text-underline-offset: 0.2em; }
+.analysis-bar-button:not(:disabled):hover .analysis-bar-fill { background: var(--archive-accent-strong); }
+.analysis-bar-button small { display: inline-block; min-width: 3.3rem; margin-left: 0.6rem; text-align: right; font-size: 0.72rem; }
+.analysis-explorer .analysis-bar-track { display: block; height: 0.3rem; }
+.analysis-note { max-width: 75ch; margin: 1.1rem 0 0; color: var(--archive-muted); font-size: 0.76rem; line-height: 1.55; }
+.analysis-comparison-controls { margin: 1.5rem 0 1rem; }
+.analysis-table-scroll { width: 100%; overflow-x: auto; margin-top: 1.5rem; }
+.analysis-comparison-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; }
+.analysis-comparison-table th { font-weight: 500; }
+.analysis-comparison-table thead th { color: var(--archive-muted); font-size: 0.75rem; padding: 0 0.75rem 0.8rem; vertical-align: bottom; }
+.analysis-comparison-table th:first-child { padding-left: 0; }
+.analysis-comparison-table th:not(:first-child),
+.analysis-comparison-table td { text-align: right; }
+.analysis-comparison-table tbody tr { border-top: 1px solid var(--archive-rule-soft); }
+.analysis-comparison-table tbody th { min-width: 10rem; padding: 0.6rem 0.5rem 0.6rem 0; }
+.analysis-comparison-table td { padding: 0.3rem 0.75rem; }
+.analysis-comparison-table small { display: block; font-size: 0.68rem; color: var(--archive-muted); line-height: 1.5; font-weight: 400; white-space: nowrap; }
+.analysis-comparison-table button { padding: 0.35rem 0; min-width: 3rem; cursor: pointer; }
+.analysis-comparison-table button:disabled { cursor: default; }
+.analysis-comparison-table button:not(:disabled):hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.analysis-delta { font-weight: 500; white-space: nowrap; }
+.analysis-buyer-select { width: min(100%, 15rem); flex-shrink: 0; }
+.analysis-year-scroll { overflow-x: auto; padding: 0.3rem; }
+.analysis-year-columns { display: grid; gap: 0.25rem; height: 14rem; }
+.analysis-year-column { display: grid; grid-template-rows: 1.2rem 1fr 1.5rem; gap: 0.4rem; min-width: 0; cursor: pointer; }
+.analysis-year-column:disabled { cursor: default; }
+.analysis-year-count { font-size: 0.61rem; color: var(--archive-muted); }
+.analysis-year-track { display: flex; align-items: end; justify-content: center; border-bottom: 1px solid var(--archive-rule); }
+.analysis-year-track > span { display: block; width: 70%; background: var(--archive-accent); }
+.analysis-year-column:hover .analysis-year-track > span { background: var(--archive-accent-strong); }
+.analysis-year-label { font-size: 0.63rem; color: var(--archive-muted); }
+.analysis-explorer .analysis-chart figcaption { color: var(--archive-muted); }
+.analysis-words-chart .analysis-bars { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+.analysis-empty { padding-block: 2rem 4rem; }
+.analysis-empty h2 { font-family: var(--font-display); font-size: 2rem; }
+.analysis-empty p { margin: 0.5rem 0 1rem; color: var(--archive-muted); }
+.analysis-method { scroll-margin-top: 2rem; }
+.analysis-method h2 { font-size: 1rem; margin: 0 0 0.7rem; font-weight: 600; }
+.analysis-method p { color: var(--archive-muted); max-width: 75ch; }
+.analysis-method details { margin-top: 1rem; }
+.analysis-method summary { font-size: 0.8rem; cursor: pointer; }
+.analysis-method details p { margin-top: 0.75rem; }
+.analysis-drawer { background: var(--archive-paper); }
+.analysis-drawer-header { border-bottom: 1px solid var(--archive-rule); }
+.analysis-drawer-header h2 { font-family: var(--font-display); font-size: 1.8rem; line-height: 1.15; }
+.analysis-drawer-body { overscroll-behavior: contain; }
+.analysis-drawer-summary { color: var(--archive-muted); font-size: 0.8rem; margin-bottom: 1rem; }
+.analysis-deal-list { list-style: none; padding: 0; margin: 0; }
+.analysis-deal-list > li { border-top: 1px solid var(--archive-rule); padding: 1.5rem 0; }
+.analysis-deal-list h3 { font-family: var(--font-display); font-size: 1.65rem; line-height: 1.15; margin: 0.3rem 0; overflow-wrap: anywhere; }
+.analysis-deal-meta, .analysis-deal-writers { color: var(--archive-muted); font-size: 0.77rem; }
+.analysis-deal-logline { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.5; margin-top: 1rem; }
+.analysis-deal-patterns { margin-top: 1rem; font-size: 0.75rem; }
+.analysis-deal-patterns > span { color: var(--archive-muted); }
+.analysis-deal-patterns ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; list-style: none; padding: 0; margin-top: 0.25rem; }
+.analysis-deal-details { font-size: 0.78rem; margin-top: 0.9rem; }
+.analysis-deal-details summary { cursor: pointer; color: var(--archive-ink-soft); }
+.analysis-deal-details dl { margin-top: 0.75rem; }
+.analysis-deal-details dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; padding: 0.3rem 0; }
+.analysis-deal-details dt { color: var(--archive-muted); }
+.analysis-deal-details dd { overflow-wrap: anywhere; }
+.analysis-tag-evidence { line-height: 1.5; margin-top: 1rem; }
+.analysis-tag-evidence p { margin-top: 0.5rem; }
+.analysis-story-breakdown { margin-block: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--archive-rule-soft); }
+.analysis-story-breakdown h4 { font-weight: 600; }
+.analysis-story-breakdown p { color: var(--archive-muted); line-height: 1.5; margin-top: 0.5rem; }
+.analysis-more { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; padding-block: 1rem; }
+.analysis-more span { color: var(--archive-muted); font-size: 0.8rem; }
+.analysis-explorer :is(button, a, summary, [tabindex]):focus-visible,
+.analysis-drawer :is(button, a, summary):focus-visible { outline: 2px solid var(--archive-ink); outline-offset: 4px; }
+.analysis-explorer :is(.analysis-year-scroll, .analysis-table-scroll),
+.analysis-drawer-body { scrollbar-color: var(--archive-muted) var(--archive-paper-deep); scrollbar-width: thin; }
+
+@media (max-width: 700px) {
+  .analysis-pattern-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .analysis-pattern-note { border-left: 0; border-top: 1px solid var(--archive-rule-soft); padding: 1rem 0 0; }
+  .analysis-pattern-note p { margin-top: 0.5rem; }
+  .analysis-source-label { display: block; margin-top: 0.8rem; }
+  .analysis-explorer .analysis-section-heading { display: block; }
+  .analysis-buyer-select { margin-top: 1rem; width: 100%; }
+  .analysis-comparison-table { font-size: 0.76rem; min-width: 32rem; }
+  .analysis-explorer .analysis-year-figure { width: 100%; margin-left: 0; }
+  .analysis-words-chart .analysis-bars { grid-template-columns: 1fr; }
+  .analysis-explorer .analysis-header-nav { margin-bottom: 2rem; }
+}
