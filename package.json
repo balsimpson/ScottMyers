@@ -20,7 +20,7 @@
     "@iconify-json/lucide": "^1.2.131",
     "@iconify-json/simple-icons": "^1.2.95",
     "@nuxt/ui": "^4.11.1",
-    "@vercel/analytics": "^2.0.1",
+    "@vercel/analytics": "2.3.0-canary",
     "nuxt": "^4.5.2",
     "tailwindcss": "^4.3.3"
   },
