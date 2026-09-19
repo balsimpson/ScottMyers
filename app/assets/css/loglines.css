@@ -1,0 +1,484 @@
+.logline-page,
+.logline-detail-page,
+.logline-guide-page {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 8% 4%, color-mix(in srgb, var(--archive-paper-deep) 42%, transparent), transparent 28%),
+    radial-gradient(circle at 94% 90%, color-mix(in srgb, var(--archive-paper-deep) 34%, transparent), transparent 34%),
+    var(--archive-paper);
+  color: var(--archive-ink);
+}
+
+.logline-page-inner,
+.logline-detail-inner,
+.logline-guide-inner {
+  width: min(100% - 2rem, 76rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 7rem);
+}
+
+.logline-page-header,
+.logline-guide-header {
+  width: min(100%, 54rem);
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.logline-page-header-topline,
+.logline-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  color: var(--archive-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.logline-page-header-topline {
+  justify-content: space-between;
+  margin-bottom: clamp(3rem, 8vw, 7rem);
+}
+
+.logline-page-header-topline span {
+  color: var(--archive-faint);
+}
+
+.logline-back-link,
+.logline-breadcrumbs a,
+.logline-page-footer a,
+.logline-detail-source a {
+  color: var(--archive-ink);
+  text-decoration-color: var(--archive-accent-strong);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+}
+
+.logline-back-link:hover,
+.logline-breadcrumbs a:hover,
+.logline-page-footer a:hover,
+.logline-detail-source a:hover {
+  color: var(--archive-accent-strong);
+}
+
+.logline-page-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--archive-accent-strong);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.logline-page-header h1,
+.logline-guide-header h1,
+.logline-detail-header h1 {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6.6rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.logline-page-intro,
+.logline-guide-header > p:last-child {
+  max-width: 43rem;
+  margin: 1.6rem 0 0;
+  color: var(--archive-ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+.logline-page-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.logline-primary-link,
+.logline-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.7rem;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.logline-primary-link {
+  background: var(--archive-accent);
+  color: var(--archive-on-accent);
+}
+
+.logline-primary-link:hover {
+  background: var(--archive-accent-strong);
+}
+
+.logline-secondary-link {
+  border: 1px solid var(--archive-rule);
+  color: var(--archive-ink-soft);
+}
+
+.logline-secondary-link:hover {
+  border-color: var(--archive-accent-strong);
+  color: var(--archive-ink);
+}
+
+.logline-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+  border-bottom: 1px solid var(--archive-rule);
+  padding-bottom: 0.9rem;
+}
+
+.logline-section-heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.logline-section-heading > p {
+  margin: 0;
+  color: var(--archive-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.logline-archive-grid,
+.logline-example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.4rem;
+}
+
+.logline-card {
+  border-bottom: 1px solid var(--archive-rule-soft);
+}
+
+.logline-card-link {
+  display: block;
+  height: 100%;
+  padding: 1.4rem 0 1.55rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logline-card-link:hover h2,
+.logline-card-link:focus-visible h2 {
+  color: var(--archive-accent-strong);
+}
+
+.logline-card-link:focus-visible,
+.logline-primary-link:focus-visible,
+.logline-secondary-link:focus-visible,
+.logline-pagination-link:focus-visible,
+.logline-related-nav a:focus-visible {
+  outline: 2px solid var(--archive-accent-strong);
+  outline-offset: 5px;
+}
+
+.logline-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--archive-faint);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.logline-card h2 {
+  max-width: 22ch;
+  margin: 0;
+  color: var(--archive-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.7vw, 2.45rem);
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  transition: color 160ms ease;
+}
+
+.logline-card-copy {
+  max-width: 52ch;
+  margin: 0.95rem 0 0;
+  color: var(--archive-ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.logline-card-writers {
+  margin: 1rem 0 0;
+  color: var(--archive-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.logline-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--archive-rule);
+  padding-top: 1rem;
+  color: var(--archive-muted);
+  font-size: 0.78rem;
+}
+
+.logline-pagination-link {
+  color: var(--archive-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logline-pagination-link:hover {
+  color: var(--archive-accent-strong);
+}
+
+.logline-page-footer,
+.logline-detail-source {
+  max-width: 54rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--archive-rule);
+  padding-top: 1rem;
+  color: var(--archive-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.logline-page-footer p,
+.logline-detail-source p {
+  margin: 0.35rem 0;
+}
+
+.logline-detail-inner,
+.logline-guide-inner {
+  width: min(100% - 2rem, 68rem);
+}
+
+.logline-breadcrumbs {
+  margin-bottom: clamp(3rem, 7vw, 7rem);
+}
+
+.logline-detail-header {
+  max-width: 60rem;
+}
+
+.logline-detail-header h1 {
+  max-width: 20ch;
+}
+
+.logline-detail-writers {
+  margin: 1.2rem 0 0;
+  color: var(--archive-muted);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.logline-detail-logline {
+  max-width: 54rem;
+  margin: clamp(3rem, 8vw, 7rem) 0 0;
+  border-left: 2px solid var(--archive-accent);
+  padding: 0.25rem 0 0.25rem clamp(1rem, 2.5vw, 2rem);
+}
+
+.logline-detail-logline p:last-child {
+  margin: 0;
+  color: var(--archive-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.5vw, 3.25rem);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.logline-detail-facts {
+  max-width: 54rem;
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+}
+
+.logline-facts-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.logline-fact {
+  border-bottom: 1px solid var(--archive-rule-soft);
+  padding: 0.9rem 1rem 0.9rem 0;
+}
+
+.logline-fact dt {
+  color: var(--archive-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.logline-fact dd {
+  margin: 0.3rem 0 0;
+  color: var(--archive-ink);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.logline-related-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.logline-related-nav a {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px solid var(--archive-rule);
+  padding-top: 0.8rem;
+  color: var(--archive-ink);
+  text-decoration: none;
+}
+
+.logline-related-nav a:last-child {
+  text-align: right;
+}
+
+.logline-related-nav span {
+  color: var(--archive-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.logline-related-nav strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.025em;
+}
+
+.logline-guide-article {
+  max-width: 60rem;
+}
+
+.logline-guide-header {
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.logline-guide-header h1 {
+  max-width: 14ch;
+}
+
+.logline-guide-section {
+  max-width: 54rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.logline-guide-section h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3.1rem);
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.logline-guide-section > p {
+  max-width: 62ch;
+  margin: 0 0 1.2rem;
+  color: var(--archive-ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  letter-spacing: -0.015em;
+  line-height: 1.28;
+}
+
+.logline-guide-section ul {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 48rem;
+  margin: 1.5rem 0 0;
+  padding-left: 1.3rem;
+  color: var(--archive-ink-soft);
+  line-height: 1.5;
+}
+
+.logline-guide-section li::marker {
+  color: var(--archive-accent-strong);
+}
+
+.logline-guide-section .logline-primary-link {
+  margin-top: 0.6rem;
+}
+
+.logline-example-grid {
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 680px) {
+  .logline-page-header-topline,
+  .logline-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .logline-section-heading > p {
+    text-align: left;
+  }
+
+  .logline-archive-grid,
+  .logline-example-grid,
+  .logline-facts-list,
+  .logline-related-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .logline-related-nav a:last-child {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .logline-page-inner,
+  .logline-detail-inner,
+  .logline-guide-inner {
+    width: min(100% - 1.25rem, 68rem);
+  }
+
+  .logline-page-header h1,
+  .logline-guide-header h1,
+  .logline-detail-header h1 {
+    font-size: clamp(2.65rem, 16vw, 4.6rem);
+  }
+
+  .logline-page-links {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .logline-primary-link,
+  .logline-secondary-link {
+    justify-content: center;
+  }
+}

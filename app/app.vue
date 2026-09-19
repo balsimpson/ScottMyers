@@ -1,8 +1,12 @@
 <script setup lang="ts">
-const siteUrl = 'https://scottmyers.vercel.app/'
-const socialPreviewUrl = `${siteUrl}social-preview.png`
-const title = 'Spec Script Deals Archive | Scott Myers'
-const description = 'Search 2,562 spec script deals and loglines from Scott Myers\' 1991-2025 archive, with writers, genres, agencies, studios, sale details, and story analysis.'
+import { normalizedSiteUrl } from '~/utils/site'
+
+const config = useRuntimeConfig()
+const siteUrl = normalizedSiteUrl(config.public.siteUrl)
+const homepageUrl = `${siteUrl}/`
+const socialPreviewUrl = `${siteUrl}/social-preview.png`
+const title = 'Screenplay Loglines and Spec Script Deals | Scott Myers'
+const description = 'Search 2,562 screenplay loglines from Scott Myers\' 1991-2025 spec script archive, with writers, genres, agencies, studios, sale details, and story analysis.'
 
 useHead({
   htmlAttrs: {
@@ -13,7 +17,6 @@ useHead({
     { name: 'theme-color', content: '#f3efe5' }
   ],
   link: [
-    { rel: 'canonical', href: siteUrl },
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
   ]
@@ -24,7 +27,7 @@ useSeoMeta({
   description,
   author: 'Scott Myers',
   ogType: 'website',
-  ogUrl: siteUrl,
+  ogUrl: homepageUrl,
   ogSiteName: 'Scott Myers Spec Script Deals',
   ogTitle: title,
   ogDescription: description,

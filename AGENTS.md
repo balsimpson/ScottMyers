@@ -23,7 +23,7 @@ Nuxt 4 / Vue / TypeScript spec script archive, using Nuxt UI 4 and Tailwind 4. U
 | Analysis panel | `archive-analysis-surface` in `app/pages/index.vue` mounts `app/components/ArchiveAnalysis.vue` when `analysisOpen` is true. `toggleAnalysis()` closes About/search. The wrapper owns its close and color-mode buttons. |
 | Search dock | Inline `search-dock` in `app/pages/index.vue`: About button, search input/clear button, Analysis toggle, and shuffle control. It sits outside the view transition. |
 | Analysis source drawer | `app/components/analysis/DealDrawer.vue`, a `USlideover` opened by chart selections or “Open analysed loglines”. Lists matching source entries and reveals saved analysis in each entry's details. This is an overlay, not the main Analysis panel. |
-| QA editor | Separate route `/qa/deals`, implemented in `app/pages/qa/deals.vue` with `app/pages/qa/deals.css`. Source-field editing and JSON persistence. |
+| Public SEO archive | `app/pages/loglines/index.vue`, `app/pages/loglines/page/[page].vue`, and `app/pages/loglines/[id].vue` provide crawlable archive and source-record pages. `app/pages/what-is-a-logline.vue` provides the explanatory landing page. |
 
 The main transition chooses About, then Analysis, then feed or matching search results. `closeSearch()` and Escape clear all three open flags. Do not create routes for these homepage views. The old `app/pages/analysis.vue` is deleted in the working tree, but `nuxt.config.ts` still has a `/analysis` prerender rule; recheck this mismatch for routing/build work rather than restoring the old page.
 
@@ -43,8 +43,7 @@ The main transition chooses About, then Analysis, then feed or matching search r
 
 - `app/composables/useArchiveAnalysis.ts`: filters, computed chart data, comparison periods, drawer selection/open state. `app/utils/deal-analysis.ts`: aggregation. `app/utils/story-patterns.ts`: taxonomy and saved-review lookup.
 - `data/deals.json`: source records. `data/story-reviews.json`: saved analysis. `data/story-patterns.json`: pattern definitions. `app/data/deals.ts`: shared types, `sourceDealFields`, and filtering. Preserve IDs, records, and source wording; never invent missing details.
-- `server/api/deals.get.ts`, `server/api/deals/[id].put.ts`, `server/utils/deals.ts`: read/save and normalization. Keep editor, shared types, validators, and server aligned. `id`, `dealAmount`, `searchText`, `sourceNote`, and `genreGroup` are system-managed.
-- QA saves rewrite real `data/deals.json`, resolved from `process.cwd()`. Run the server from the root. Test saves with an isolated copy or reversible fixture that preserves concurrent edits; verify reload persistence and the JSON diff.
+- `server/routes/robots.txt.ts` and `server/routes/sitemap.xml.ts`: crawl controls and the generated public URL inventory. Use `NUXT_PUBLIC_SITE_URL` for the production origin.
 - Analysis reuse requires the same ID and exact logline. Changed loglines invalidate old reviews. Structural excerpts must come from the source; unknown values stay null. Never regenerate analysis on page load/build.
 - Extraction, cleanup, `genre:enrich`, and `analysis:enrich*` write data; they are not checks. `analysis:enrich:ai` calls an external API and requires explicit task scope.
 - `app/assets/css/main.css`: homepage/feed/dock/theme. `app/assets/css/analysis.css`: analysis and drawer. `app/app.config.ts`: Nuxt UI theme. `app/utils/deal-formatting.ts`: shared deal metadata formatting.

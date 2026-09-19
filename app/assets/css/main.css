@@ -1062,6 +1062,26 @@ textarea {
   text-align: left;
 }
 
+.archive-loglines-link {
+  display: inline-flex;
+  min-height: 3.4rem;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 3.4rem;
+  border-radius: 1rem;
+  color: var(--archive-ink-soft);
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.archive-loglines-link:hover,
+.archive-loglines-link:focus-visible {
+  background: var(--archive-accent-soft);
+  color: var(--archive-accent-strong);
+  outline: none;
+}
+
 .search-result .deal-stage {
   pointer-events: none;
 }

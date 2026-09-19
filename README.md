@@ -9,9 +9,12 @@ It keeps the source records together with writers, genres, agencies, studios, sa
 - A full-screen feed for browsing the archive one logline at a time.
 - Search across titles, loglines, writers, companies, genres, agencies, notes, and sale details.
 - An analysis panel with saved story patterns, word counts, year trends, genre comparisons, and source-entry drilldowns.
-- A local `/qa/deals` editor for correcting source-backed fields in `data/deals.json`.
+- Crawlable `/loglines` archive pages with an individual URL for every source record.
+- A short `/what-is-a-logline` reference page with real examples from the archive.
 
 The archive is based on Scott Myers' [Spec Script Deals download](https://www.patreon.com/GoIntoTheStory/posts/download-spec-168834157). It is a structured interpretation of the recorded source material, not a review of the full screenplays or a prediction of commercial outcomes.
+
+The canonical site URL defaults to `https://scottmyers.vercel.app`. Set `NUXT_PUBLIC_SITE_URL` in the deployment environment when the archive moves to another production domain; it controls canonical URLs, social metadata, robots.txt, and the XML sitemap.
 
 ## Local development
 

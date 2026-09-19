@@ -17,7 +17,7 @@ export default withNuxt(
     },
     rules: {
       'better-tailwindcss/no-unknown-classes': ['error', {
-        ignore: ['^(archive|analysis|deal|metadata|search|qa|is)(-|$)', '^visually-hidden$']
+        ignore: ['^(archive|analysis|deal|logline|metadata|search|qa|is)(-|$)', '^visually-hidden$']
       }]
     }
   }

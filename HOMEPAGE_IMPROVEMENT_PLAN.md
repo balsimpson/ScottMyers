@@ -94,7 +94,7 @@ Keep the existing Fisher–Yates shuffle. Its algorithm is not the main problem.
 **Evidence and implementation:**
 
 - `main.css:24` and `main.css:40` repeat the dark token set. The unconditional system-dark query can also make archive tokens stay dark under an explicit light preference. Let Nuxt color mode own the applied theme class; retain a system fallback only while no explicit class exists, and share the dark values without duplicating them.
-- `main.css:533` onward contains QA-only styling, with additional QA rules inside shared breakpoints. Move those rules to `/qa/deals` or a stylesheet imported only by that page. Verify the resulting homepage CSS chunk before claiming a transfer reduction.
+- The former data-editor styles are no longer part of the public app. Verify the resulting homepage CSS chunk before claiming a transfer reduction.
 - `main.css:275` uses many `!important` declarations to restyle a primary solid Nuxt UI button. Choose the closest component variant and use its `ui` slots or a named component theme for the shared dock treatment. Remove overrides only after confirming computed styles.
 - Search input and shuffle button repeat border, radius, translucent background, shadow, and blur. Define a small shared dock treatment, keeping their distinct sizing and interaction states.
 - `main.css:462` targets `.search-filter [data-slot="base"]`. In installed Nuxt UI, the select trigger itself is the base element, so verify whether the class lands on that same element. Prefer `:ui="{ base: ... }"` to an assumed descendant structure. Give filter controls full width. Keep the search input root and inner input full width too.
@@ -144,7 +144,7 @@ Suggested ownership after implementation: `index.vue` composes the page; `DealPa
 - Test `/` in the in-app browser or connected Brave, in light and dark themes at desktop, 390 px and 320 px widths, and a short landscape viewport. Check 200% zoom and the longest actual records.
 - Check normal and reduced motion, initial load with delayed or disabled JavaScript, repeated shuffle, fast wheel/touch scrolling, near/far search selection, no results, clearing filters, Escape, and keyboard focus restoration.
 - Record performance under the same throttling and viewport before and after. Aim for lower HTML/DOM/hydration cost and no attributable repeated tasks over 50 ms during ordinary interaction. Treat this as an acceptance target, not a result already achieved.
-- Check `/qa/deals` after moving its styles. Verify full-width Nuxt UI roots and inner controls using computed layout.
+- Confirm the removed data-editor route and write API are absent from the production build.
 - Report static checks, local browser results, and production artifact measurements separately. Hosted and real-device verification require their own evidence and are not implied by a successful build.
 
 Recommended first implementation scope: readable initial rendering, motion corrections, feed-state cleanup, and measurement. Follow with bounded panel rendering, which is the largest likely efficiency improvement. CSS deduplication comes after those changes.

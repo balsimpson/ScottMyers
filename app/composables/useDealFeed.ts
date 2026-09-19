@@ -5,7 +5,7 @@ import {
 
 const RENDER_RADIUS = 2
 const SCROLL_SETTLE_DELAY = 140
-const MIN_LOADING_DURATION = 2500
+const MIN_LOADING_DURATION = 450
 
 export function useDealFeed() {
   const feedViewport = ref<HTMLElement | null>(null)
