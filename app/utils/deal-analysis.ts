@@ -30,7 +30,7 @@ export function analysisRow(key: string, label: string, matches: Deal[], total: 
 export function rankField(source: Deal[], field: 'genre' | 'studio' | 'productionCompany') {
   const groups = new Map<string, Deal[]>()
   for (const deal of source) {
-    const label = deal[field]
+    const label = field === 'genre' ? deal.genreGroup : deal[field]
     if (!label) continue
     const group = groups.get(label) ?? []
     group.push(deal)

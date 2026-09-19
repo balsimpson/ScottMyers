@@ -1,18 +1,19 @@
 import reviews from '../../data/story-reviews.json'
 import type { Deal } from '../data/deals'
 
-export const storyPatterns = [
-  { key: 'rescue', label: 'Rescue & captivity', description: 'Someone is abducted, held hostage, or needs to be brought out of danger.' },
-  { key: 'survival', label: 'Survival & escape', description: 'The premise centres on staying alive or escaping physical confinement.' },
-  { key: 'revenge', label: 'Revenge', description: 'A character retaliates for a wrong, betrayal, or death.' },
-  { key: 'heist', label: 'Heists & robberies', description: 'Planning, committing, or investigating a robbery drives the story.' },
-  { key: 'identity', label: 'Hidden & mistaken identities', description: 'An undercover role, impersonation, body swap, or identity mix-up shapes the premise.' },
-  { key: 'second', label: 'Reconnection & second chances', description: 'Characters rebuild a relationship or get a chance to change their lives.' },
-  { key: 'time', label: 'Time travel & repeating days', description: 'A character moves through time or experiences the same events again.' },
-  { key: 'forbidden', label: 'Forbidden relationships', description: 'An affair or prohibited romantic relationship is central to the premise.' }
-] as const
+const patternKeys = [...new Set((reviews.records as StoryReview[]).flatMap(review => review.patterns))]
 
-export type PatternKey = typeof storyPatterns[number]['key']
+function labelFor(key: string) {
+  return key.replace(/\b\w/g, character => character.toUpperCase())
+}
+
+export const storyPatterns = patternKeys.map(key => ({
+  key,
+  label: labelFor(key),
+  description: `Recurring phrase found in the archive: “${key}”.`
+}))
+
+export type PatternKey = string
 export interface StoryStructure {
   protagonist: string | null
   goal: string | null

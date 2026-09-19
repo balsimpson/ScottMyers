@@ -8,6 +8,7 @@ export interface Deal {
   logline: string
   writers: string | null
   genre: string | null
+  genreGroup: string | null
   agency: string | null
   management: string | null
   lawyer: string | null
@@ -22,7 +23,7 @@ export interface Deal {
   searchText: string
 }
 
-export type SourceDealField = Exclude<keyof Deal, 'id' | 'dealAmount' | 'searchText' | 'sourceNote'>
+export type SourceDealField = Exclude<keyof Deal, 'id' | 'dealAmount' | 'searchText' | 'sourceNote' | 'genreGroup'>
 
 export const sourceDealFields: SourceDealField[] = [
   'entryNumber',
@@ -68,7 +69,7 @@ export function filterDeals(
 
   return source.filter((deal) => {
     const matchesQuery = terms.every(term => deal.searchText.includes(term))
-    const matchesGenre = genre === 'all' || deal.genre === genre
+    const matchesGenre = genre === 'all' || deal.genreGroup === genre
     const matchesAgency = agency === 'all' || deal.agency === agency
 
     return matchesQuery && matchesGenre && matchesAgency
@@ -78,7 +79,7 @@ export function filterDeals(
 export function facetOptions(field: 'genre' | 'agency') {
   return [...new Set(
     deals
-      .map(deal => deal[field])
+      .map(deal => field === 'genre' ? deal.genreGroup : deal[field])
       .filter((value): value is string => Boolean(value))
   )].sort((left, right) => left.localeCompare(right))
 }

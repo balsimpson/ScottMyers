@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { metadataFor } from '~/utils/deal-formatting'
+import { deals } from '~/data/deals'
 
 const {
-  agency,
-  agencyOptions,
   clearSearch,
-  genre,
-  genreOptions,
   hasFilters,
   matches,
   query,
@@ -24,10 +20,16 @@ const {
 } = useDealFeed()
 
 const searchInput = ref<{ $el?: HTMLElement } | null>(null)
+const infoOpen = ref(false)
+const analysisOpen = ref(false)
 
-const resultLabel = computed(() => hasFilters.value
-  ? `${matches.value.length.toLocaleString()} ${matches.value.length === 1 ? 'match' : 'matches'}`
-  : 'Recent additions')
+const showSearchResults = computed(() => searchOpen.value && hasFilters.value && searchResults.value.length > 0)
+
+const resultLabel = computed(() => {
+  if (hasFilters.value && matches.value.length === 0) return ''
+  if (hasFilters.value) return `${matches.value.length.toLocaleString()} ${matches.value.length === 1 ? 'match' : 'matches'}`
+  return 'Recent additions'
+})
 
 async function selectDeal(deal: { id: string }) {
   clearSearch()
@@ -38,9 +40,24 @@ async function selectDeal(deal: { id: string }) {
 
 function closeSearch() {
   searchOpen.value = false
+  infoOpen.value = false
+  analysisOpen.value = false
+}
+
+function toggleInfo() {
+  infoOpen.value = !infoOpen.value
+  searchOpen.value = false
+  analysisOpen.value = false
+}
+
+function toggleAnalysis() {
+  analysisOpen.value = !analysisOpen.value
+  searchOpen.value = false
+  infoOpen.value = false
 }
 
 function focusSearch() {
+  infoOpen.value = false
   searchOpen.value = true
 
   nextTick(() => {
@@ -56,229 +73,124 @@ defineShortcuts({
 </script>
 
 <template>
-  <main
-    class="archive-shell"
-  >
+  <main class="archive-shell">
     <h1 class="visually-hidden">
       Spec script deals archive
     </h1>
-    <div
-      v-if="!detailsReady"
-      class="archive-loading"
-      role="status"
-      aria-live="polite"
-    >
-      <span
-        class="archive-loading-line"
-        aria-hidden="true"
-      />
-      <span class="visually-hidden">
-        Loading a random logline
-      </span>
-    </div>
-    <div
-      v-if="!searchOpen"
-      ref="feedViewport"
-      class="archive-feed"
-    >
-      <section
-        v-for="(deal, dealIndex) in shuffledDeals"
-        :id="`deal-${deal.id}`"
-        :key="deal.id"
-        class="deal-screen"
-        :aria-label="deal.title || deal.logline"
-      >
-        <div class="archive-frame">
-          <DealPanel
-            v-if="detailsReady && isDealRendered(dealIndex)"
-            :deal="deal"
-          />
-          <span
-            v-else
-            class="deal-screen-accessible"
-          >{{ deal.title || 'Untitled deal' }}. {{ deal.logline }}</span>
+    <div v-if="!detailsReady" class="archive-loading archive-loading--active" role="status" aria-live="polite">
+      <div class="archive-loading-inner">
+        <p class="archive-loading-credit">Scott Myers' archive</p>
+        <p class="archive-loading-title">Spec Script Deals: 1991-2025</p>
+        <p class="archive-loading-meta">
+          <strong>{{ deals.length.toLocaleString() }}</strong> loglines
+        </p>
+        <div class="archive-loading-track" aria-hidden="true">
+          <span class="archive-loading-fill" />
         </div>
-      </section>
+        <p class="archive-loading-status">Loading the archive...</p>
+      </div>
     </div>
+    <div class="archive-content" :class="{ 'archive-content--loading': !detailsReady }">
+      <Transition name="archive-mode" mode="out-in">
+        <div v-if="infoOpen" key="info" class="archive-info-surface" aria-label="About the archive">
+          <UButton class="archive-info-close" color="neutral" variant="ghost" size="lg" icon="i-lucide-x"
+            aria-label="Close archive information" title="Close archive information" @click="closeSearch" />
 
-    <section
-      v-if="searchOpen"
-      class="search-surface"
-      aria-label="Search results"
-    >
-      <div class="search-surface-inner">
-        <div class="search-surface-head">
-          <div class="search-surface-meta">
-            <p>{{ resultLabel }}</p>
-            <UButton
-              label="Close"
-              color="neutral"
-              variant="ghost"
-              size="xs"
-              @click="closeSearch"
-            />
-          </div>
-
-          <div class="search-filters">
-            <USelect
-              v-model="genre"
-              class="search-filter"
-              color="neutral"
-              variant="outline"
-              size="sm"
-              :items="genreOptions"
-              :ui="{ base: 'w-full' }"
-              aria-label="Filter by genre"
-            />
-
-            <USelect
-              v-model="agency"
-              class="search-filter"
-              color="neutral"
-              variant="outline"
-              size="sm"
-              :items="agencyOptions"
-              :ui="{ base: 'w-full' }"
-              aria-label="Filter by agency"
-            />
+          <div class="archive-info-surface-inner">
+            <p class="archive-info-surface-kicker">
+              Scott Myers
+            </p>
+            <h2>Spec Script Deals: 1991-2025</h2>
+            <p>
+              This archive is based on Scott Myers' <em>Spec Script Deals</em> download from Go Into The Story. It
+              brings together a massive record of spec script activity: deal records, loglines, writers, genres,
+              agencies, and sale details.
+            </p>
+            <p>
+              It spans <strong>{{ deals.length.toLocaleString() }}</strong> loglines across more than 35 years of
+              tracking the market, making it one of the most complete single-source records of the spec script business
+              ever assembled.
+            </p>
+            <a class="archive-info-source-link"
+              href="https://www.patreon.com/GoIntoTheStory/posts/download-spec-168834157" target="_blank"
+              rel="noreferrer">
+              Join Go Into The Story on Patreon
+              <UIcon name="i-lucide-arrow-up-right" aria-hidden="true" />
+            </a>
           </div>
         </div>
 
-        <div
-          id="archive-search-results"
-          class="search-results"
-          aria-live="polite"
-        >
-          <button
-            v-for="deal in searchResults"
-            :key="deal.id"
-            type="button"
-            class="search-result"
-            :aria-label="deal.title ? `${deal.title}. ${deal.logline}` : deal.logline"
-            @click="selectDeal(deal)"
-          >
-            <span class="search-result-copy">
-              <span
-                v-if="deal.year || deal.genre"
-                class="search-result-eyebrow"
-              >
-                <span v-if="deal.year">{{ deal.year }}</span>
-                <span
-                  v-if="deal.year && deal.genre"
-                  aria-hidden="true"
-                >·</span>
-                <span v-if="deal.genre">{{ deal.genre }}</span>
-              </span>
-              <span
-                v-if="deal.title"
-                class="search-result-title"
-              >{{ deal.title }}</span>
-              <span
-                v-if="deal.writers"
-                class="search-result-writers"
-              >{{ deal.writers }}</span>
-              <span class="search-result-logline">
-                {{ deal.logline }}
-              </span>
-            </span>
+        <div v-else-if="analysisOpen" key="analysis" class="archive-analysis-surface">
+          <div class="archive-analysis-surface-header">
+            <UColorModeButton class="archive-analysis-color-mode" color="neutral" variant="ghost" />
+            <UButton class="archive-info-close" color="neutral" variant="ghost" size="lg" icon="i-lucide-x"
+              aria-label="Close archive analysis" title="Close archive analysis" @click="closeSearch" />
+          </div>
+          <ArchiveAnalysis />
+        </div>
 
-            <span
-              v-if="metadataFor(deal).length"
-              class="search-result-rail"
-              aria-label="Deal metadata"
-            >
-              <span
-                v-for="metadataItem in metadataFor(deal)"
-                :key="metadataItem.label"
-                class="search-result-metadata-item"
-              >
-                <UIcon
-                  :name="metadataItem.icon"
-                  class="search-result-metadata-icon"
-                  aria-hidden="true"
-                />
-                <span class="search-result-metadata-value">
-                  {{ metadataItem.value }}
-                </span>
-              </span>
-            </span>
-          </button>
+        <div v-else-if="!showSearchResults" ref="feedViewport" key="feed" class="archive-feed">
+          <section v-for="(deal, dealIndex) in shuffledDeals" :id="`deal-${deal.id}`" :key="deal.id" class="deal-screen"
+            :aria-label="deal.title || deal.logline">
+            <div class="archive-frame">
+              <DealPanel v-if="isDealRendered(dealIndex)" :deal="deal" />
+              <span v-else class="deal-screen-accessible">{{ deal.title || 'Untitled deal' }}. {{ deal.logline }}</span>
+            </div>
+          </section>
+        </div>
 
-          <p
-            v-if="hasFilters && matches.length === 0"
-            class="search-empty"
-          >
-            No loglines match those filters.
-          </p>
+        <section v-else key="search" class="search-surface" aria-label="Search results">
+          <div class="search-surface-inner">
+            <div class="search-surface-head">
+              <div class="search-surface-meta">
+                <p v-if="resultLabel">
+                  {{ resultLabel }}
+                </p>
+                <UButton label="Close" color="neutral" variant="ghost" size="xs" @click="closeSearch" />
+              </div>
+            </div>
+
+            <div id="archive-search-results" class="search-results" aria-live="polite">
+              <button v-for="deal in searchResults" :key="deal.id" type="button" class="search-result"
+                :aria-label="deal.title ? `${deal.title}. ${deal.logline}` : deal.logline" @click="selectDeal(deal)">
+                <DealPanel :deal="deal" compact />
+              </button>
+            </div>
+          </div>
+        </section>
+      </Transition>
+
+      <div class="search-dock">
+        <UButton class="archive-info-button" color="neutral" variant="outline" size="xl" icon="i-lucide-info"
+          :ui="{ base: 'justify-center p-0', leadingIcon: 'mx-0' }" aria-label="About this archive"
+          :aria-pressed="infoOpen" title="About this archive" @click="toggleInfo" />
+
+        <div class="search-dock-inner">
+          <UInput ref="searchInput" v-model="query" class="archive-search-input" color="neutral" variant="outline"
+            size="xl" placeholder="e.g. father thriller" aria-label="Search the archive"
+            :aria-expanded="showSearchResults" aria-controls="archive-search-results" @focus="searchOpen = true">
+            <template #leading>
+              <UIcon name="i-lucide-search" class="size-5 text-muted" />
+            </template>
+
+            <template #trailing>
+              <UButton v-if="query" color="neutral" variant="ghost" size="xs" icon="i-lucide-x"
+                aria-label="Clear search" @click.stop="clearSearch" />
+            </template>
+          </UInput>
+        </div>
+
+        <button type="button" class="archive-analysis-link" aria-label="Toggle archive analysis"
+          title="Toggle archive analysis" @click="toggleAnalysis">
+          <UIcon name="i-lucide-chart-no-axes-combined" class="size-6" aria-hidden="true" />
+        </button>
+
+        <div class="deal-refresh-slot">
+          <UButton v-if="!showSearchResults" class="deal-refresh-control" color="primary" variant="solid" size="xl"
+            icon="i-lucide-refresh-cw" :ui="{ base: 'p-0', leadingIcon: 'mx-0' }" aria-label="Shuffle logline order"
+            title="Shuffle logline order" @click="shuffleFeed(true)" />
         </div>
       </div>
-    </section>
-
-    <div class="search-dock">
-      <div class="search-dock-inner">
-        <UInput
-          ref="searchInput"
-          v-model="query"
-          class="archive-search-input"
-          color="neutral"
-          variant="outline"
-          size="xl"
-          placeholder="Search the archive"
-          aria-label="Search the archive"
-          :aria-expanded="searchOpen"
-          aria-controls="archive-search-results"
-          @focus="searchOpen = true"
-        >
-          <template #leading>
-            <UIcon
-              name="i-lucide-search"
-              class="size-5 text-muted"
-            />
-          </template>
-
-          <template #trailing>
-            <UButton
-              v-if="query"
-              color="neutral"
-              variant="ghost"
-              size="xs"
-              icon="i-lucide-x"
-              aria-label="Clear search"
-              @click.stop="clearSearch"
-            />
-            <kbd
-              v-else
-              class="search-shortcut"
-            >⌘ K</kbd>
-          </template>
-        </UInput>
-      </div>
-
-      <NuxtLink
-        to="/analysis"
-        class="archive-analysis-link"
-        aria-label="Open archive analysis"
-        title="Open archive analysis"
-      >
-        <UIcon
-          name="i-lucide-chart-no-axes-combined"
-          aria-hidden="true"
-        />
-        <span>Analysis</span>
-      </NuxtLink>
-
-      <UButton
-        v-if="!searchOpen"
-        class="deal-refresh-control"
-        color="primary"
-        variant="solid"
-        size="xl"
-        icon="i-lucide-refresh-cw"
-        :ui="{ base: 'p-0', leadingIcon: 'mx-0' }"
-        aria-label="Shuffle logline order"
-        title="Shuffle logline order"
-        @click="shuffleFeed(true)"
-      />
     </div>
   </main>
 </template>

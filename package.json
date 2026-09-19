@@ -10,6 +10,9 @@
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
     "data:validate": "node scripts/validate-deals.mjs",
+    "genre:enrich": "node scripts/enrich-genres.mjs",
+    "analysis:enrich": "node scripts/enrich-analysis.mjs",
+    "analysis:enrich:ai": "node scripts/enrich-analysis-ai.mjs",
     "analysis:validate": "node scripts/validate-analysis.mjs",
     "analysis:pending": "node scripts/pending-analysis.mjs"
   },

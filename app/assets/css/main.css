@@ -123,48 +123,129 @@ textarea {
   position: absolute;
   z-index: 10;
   inset: 0;
-  display: grid;
+  display: flex;
   place-items: center;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
   pointer-events: none;
 }
 
-.archive-loading-line {
+.archive-content {
+  height: 100%;
+}
+
+.archive-content--loading {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.archive-loading-inner {
+  width: min(100%, 28rem);
+  text-align: center;
+}
+
+.archive-loading-credit,
+.archive-loading-meta,
+.archive-loading-status {
+  margin: 0;
+}
+
+.archive-loading-credit {
+  color: var(--archive-accent-strong);
+  font-size: clamp(0.7rem, 1.2vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.archive-loading-title {
+  margin: 0.45rem 0 0;
+  color: var(--archive-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+.archive-loading-meta {
+  margin-top: 0.7rem;
+  color: var(--archive-muted);
+  font-size: clamp(0.82rem, 1.5vw, 0.98rem);
+  letter-spacing: 0.04em;
+}
+
+.archive-loading-meta strong {
+  color: var(--archive-ink);
+  font-family: var(--font-display);
+  font-size: 1.35em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.archive-loading-track {
   position: relative;
-  display: block;
-  width: 1px;
-  height: clamp(3rem, 10vh, 5rem);
+  width: 100%;
+  height: 2px;
+  margin-top: 1.35rem;
   overflow: hidden;
   background: var(--archive-rule);
 }
 
-.archive-loading-line::after {
+.archive-loading-fill {
   position: absolute;
-  inset: 0;
+  inset: 0 auto 0 0;
+  display: block;
+  width: 0;
   background: var(--archive-accent);
-  content: "";
-  transform: scaleY(0.08);
-  transform-origin: top;
+  transform-origin: left center;
 }
 
-@keyframes archive-loading-fill {
+.archive-loading--active .archive-loading-fill {
+  animation: archive-loading-fill 2.5s linear forwards;
+}
+
+.archive-loading-status {
+  margin-top: 0.55rem;
+  color: var(--archive-faint);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@keyframes archive-loading-appear {
   from {
-    transform: scaleY(0.08);
+    opacity: 0;
+    transform: translateY(0.5rem);
   }
 
   to {
-    transform: scaleY(1);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes archive-loading-fill {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .archive-loading-line::after {
-    animation: archive-loading-fill 1.15s ease-in-out infinite alternate;
+  .archive-loading-inner {
+    animation: archive-loading-appear 0.6s ease-out both;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .archive-loading-line::after {
-    transform: scaleY(1);
+  .archive-loading-fill {
+    width: 100%;
   }
 }
 
@@ -222,6 +303,62 @@ textarea {
   flex-direction: column;
   margin: 0 auto;
   padding: clamp(3rem, 8vh, 6.5rem) 0 clamp(1rem, 3vh, 2.5rem);
+}
+
+.deal-stage--compact {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.deal-stage--compact .deal-eyebrow {
+  margin-bottom: 0.7rem;
+  font-size: 0.62rem;
+}
+
+.deal-stage--compact .deal-copy {
+  flex: 0 1 auto;
+  padding-bottom: 0;
+}
+
+.deal-stage--compact .deal-title {
+  width: min(100%, 32ch);
+  font-size: clamp(1.45rem, 2.8vw, 2.25rem);
+  line-height: 0.96;
+}
+
+.deal-stage--compact .deal-title--long,
+.deal-stage--compact .deal-title--epic {
+  width: min(100%, 42ch);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  line-height: 1;
+}
+
+.deal-stage--compact .deal-byline {
+  margin-top: 0.65rem;
+}
+
+.deal-stage--compact .deal-writers {
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+}
+
+.deal-stage--compact .deal-logline-wrap {
+  margin-top: 0.9rem;
+  max-height: 4.5rem;
+}
+
+.deal-stage--compact .deal-logline {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0.75rem;
+  padding-bottom: 0.35rem;
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  line-height: 1.12;
+}
+
+.deal-stage--compact .deal-rail {
+  align-self: auto;
+  padding-top: 0.8rem;
 }
 
 .deal-copy {
@@ -327,7 +464,7 @@ textarea {
   opacity: var(--deal-fade-to);
   scrollbar-color: var(--archive-rule) transparent;
   scrollbar-width: thin;
-  justify-content: center;
+  justify-content: safe center;
 }
 
 .deal-logline {
@@ -342,7 +479,10 @@ textarea {
   font-size: clamp(1.55rem, 3.1vw, 3rem);
   font-weight: 500;
   letter-spacing: -0.045em;
-  line-height: 0.98;
+  line-height: 1.04;
+  margin: 0 auto;
+  padding-top: 0.14em;
+  padding-bottom: 0.14em;
   text-wrap: pretty;
 }
 
@@ -374,19 +514,23 @@ textarea {
   flex: 0 0 3.4rem;
   width: 3.4rem;
   height: 3.4rem;
-  border: 1px solid color-mix(in srgb, var(--archive-ink) 42%, transparent);
-  border-radius: 0.95rem;
-  background: color-mix(in srgb, var(--archive-paper) 82%, transparent);
-  box-shadow: 0 0.9rem 2.4rem var(--archive-shadow);
-  backdrop-filter: blur(18px);
+  border: 0;
+  border-radius: 1rem;
+  background: transparent;
+  box-shadow: none;
   color: var(--archive-accent-strong);
   line-height: 1;
   padding: 0;
   pointer-events: auto;
 }
 
+.deal-refresh-slot {
+  flex: 0 0 3.4rem;
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
 .deal-refresh-control:hover {
-  border-color: var(--archive-accent-strong);
   background: color-mix(in srgb, var(--archive-accent) 12%, var(--archive-paper));
 }
 
@@ -439,6 +583,7 @@ textarea {
 }
 
 .search-dock {
+  box-sizing: border-box;
   position: fixed;
   z-index: 20;
   right: 1rem;
@@ -446,8 +591,17 @@ textarea {
   left: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.25rem;
   justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--archive-ink) 16%, transparent);
+  border-radius: 1.35rem;
+  background: color-mix(in srgb, var(--archive-paper) 88%, transparent);
+  box-shadow: 0 1rem 2.5rem var(--archive-shadow), 0 0.1rem 0 color-mix(in srgb, white 38%, transparent) inset;
+  padding: 0.35rem;
+  backdrop-filter: blur(22px) saturate(1.1);
   pointer-events: none;
 }
 
@@ -456,8 +610,16 @@ textarea {
   width: min(100%, 27rem);
   min-width: 0;
   max-width: 27rem;
-  flex: 1 1 27rem;
+  flex: 1 1 auto;
   pointer-events: auto;
+}
+
+.archive-analysis-link {
+  flex: 0 0 auto;
+  width: 3.4rem;
+  min-width: 3.4rem;
+  justify-content: center;
+  padding-inline: 0;
 }
 
 .archive-search-input {
@@ -467,11 +629,11 @@ textarea {
 .archive-search-input [data-slot="base"] {
   width: 100%;
   min-height: 3.4rem;
-  border-color: color-mix(in srgb, var(--archive-ink) 42%, transparent);
-  border-radius: 0.95rem;
-  background: color-mix(in srgb, var(--archive-paper) 82%, transparent);
-  box-shadow: 0 0.9rem 2.4rem var(--archive-shadow);
-  backdrop-filter: blur(18px);
+  border-color: transparent;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--archive-paper-deep) 54%, var(--archive-paper));
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .archive-search-input [data-slot="base"]:focus-within {
@@ -487,28 +649,168 @@ textarea {
   color: var(--archive-muted);
 }
 
-.search-shortcut {
+.archive-search-input button[aria-label="Clear search"] {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.archive-search-input button[aria-label="Clear search"]:hover,
+.archive-search-input button[aria-label="Clear search"]:focus-visible {
+  background: transparent;
+}
+
+.archive-info-button {
   display: inline-flex;
+  min-width: 3.4rem;
+  min-height: 3.4rem;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 1.5rem;
-  border-left: 1px solid var(--archive-rule);
-  padding-left: 0.7rem;
-  color: var(--archive-muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.02em;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--archive-ink-soft);
+  pointer-events: auto;
+  transition: color 160ms ease;
+}
+
+.archive-info-button:hover,
+.archive-info-button[aria-pressed="true"] {
+  color: var(--archive-ink);
+}
+
+.archive-info-button:focus-visible {
+  outline: 2px solid var(--archive-accent-strong);
+  outline-offset: 4px;
+}
+
+.archive-info-surface {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: clamp(5rem, 12vh, 9rem) clamp(1.25rem, 7vw, 7rem) calc(7rem + env(safe-area-inset-bottom));
+}
+
+.archive-analysis-surface {
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--archive-paper) 85%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.archive-analysis-surface-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--archive-paper) 96%, transparent), transparent);
+}
+
+.archive-analysis-color-mode {
+  margin-inline-end: auto;
+}
+
+.archive-info-close {
+  position: absolute;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  color: var(--archive-ink-soft);
+}
+
+.archive-info-close:hover {
+  color: var(--archive-ink);
+}
+
+.archive-info-close:focus-visible {
+  outline: 2px solid var(--archive-accent-strong);
+  outline-offset: 4px;
+}
+
+.archive-info-surface-inner {
+  width: min(100%, 42rem);
+}
+
+.archive-info-surface-kicker {
+  margin: 0 0 1.2rem;
+  color: var(--archive-ink);
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.archive-info-surface h2 {
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
+}
+
+.archive-info-surface-inner>p:not(.archive-info-surface-kicker) {
+  max-width: 36rem;
+  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  color: var(--archive-ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+.archive-info-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 2rem;
+  color: var(--archive-ink);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration-color: var(--archive-accent-strong);
+  text-underline-offset: 0.3rem;
+}
+
+.archive-info-source-link:hover {
+  color: var(--archive-accent-strong);
+}
+
+.archive-info-source-link:focus-visible {
+  outline: 2px solid var(--archive-accent-strong);
+  outline-offset: 4px;
 }
 
 .search-surface {
-  position: absolute;
-  z-index: 10;
-  inset: 0;
+  position: relative;
   box-sizing: border-box;
   display: flex;
+  height: 100%;
   flex-direction: column;
   overflow: hidden;
   padding: clamp(1.15rem, 3vw, 2.8rem) clamp(1rem, 4vw, 4.75rem) calc(clamp(5.75rem, 10vh, 7rem) + env(safe-area-inset-bottom));
+}
+
+.archive-mode-enter-active,
+.archive-mode-leave-active {
+  transition: opacity 220ms ease;
+}
+
+.archive-mode-enter-from,
+.archive-mode-leave-to {
+  opacity: 0;
 }
 
 .search-surface-inner {
@@ -543,30 +845,16 @@ textarea {
   margin: 0;
 }
 
-.search-filters {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0.5rem;
-}
-
-.search-filter {
-  width: 100%;
-  min-width: 0;
-}
-
-.search-filter [data-slot="base"] {
-  width: 100%;
-  min-height: 2.55rem;
-  border-color: var(--archive-rule);
-  background: color-mix(in srgb, var(--archive-paper-deep) 42%, transparent);
-}
-
 .search-results {
+  flex: 1 1 auto;
   min-height: 0;
   width: min(100%, 62rem);
   margin: 0 auto;
+  padding-bottom: 0.8rem;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   scrollbar-color: var(--archive-rule) transparent;
   scrollbar-width: thin;
 }
@@ -575,7 +863,7 @@ textarea {
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  min-height: 9.6rem;
+  min-height: 8.5rem;
   flex-direction: column;
   gap: 0.8rem;
   border: 0;
@@ -583,7 +871,16 @@ textarea {
   background: transparent;
   padding: 1.15rem 0 1.2rem;
   color: var(--archive-ink);
+  scroll-snap-align: start;
   text-align: left;
+}
+
+.search-result .deal-stage {
+  pointer-events: none;
+}
+
+.search-result .deal-stage--compact .deal-rail {
+  gap: 0.5rem 0.85rem;
 }
 
 .search-result:hover,
@@ -591,126 +888,8 @@ textarea {
   outline: none;
 }
 
-.search-result:hover .search-result-title,
-.search-result:focus-visible .search-result-title {
-  color: var(--archive-accent-strong);
-}
-
 .search-result:focus-visible {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--archive-accent) 24%, transparent);
-}
-
-.search-result-copy {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 0.28rem;
-}
-
-.search-result-eyebrow {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  color: var(--archive-accent-strong);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.search-result-eyebrow span:first-child {
-  color: var(--archive-muted);
-}
-
-.search-result-title {
-  display: -webkit-box;
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2.1vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
-  text-wrap: balance;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.search-result-writers {
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--archive-muted);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.search-result-logline {
-  display: -webkit-box;
-  overflow: hidden;
-  margin: 0;
-  padding-left: 0.8rem;
-  border-left: 1px solid color-mix(in srgb, var(--archive-accent) 62%, transparent);
-  color: var(--archive-ink-soft);
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.search-result-rail {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem 0.8rem;
-  border-top: 1px solid var(--archive-rule);
-  padding-top: 0.65rem;
-}
-
-.search-result-metadata-item {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 0.35rem;
-  border-right: 1px solid var(--archive-rule-soft);
-  padding-right: 0.8rem;
-}
-
-.search-result-metadata-item:last-child {
-  border-right: 0;
-  padding-right: 0;
-}
-
-.search-result-metadata-icon {
-  flex: 0 0 auto;
-  width: 0.75rem;
-  height: 0.75rem;
-  color: var(--archive-faint);
-}
-
-.search-result-metadata-value {
-  overflow: hidden;
-  color: var(--archive-muted);
-  font-size: 0.68rem;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.search-empty {
-  margin: 0;
-  padding: 2rem 1rem 2.2rem;
-  color: var(--archive-muted);
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -740,10 +919,27 @@ textarea {
 
 }
 
+@media (max-width: 620px) {
+  .search-dock {
+    gap: 0.5rem;
+  }
+}
+
 @media (max-width: 520px) {
   .archive-frame {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+
+  .search-dock {
+    right: 0.5rem;
+    left: 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .search-dock-inner {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .deal-stage {
@@ -778,10 +974,6 @@ textarea {
     font-size: clamp(1.25rem, 6.4vw, 1.85rem);
   }
 
-  .search-filters {
-    grid-template-columns: 1fr;
-  }
-
   .search-surface {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -798,11 +990,13 @@ textarea {
     padding-bottom: 1.05rem;
   }
 
-  .search-result-title {
+  .deal-stage--compact .deal-title,
+  .deal-stage--compact .deal-title--long,
+  .deal-stage--compact .deal-title--epic {
     font-size: clamp(1.35rem, 6.8vw, 1.8rem);
   }
 
-  .search-result-logline {
+  .deal-stage--compact .deal-logline {
     font-size: clamp(1rem, 4.25vw, 1.2rem);
   }
 
@@ -813,10 +1007,10 @@ textarea {
   min-height: 3.4rem;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--archive-ink) 32%, transparent);
-  border-radius: 0.95rem;
-  background: color-mix(in srgb, var(--archive-paper) 82%, transparent);
-  box-shadow: 0 0.9rem 2.4rem var(--archive-shadow);
+  border: 0;
+  border-radius: 1rem;
+  background: transparent;
+  box-shadow: none;
   color: var(--archive-ink-soft);
   font-size: 0.76rem;
   font-weight: 600;
@@ -828,7 +1022,6 @@ textarea {
 }
 
 .archive-analysis-link:hover {
-  border-color: var(--archive-accent-strong);
   background: color-mix(in srgb, var(--archive-accent) 12%, var(--archive-paper));
   color: var(--archive-ink);
 }
@@ -1172,10 +1365,6 @@ textarea {
 }
 
 @media (max-width: 800px) {
-  .archive-analysis-link {
-    padding: 0 0.8rem;
-  }
-
   .analysis-page {
     padding-right: 1.15rem;
     padding-left: 1.15rem;
@@ -1196,10 +1385,6 @@ textarea {
 }
 
 @media (max-width: 560px) {
-  .archive-analysis-link span {
-    display: none;
-  }
-
   .archive-analysis-link {
     width: 3.4rem;
     justify-content: center;
@@ -1255,6 +1440,7 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .archive-analysis-link,
   .analysis-year-bar {
     transition: none;

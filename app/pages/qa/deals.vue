@@ -79,7 +79,7 @@ const hasFilters = computed(() => Boolean(query.value.trim()) || year.value !== 
 function facetOptionsFromDeals(field: 'genre' | 'agency') {
   return [...new Set(
     workingDeals.value
-      .map(deal => deal[field])
+      .map(deal => field === 'genre' ? deal.genreGroup : deal[field])
       .filter((value): value is string => Boolean(value))
   )].sort((left, right) => left.localeCompare(right))
 }
@@ -158,118 +158,60 @@ function clearFilters() {
         </p>
       </div>
 
-      <section
-        class="qa-alerts"
-        aria-label="Dataset status"
-      >
-        <UAlert
-          color="success"
-          variant="soft"
-          icon="i-lucide-badge-check"
-          title="Valid JSON"
-          :description="`${numberFormatter.format(workingDeals.length)} records loaded from data/deals.json.`"
-        />
-        <UAlert
-          color="warning"
-          variant="soft"
-          icon="i-lucide-alert-triangle"
-          title="Source count retained"
-          :description="`The PDF states ${numberFormatter.format(SOURCE_CLAIMED_COUNT)} deals; extraction preserves ${numberFormatter.format(workingDeals.length)} numbered records. Difference: ${numberFormatter.format(workingDeals.length - SOURCE_CLAIMED_COUNT)}.`"
-        />
+      <section class="qa-alerts" aria-label="Dataset status">
+        <UAlert color="success" variant="soft" icon="i-lucide-badge-check" title="Valid JSON"
+          :description="`${numberFormatter.format(workingDeals.length)} records loaded from data/deals.json.`" />
+        <UAlert color="warning" variant="soft" icon="i-lucide-alert-triangle" title="Source count retained"
+          :description="`The PDF states ${numberFormatter.format(SOURCE_CLAIMED_COUNT)} deals; extraction preserves ${numberFormatter.format(workingDeals.length)} numbered records. Difference: ${numberFormatter.format(workingDeals.length - SOURCE_CLAIMED_COUNT)}.`" />
       </section>
 
       <div class="qa-toolbar">
-        <UInput
-          v-model="query"
-          class="qa-toolbar-search"
-          color="neutral"
-          variant="outline"
-          size="lg"
-          placeholder="Search every field"
-          aria-label="Search every extracted field"
-        >
+        <UInput v-model="query" class="qa-toolbar-search" color="neutral" variant="outline" size="lg"
+          placeholder="Search every field" aria-label="Search every extracted field">
           <template #leading>
-            <UIcon
-              name="i-lucide-search"
-              class="size-5 text-muted"
-            />
+            <UIcon name="i-lucide-search" class="size-5 text-muted" />
           </template>
         </UInput>
 
         <div class="qa-toolbar-filters">
-          <USelect
-            v-model="year"
-            color="neutral"
-            variant="outline"
-            :items="yearOptions"
-            :ui="{ base: 'w-full' }"
-            aria-label="Filter by year"
-          />
-          <USelect
-            v-model="genre"
-            color="neutral"
-            variant="outline"
-            :items="genreOptions"
-            :ui="{ base: 'w-full' }"
-            aria-label="Filter by genre"
-          />
-          <USelect
-            v-model="agency"
-            color="neutral"
-            variant="outline"
-            :items="agencyOptions"
-            :ui="{ base: 'w-full' }"
-            aria-label="Filter by agency"
-          />
-          <UButton
-            v-if="hasFilters"
-            label="Clear"
-            color="neutral"
-            variant="ghost"
-            @click="clearFilters"
-          />
+          <USelect v-model="year" color="neutral" variant="outline" :items="yearOptions" :ui="{ base: 'w-full' }"
+            aria-label="Filter by year" />
+          <USelect v-model="genre" color="neutral" variant="outline" :items="genreOptions" :ui="{ base: 'w-full' }"
+            aria-label="Filter by genre" />
+          <USelect v-model="agency" color="neutral" variant="outline" :items="agencyOptions" :ui="{ base: 'w-full' }"
+            aria-label="Filter by agency" />
+          <UButton v-if="hasFilters" label="Clear" color="neutral" variant="ghost" @click="clearFilters" />
         </div>
       </div>
 
       <div class="qa-count-row">
         <p class="qa-record-count">
-          Showing {{ numberFormatter.format(filteredDeals.length) }} of {{ numberFormatter.format(workingDeals.length) }} records · {{ numberFormatter.format(workingDeals.filter(deal => deal.logline).length) }} loglines · {{ numberFormatter.format(workingDeals.filter(deal => deal.title).length) }} titled entries
+          Showing {{ numberFormatter.format(filteredDeals.length) }} of {{ numberFormatter.format(workingDeals.length)
+          }}
+          records · {{numberFormatter.format(workingDeals.filter(deal => deal.logline).length)}} loglines · {{
+            numberFormatter.format(workingDeals.filter(deal => deal.title).length) }} titled entries
         </p>
-        <p
-          v-if="saveMessage"
-          class="qa-save-message"
-          role="status"
-        >
+        <p v-if="saveMessage" class="qa-save-message" role="status">
           <UIcon name="i-lucide-check" />
           {{ saveMessage }}
         </p>
       </div>
 
       <div class="qa-records">
-        <article
-          v-for="deal in filteredDeals"
-          :key="deal.id"
-          class="qa-record"
-        >
+        <article v-for="deal in filteredDeals" :key="deal.id" class="qa-record">
           <div class="qa-record-main">
             <p class="qa-record-index">
               {{ deal.year }} · entry {{ deal.entryNumber }}
             </p>
 
             <div class="qa-record-copy">
-              <h2
-                class="qa-record-title"
-                :class="{ 'qa-record-title--untitled': !deal.title }"
-              >
+              <h2 class="qa-record-title" :class="{ 'qa-record-title--untitled': !deal.title }">
                 {{ deal.title || 'Untitled entry' }}
               </h2>
               <p class="qa-logline">
                 {{ deal.logline }}
               </p>
-              <p
-                v-if="deal.writers"
-                class="qa-record-writers"
-              >
+              <p v-if="deal.writers" class="qa-record-writers">
                 <span>Writers</span> {{ deal.writers }}
               </p>
             </div>
@@ -284,31 +226,19 @@ function clearFilters() {
               <span>PDF p. {{ deal.sourcePage }}</span>
             </div>
 
-            <p
-              v-if="deal.sourceNote"
-              class="qa-source-note"
-            >
+            <p v-if="deal.sourceNote" class="qa-source-note">
               <UIcon name="i-lucide-info" />
               {{ deal.sourceNote }}
             </p>
           </div>
 
           <div class="qa-record-action">
-            <UButton
-              :label="editingId === deal.id ? 'Editing' : 'Edit'"
-              color="neutral"
-              :variant="editingId === deal.id ? 'soft' : 'ghost'"
-              :disabled="editingId === deal.id"
-              icon="i-lucide-pencil-line"
-              @click="editDeal(deal)"
-            />
+            <UButton :label="editingId === deal.id ? 'Editing' : 'Edit'" color="neutral"
+              :variant="editingId === deal.id ? 'soft' : 'ghost'" :disabled="editingId === deal.id"
+              icon="i-lucide-pencil-line" @click="editDeal(deal)" />
           </div>
 
-          <form
-            v-if="editingId === deal.id && editDraft"
-            class="qa-editor"
-            @submit.prevent="saveDeal(deal.id)"
-          >
+          <form v-if="editingId === deal.id && editDraft" class="qa-editor" @submit.prevent="saveDeal(deal.id)">
             <div class="qa-editor-head">
               <div>
                 <p class="qa-editor-label">
@@ -322,52 +252,24 @@ function clearFilters() {
             </div>
 
             <div class="qa-editor-fields">
-              <label
-                v-for="field in sourceDealFields"
-                :key="field"
-                class="qa-editor-field"
-                :class="{ 'qa-editor-field--wide': multilineFields.has(field) }"
-              >
+              <label v-for="field in sourceDealFields" :key="field" class="qa-editor-field"
+                :class="{ 'qa-editor-field--wide': multilineFields.has(field) }">
                 <span>{{ fieldLabels[field] }}</span>
-                <UTextarea
-                  v-if="multilineFields.has(field)"
-                  v-model="editDraft[field]"
-                  :rows="field === 'logline' ? 3 : 2"
-                  :aria-label="fieldLabels[field]"
-                />
-                <UInput
-                  v-else
-                  v-model="editDraft[field]"
+                <UTextarea v-if="multilineFields.has(field)" v-model="editDraft[field]"
+                  :rows="field === 'logline' ? 3 : 2" :aria-label="fieldLabels[field]" />
+                <UInput v-else v-model="editDraft[field]"
                   :type="field === 'entryNumber' || field === 'year' || field === 'sourcePage' ? 'number' : 'text'"
-                  :aria-label="fieldLabels[field]"
-                />
+                  :aria-label="fieldLabels[field]" />
               </label>
             </div>
 
-            <UAlert
-              v-if="saveError"
-              color="error"
-              variant="soft"
-              icon="i-lucide-circle-alert"
-              title="Save failed"
-              :description="saveError"
-            />
+            <UAlert v-if="saveError" color="error" variant="soft" icon="i-lucide-circle-alert" title="Save failed"
+              :description="saveError" />
 
             <div class="qa-editor-actions">
-              <UButton
-                type="button"
-                label="Cancel"
-                color="neutral"
-                variant="ghost"
-                @click="cancelEdit"
-              />
-              <UButton
-                type="submit"
-                label="Save changes"
-                color="primary"
-                icon="i-lucide-save"
-                :loading="savingId === deal.id"
-              />
+              <UButton type="button" label="Cancel" color="neutral" variant="ghost" @click="cancelEdit" />
+              <UButton type="submit" label="Save changes" color="primary" icon="i-lucide-save"
+                :loading="savingId === deal.id" />
             </div>
           </form>
         </article>

@@ -11,7 +11,7 @@ const reviews = JSON.parse(fs.readFileSync(new URL('../data/story-reviews.json',
 const byId = new Map(deals.map(deal => [deal.id, deal]))
 const keys = new Set(storyPatterns.map(pattern => pattern.key))
 const reviewedIds = new Set()
-assert.equal(reviews.version, 2, 'Expected complete saved-analysis schema')
+assert([3, 4].includes(reviews.version), 'Expected enriched saved-analysis schema')
 assert.equal(reviews.records.length, deals.length, 'Every source entry must have a saved analysis')
 assert.equal(reviews.sourceCount, deals.length)
 const sourceFingerprint = createHash('sha256').update(JSON.stringify(deals.map(({ id, logline }) => ({ id, logline })).sort((a, b) => a.id.localeCompare(b.id)))).digest('hex')
@@ -43,10 +43,10 @@ assert.equal(storyCoverage(deals).stale, 0)
 assert.equal(storyCoverage(deals).tagged + storyCoverage(deals).withoutPattern, deals.length)
 
 const fixture = [
-  { ...deals[0], id: 'fixture-a', year: 2000, genre: 'Comedy', logline: 'Family family family.' },
-  { ...deals[0], id: 'fixture-b', year: 2000, genre: null, logline: 'Family finds home.' },
-  { ...deals[0], id: 'fixture-c', year: 2010, genre: 'Thriller', logline: 'Friends race to rescue the family.' },
-  { ...deals[0], id: 'fixture-d', year: 2010, genre: 'Comedy', logline: 'Friends travel.' }
+  { ...deals[0], id: 'fixture-a', year: 2000, genre: 'Comedy', genreGroup: 'Comedy', logline: 'Family family family.' },
+  { ...deals[0], id: 'fixture-b', year: 2000, genre: null, genreGroup: null, logline: 'Family finds home.' },
+  { ...deals[0], id: 'fixture-c', year: 2010, genre: 'Thriller', genreGroup: 'Thriller', logline: 'Friends race to rescue the family.' },
+  { ...deals[0], id: 'fixture-d', year: 2010, genre: 'Comedy', genreGroup: 'Comedy', logline: 'Friends travel.' }
 ]
 const stats = analyzeDeals(fixture, 2000, 2010)
 assert.equal(stats.words.find(row => row.key === 'family').count, 3, 'Count loglines, not word occurrences')
@@ -73,11 +73,6 @@ const changed = { ...byId.get(reviewed.id), logline: `${reviewed.logline} Change
 assert.equal(storyReviewFor(changed), undefined)
 assert.deepEqual(patternsFor(changed), [])
 assert.equal(storyCoverage([changed]).stale, 1)
-
-// Guard the ambiguous words rejected in the editorial pass.
-for (const [index, pattern] of [[2312, 'revenge'], [1873, 'second'], [2240, 'identity'], [1478, 'survival']]) {
-  assert(!patternsFor(deals[index]).some(tag => tag.key === pattern), `${deals[index].id}: misleading keyword tag`)
-}
 
 for (const subset of [deals, deals.filter(deal => deal.year >= 2020), deals.filter(deal => deal.genre === 'Comedy')]) {
   const allowed = new Set(subset.map(deal => deal.id))

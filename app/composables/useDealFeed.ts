@@ -5,12 +5,14 @@ import {
 
 const RENDER_RADIUS = 2
 const SCROLL_SETTLE_DELAY = 140
+const MIN_LOADING_DURATION = 2500
 
 export function useDealFeed() {
   const feedViewport = ref<HTMLElement | null>(null)
-  const shuffledDeals = ref<Deal[]>(deals)
-  const renderIndex = ref(0)
-  const detailsReady = ref(false)
+  const shuffledDeals = useState<Deal[]>('archive-shuffled-deals', () => deals)
+  const renderIndex = useState('archive-render-index', () => 0)
+  const detailsReady = useState('archive-details-ready', () => false)
+  const loadingStarted = ref(false)
 
   let scrollEndTimer: ReturnType<typeof setTimeout> | undefined
   let renderFrame: number | undefined
@@ -18,6 +20,8 @@ export function useDealFeed() {
   let feedVersion = 0
   let navigationVersion = 0
   let supportsScrollEnd = false
+  let initialLoadStartedAt = 0
+  let initialReadyTimer: ReturnType<typeof setTimeout> | undefined
   let disposed = false
 
   function createShuffleSeed() {
@@ -105,6 +109,21 @@ export function useDealFeed() {
   function handleFeedScrollEnd() {
     clearScrollEndTimer()
     settleActiveDeal()
+  }
+
+  function revealInitialFeed() {
+    const elapsed = performance.now() - initialLoadStartedAt
+    const reveal = () => {
+      initialReadyTimer = undefined
+      if (!disposed) detailsReady.value = true
+    }
+
+    if (elapsed >= MIN_LOADING_DURATION) {
+      reveal()
+      return
+    }
+
+    initialReadyTimer = setTimeout(reveal, MIN_LOADING_DURATION - elapsed)
   }
 
   function isFormControl(target: EventTarget | null) {
@@ -215,7 +234,7 @@ export function useDealFeed() {
         }
 
         viewport.scrollTop = 0
-        detailsReady.value = true
+        revealInitialFeed()
       })
     })
   }
@@ -226,6 +245,9 @@ export function useDealFeed() {
 
   onMounted(() => {
     disposed = false
+    const shouldInitialize = !detailsReady.value
+    initialLoadStartedAt = performance.now()
+    loadingStarted.value = shouldInitialize
     const viewport = feedViewport.value
     if (!viewport) return
 
@@ -233,7 +255,7 @@ export function useDealFeed() {
     viewport.addEventListener('scroll', handleFeedScroll, { passive: true })
     if (supportsScrollEnd) viewport.addEventListener('scrollend', handleFeedScrollEnd)
     window.addEventListener('keydown', handleFeedKeydown)
-    shuffleFeed()
+    if (shouldInitialize) shuffleFeed()
   })
 
   onUnmounted(() => {
@@ -243,14 +265,17 @@ export function useDealFeed() {
     if (supportsScrollEnd) viewport?.removeEventListener('scrollend', handleFeedScrollEnd)
     window.removeEventListener('keydown', handleFeedKeydown)
     clearScrollEndTimer()
+    if (initialReadyTimer !== undefined) clearTimeout(initialReadyTimer)
     if (renderFrame !== undefined) cancelAnimationFrame(renderFrame)
     if (shuffleFrame !== undefined) cancelAnimationFrame(shuffleFrame)
+    detailsReady.value = true
   })
 
   return {
     detailsReady,
     feedViewport,
     isDealRendered,
+    loadingStarted,
     navigateToDeal,
     shuffledDeals,
     shuffleFeed

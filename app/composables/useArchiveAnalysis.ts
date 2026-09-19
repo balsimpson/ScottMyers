@@ -21,7 +21,7 @@ export function useArchiveAnalysis() {
     const start = Math.floor(firstYear / 10) * 10 + index * 10
     return { label: `${Math.max(firstYear, start)}–${Math.min(lastYear, start + 9)}`, value: start }
   })
-  const filtered = computed(() => deals.filter(deal => deal.year >= fromYear.value && deal.year <= toYear.value && (genre.value === 'all' || deal.genre === genre.value)))
+  const filtered = computed(() => deals.filter(deal => deal.year >= fromYear.value && deal.year <= toYear.value && (genre.value === 'all' || deal.genreGroup === genre.value)))
   const analysis = computed(() => analyzeDeals(filtered.value, fromYear.value, toYear.value))
   const patterns = computed(() => patternRows(filtered.value))
   const coverage = computed(() => storyCoverage(filtered.value))
