@@ -1,16 +1,11 @@
 import reviews from '../../data/story-reviews.json'
+import taxonomy from '../../data/story-patterns.json'
 import type { Deal } from '../data/deals'
 
-const patternKeys = [...new Set((reviews.records as StoryReview[]).flatMap(review => review.patterns))]
-
-function labelFor(key: string) {
-  return key.replace(/\b\w/g, character => character.toUpperCase())
-}
-
-export const storyPatterns = patternKeys.map(key => ({
-  key,
-  label: labelFor(key),
-  description: `Recurring phrase found in the archive: “${key}”.`
+export const storyPatterns = taxonomy.map(pattern => ({
+  key: pattern.key,
+  label: pattern.label,
+  description: pattern.description
 }))
 
 export type PatternKey = string

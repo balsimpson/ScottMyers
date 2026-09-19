@@ -1,22 +1,23 @@
 # Archive analysis
 
-`/analysis` reads its saved AI analysis from **`data/story-reviews.json`**. Visiting the page, applying filters, restarting the app, or rebuilding does not run an AI model or regenerate the analysis.
+`/analysis` reads its saved story-pattern analysis from **`data/story-reviews.json`**. Visiting the page, applying filters, restarting the app, or rebuilding does not regenerate the analysis.
 
 ## Saved dataset
 
-Schema version 2 contains one analysis for every source entry, including records with no matching pattern and records whose source is `N/A` or too vague to establish story structure. The complete pass reads every logline; it does not shortlist entries by keywords.
+Schema version 4 contains one analysis for every source entry, including records with no matching pattern and records whose source is `N/A` or too vague to establish story structure. The complete pass reads every logline in resumable batches; it does not shortlist entries by recurring phrases.
 
 The file contains:
 
 - `version`, `reviewedAt`, `reviewer`, and `method` for provenance.
 - `sourceCount` and `sourceSha256` identifying the analysed collection of IDs and exact loglines.
-- `records`, each containing the source `id`, exact `logline`, `status: "analysed"`, `patterns`, `sourceStatus`, and `structure`.
+- `data/story-patterns.json` contains the shared canonical pattern catalog. It uses screenplay-friendly labels and descriptions, with one key for each consolidated story pattern.
+- `records`, each containing the source `id`, exact `logline`, `status: "analysed"`, zero or more canonical `patterns`, `sourceStatus`, and `structure`.
 - `structure.protagonist`, `structure.goal`, `structure.obstacle`, and `structure.stakes`. Values are AI-selected, exact excerpts from the source logline, or `null` when the information is not established. They are not invented screenplay details.
 - `sourceStatus: "available"` when some structure can be extracted; `"limited"` when only vague descriptive information is available; `"unavailable"` for a missing/withheld source logline. Limited and unavailable records remain analysed, with null structural fields.
 
-The eight pattern definitions live in `app/utils/story-patterns.ts`. A record can match several patterns or none. The analysed count and tagged count are intentionally separate. No match is not an incomplete analysis, and these eight patterns do not describe every possible story type.
+The canonical pattern definitions live in `data/story-patterns.json` and are consumed by `app/utils/story-patterns.ts`. A record can match several patterns or none. Synonymous or nested variants are stored under one key, so `witness protection` and `witness protection program` do not appear as separate patterns. The analysed count and tagged count are intentionally separate. No match is not an incomplete analysis, and the catalog does not describe every possible story type.
 
-This is an AI interpretation of the recorded loglines, not human verification or analysis of full screenplays. The complete pass uses Luna batch reviewers plus the primary Codex agent, with source-excerpt validation and sample review. It cannot establish production outcomes, commercial success, or sale probability.
+This is a structured interpretation of the recorded loglines, not human verification or analysis of full screenplays. Pattern assignment uses the protagonist, goal, obstacle, and stakes fields together with compound story cues and exclusion rules. It cannot establish production outcomes, commercial success, or sale probability.
 
 ## Reuse and incremental maintenance
 
@@ -24,7 +25,7 @@ Keep `data/story-reviews.json` with the project. The page imports it directly. D
 
 Run `npm run analysis:pending` to get a read-only JSON report of new, changed, or structurally incomplete entries. Unchanged records are omitted from the pending list, even if a title or other non-logline metadata was edited. This command does not call AI or change files.
 
-If a logline changes, its old analysis remains saved but is excluded from the current charts and entry breakdown until refreshed. Only the pending entries need another analysis. Read those loglines against the existing definitions, update their saved records, and refresh the top-level provenance/count/checksum. The checksum is SHA-256 of JSON-encoded `{ id, logline }` objects sorted by ID using `localeCompare`. Source facts remain in `data/deals.json`.
+If a logline changes, its old analysis remains saved but is excluded from the current charts and entry breakdown until refreshed. Run `npm run analysis:enrich` to reprocess the current source in batches, or use `npm run analysis:pending` to identify a smaller incremental set. The checksum is SHA-256 of JSON-encoded `{ id, logline }` objects sorted by ID using `localeCompare`. Source facts remain in `data/deals.json`.
 
 Run `npm run analysis:validate` after updating data. It requires complete current coverage, one record per ID, valid pattern keys, all four structural fields, source-backed excerpts, and a matching checksum. It also checks chart/drilldown agreement, word deduplication, median calculation, missing-period handling, and reuse/invalidation behavior.
 

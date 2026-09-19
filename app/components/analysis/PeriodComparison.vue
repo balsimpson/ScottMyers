@@ -1,107 +1,219 @@
 <script setup lang="ts">
-import type { Deal } from '~/data/deals'
-import type { AnalysisBar, comparePeriods } from '~/utils/deal-analysis'
+import type { ChartData, ChartOptions } from 'chart.js'
+import { Line } from 'vue-chartjs'
+import type { AnalysisBar, GenreTrend } from '~/utils/deal-analysis'
 import { formatCount } from '~/utils/deal-analysis'
 
-const first = defineModel<number>('first', { required: true })
-const second = defineModel<number>('second', { required: true })
-const basis = defineModel<'genre' | 'pattern'>('basis', { required: true })
-const genreNote = 'Canonical genre families consolidate source labels. Shares use all matching entries in each period, including those with no genre listed.'
-const patternNote = 'An entry can have several motifs. Untagged entries are included in the denominator.'
-defineProps<{
-  periods: { label: string, value: number }[]
-  rows: ReturnType<typeof comparePeriods>
-  left: Deal[]
-  right: Deal[]
-  coverage: { left: { reviewed: number }, right: { reviewed: number } }
-}>()
-defineEmits<{ select: [row: AnalysisBar, description: string] }>()
-function range(source: Deal[]) {
-  return source.length ? `${Math.min(...source.map(deal => deal.year))}–${Math.max(...source.map(deal => deal.year))}` : 'No matching years'
+const props = defineProps<{ trend: GenreTrend }>()
+const emit = defineEmits<{ select: [row: AnalysisBar, title: string] }>()
+const { theme, reducedMotion, withAlpha } = useAnalysisChartTheme()
+const palette = ['#d7aa00', '#bc9000', '#8e6047', '#5e7c70', '#766b8f', '#ad6a5a', '#66788a', '#9c8549', '#8a6b62', '#557c8a', '#9a6a38', '#6b7187']
+
+const chartLabel = computed(() => `Genre share by year: ${props.trend.series.map(series => series.label).join(', ')}`)
+
+function genreColor(index: number) {
+  return palette[index % palette.length] ?? theme.value.accent
 }
+
+function pointFor(yearIndex: number, seriesIndex: number) {
+  const key = props.trend.series[seriesIndex]?.key
+  return props.trend.years[yearIndex]?.points.find(point => point.key === key)
+}
+
+function selectPoint(yearIndex: number, seriesIndex: number) {
+  const year = props.trend.years[yearIndex]
+  const point = pointFor(yearIndex, seriesIndex)
+  if (!year || !point?.count) return
+
+  emit('select', point, `Genre: ${point.label} · ${year.label}`)
+}
+
+const chartData = computed<ChartData<'line', number[], string>>(() => ({
+  labels: props.trend.years.map(year => year.label),
+  datasets: props.trend.series.map((series, seriesIndex) => {
+    const color = genreColor(seriesIndex)
+
+    return {
+      label: series.label,
+      data: props.trend.years.map((_year, yearIndex) => pointFor(yearIndex, seriesIndex)?.share ?? 0),
+      borderColor: color,
+      backgroundColor: withAlpha(color, 0.14),
+      borderWidth: 1.5,
+      pointBackgroundColor: theme.value.paper,
+      pointBorderColor: color,
+      pointBorderWidth: 1.5,
+      pointRadius: props.trend.years.length > 24 ? 0 : 2,
+      pointHoverRadius: 4,
+      pointHitRadius: 8,
+      tension: 0.28,
+      fill: true
+    }
+  })
+}))
+
+const chartOptions = computed<ChartOptions<'line'>>(() => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: {
+    duration: reducedMotion.value ? 0 : 650,
+    easing: 'easeOutCubic'
+  },
+  interaction: {
+    mode: 'index',
+    intersect: false
+  },
+  plugins: {
+    legend: {
+      position: 'top',
+      align: 'start',
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'line',
+        color: theme.value.inkSoft,
+        boxWidth: 24,
+        padding: 12,
+        font: { family: theme.value.fontFamily, size: 11 }
+      }
+    },
+    tooltip: {
+      callbacks: {
+        title: items => `Year ${props.trend.years[items[0]?.dataIndex ?? 0]?.label ?? ''}`,
+        label: (context) => {
+          const point = pointFor(context.dataIndex, context.datasetIndex)
+          return `${context.dataset.label}: ${point?.share ?? Number(context.parsed.y).toFixed(1)}% · ${formatCount(point?.count ?? 0)} entries`
+        }
+      }
+    }
+  },
+  scales: {
+    x: {
+      grid: { display: false },
+      ticks: {
+        color: theme.value.muted,
+        autoSkip: false,
+        maxRotation: 0,
+        callback: (_value, index) => {
+          const row = props.trend.years[index]
+          return row && (index === 0 || index === props.trend.years.length - 1 || row.year % 5 === 0) ? row.label : ''
+        }
+      }
+    },
+    y: {
+      beginAtZero: true,
+      max: 100,
+      grid: { color: theme.value.ruleSoft },
+      ticks: {
+        color: theme.value.muted,
+        callback: value => `${value}%`
+      }
+    }
+  },
+  onClick: (_event, elements) => {
+    const element = elements[0]
+    if (element) selectPoint(element.index, element.datasetIndex)
+  }
+}))
 </script>
 
 <template>
-  <section class="analysis-section" aria-labelledby="comparison-heading">
+  <section
+    class="analysis-section"
+    aria-labelledby="comparison-heading"
+  >
     <div class="analysis-section-heading">
       <div>
         <h2 id="comparison-heading">
           What changes over time?
         </h2>
-        <p>Compare the share of entries in two periods. Your year and genre filters apply to both.</p>
+        <p>Genre share by year. Areas overlap so shifts in the archive's genre mix are easy to compare.</p>
       </div>
     </div>
-    <div class="analysis-comparison-controls grid grid-cols-1 gap-4 sm:grid-cols-3">
-      <UFormField label="Compare" name="comparison-basis">
-        <USelect v-model="basis"
-          :items="[{ label: 'Recorded genres', value: 'genre' }, { label: 'AI-tagged patterns', value: 'pattern' }]"
-          class="w-full" :ui="{ base: 'analysis-select', content: 'analysis-select-menu' }" />
-      </UFormField>
-      <UFormField label="First period" name="first-period">
-        <USelect v-model="first" :items="periods" class="w-full"
-          :ui="{ base: 'analysis-select', content: 'analysis-select-menu' }" />
-      </UFormField>
-      <UFormField label="Second period" name="second-period">
-        <USelect v-model="second" :items="periods" class="w-full"
-          :ui="{ base: 'analysis-select', content: 'analysis-select-menu' }" />
-      </UFormField>
-    </div>
-    <p v-if="basis === 'pattern'" class="analysis-note">
-      Saved analysis covers {{ formatCount(coverage.left.reviewed) }} of {{ formatCount(left.length) }} entries in the
-      first period and {{ formatCount(coverage.right.reviewed) }} of {{ formatCount(right.length) }} in the second. Tags
-      reflect the information in each logline; sparse descriptions may leave a pattern unestablished.
+    <p
+      v-if="!trend.series.length"
+      class="analysis-note"
+      role="status"
+    >
+      No recorded genres are available for this selection.
     </p>
-    <p v-if="first === second" class="analysis-note">
-      Both columns use the same period. Choose different periods to compare change.
-    </p>
-    <p v-if="!left.length || !right.length" class="analysis-note" role="status">
-      At least one period has no entries under these filters. Widen the year range or change the periods to compare
-      their shares.
-    </p>
-    <div class="analysis-table-scroll" role="region" aria-label="Period comparison" tabindex="0">
-      <table class="analysis-comparison-table">
-        <caption class="visually-hidden">
-          {{ basis === 'genre' ? 'Genre' : 'Tagged pattern' }} shares within filtered archive entries. Change is in
-          percentage points.
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">
-              {{ basis === 'genre' ? 'Genre' : 'Pattern' }}
-            </th>
-            <th scope="col">
-              {{ range(left) }}<small>{{ formatCount(left.length) }} entries</small>
-            </th>
-            <th scope="col">
-              {{ range(right) }}<small>{{ formatCount(right.length) }} entries</small>
-            </th>
-            <th scope="col">
-              Change<small>percentage points</small>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="row in rows" :key="row.key">
-            <th scope="row">
-              {{ row.label }}
-            </th>
-            <td v-for="(cell, index) in [row.first, row.second]" :key="index">
-              <button type="button" :disabled="!cell.count"
-                :aria-label="`${row.label}, ${index === 0 ? 'first' : 'second'} period: ${cell.count} entries. View entries`"
-                @click="$emit('select', cell, `Entries in ${index === 0 ? range(left) : range(right)}, within the current filters.`)">
-                {{ (index === 0 ? left.length : right.length) ? `${cell.share}%` : '—' }}<small>{{
-                  formatCount(cell.count) }} entries</small>
-              </button>
-            </td>
-            <td class="analysis-delta">
-              {{ row.delta === null ? '—' : `${row.delta > 0 ? '+' : ''}${row.delta.toFixed(1)}` }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="analysis-note">
-      {{ basis === 'genre' ? genreNote : patternNote }} Archive coverage is uneven; these are not market-wide trends.
-    </p>
+    <figure
+      v-else
+      class="analysis-chart analysis-comparison-figure analysis-genre-trend-figure"
+    >
+      <div class="analysis-canvas-wrap analysis-canvas-wrap--comparison">
+        <ClientOnly>
+          <Line
+            :data="chartData"
+            :options="chartOptions"
+            :aria-label="chartLabel"
+          />
+          <template #fallback>
+            <div
+              class="analysis-chart-loading"
+              aria-hidden="true"
+            />
+          </template>
+        </ClientOnly>
+      </div>
+      <details class="analysis-data-details analysis-comparison-details">
+        <summary>View yearly genre shares</summary>
+        <div
+          class="analysis-table-scroll"
+          role="region"
+          aria-label="Yearly genre shares"
+          tabindex="0"
+        >
+          <table class="analysis-comparison-table analysis-trend-table">
+            <caption class="visually-hidden">
+              Genre shares by year. Select a percentage to open the matching entries.
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">
+                  Year
+                </th>
+                <th
+                  v-for="(series, seriesIndex) in trend.series"
+                  :key="series.key"
+                  scope="col"
+                  :style="{ color: genreColor(seriesIndex) }"
+                >
+                  {{ series.label }}
+                </th>
+                <th scope="col">
+                  Total
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(row, yearIndex) in trend.years"
+                :key="row.year"
+              >
+                <th scope="row">
+                  {{ row.label }}
+                </th>
+                <td
+                  v-for="(series, seriesIndex) in trend.series"
+                  :key="series.key"
+                >
+                  <button
+                    type="button"
+                    :disabled="!pointFor(yearIndex, seriesIndex)?.count"
+                    :style="{ color: genreColor(seriesIndex) }"
+                    :aria-label="`${series.label}, ${row.label}: ${pointFor(yearIndex, seriesIndex)?.count ?? 0} entries. View entries`"
+                    @click="selectPoint(yearIndex, seriesIndex)"
+                  >
+                    {{ pointFor(yearIndex, seriesIndex)?.count ? `${pointFor(yearIndex, seriesIndex)?.share}%` : '—' }}
+                    <small>{{ formatCount(pointFor(yearIndex, seriesIndex)?.count ?? 0) }} entries</small>
+                  </button>
+                </td>
+                <td>{{ formatCount(row.total) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <figcaption>Select a point to open matching entries. Shares use that year's filtered entries as the denominator.</figcaption>
+    </figure>
   </section>
 </template>

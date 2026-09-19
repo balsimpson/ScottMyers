@@ -20,7 +20,6 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/analysis': { prerender: true },
     '/qa/deals': { prerender: true }
   },
 

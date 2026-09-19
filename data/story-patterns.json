@@ -1,0 +1,167 @@
+[
+  {
+    "key": "coming-of-age",
+    "label": "Coming of age",
+    "description": "A young protagonist is pushed toward adulthood by a defining experience."
+  },
+  {
+    "key": "identity-disguise",
+    "label": "Identity or disguise",
+    "description": "A protagonist adopts, loses, or conceals an identity in order to navigate the story."
+  },
+  {
+    "key": "fish-out-of-water",
+    "label": "Fish out of water",
+    "description": "A protagonist is displaced into an unfamiliar community, culture, class, or way of life."
+  },
+  {
+    "key": "unlikely-partnership",
+    "label": "Unlikely partnership",
+    "description": "Opposites or reluctant allies must work together toward a shared objective."
+  },
+  {
+    "key": "family-reconciliation",
+    "label": "Family reconciliation",
+    "description": "Estranged relatives must repair a damaged family bond or return to one another."
+  },
+  {
+    "key": "forbidden-romance",
+    "label": "Forbidden romance",
+    "description": "A love story is blocked by family, class, duty, allegiance, or another social boundary."
+  },
+  {
+    "key": "love-triangle",
+    "label": "Love triangle",
+    "description": "Romantic choice is complicated by a third person or competing attachments."
+  },
+  {
+    "key": "revenge-quest",
+    "label": "Revenge quest",
+    "description": "A protagonist pursues retaliation or justice for a wrong committed against them or someone close."
+  },
+  {
+    "key": "rescue-mission",
+    "label": "Rescue mission",
+    "description": "A protagonist must free or save a person, group, or community from immediate danger."
+  },
+  {
+    "key": "missing-person-search",
+    "label": "Missing-person search",
+    "description": "A protagonist searches for someone who has disappeared, been abducted, or cannot be found."
+  },
+  {
+    "key": "survival",
+    "label": "Survival",
+    "description": "A protagonist must stay alive or endure an extreme, hostile situation."
+  },
+  {
+    "key": "pursuit-escape",
+    "label": "Pursuit and escape",
+    "description": "A protagonist is hunted, chased, or forced to stay ahead of an active threat."
+  },
+  {
+    "key": "witness-protection",
+    "label": "Witness protection",
+    "description": "A witness or informant must survive after exposing a dangerous criminal or political force."
+  },
+  {
+    "key": "undercover-infiltration",
+    "label": "Undercover infiltration",
+    "description": "A protagonist enters an enemy or criminal world under a false role to gather information or act from within."
+  },
+  {
+    "key": "heist",
+    "label": "Heist",
+    "description": "A crew plans or carries out a coordinated theft, robbery, scam, or break-in."
+  },
+  {
+    "key": "investigation",
+    "label": "Investigation",
+    "description": "A protagonist follows evidence to solve a crime, mystery, murder, or hidden case."
+  },
+  {
+    "key": "conspiracy",
+    "label": "Conspiracy",
+    "description": "A protagonist uncovers or is trapped inside a coordinated secret plot."
+  },
+  {
+    "key": "corruption-exposure",
+    "label": "Corruption exposed",
+    "description": "A protagonist risks consequences to reveal institutional corruption, a cover-up, or a public scandal."
+  },
+  {
+    "key": "courtroom-defense",
+    "label": "Courtroom defense",
+    "description": "A legal battle, trial, or defense becomes the story's central contest."
+  },
+  {
+    "key": "treasure-hunt",
+    "label": "Treasure hunt",
+    "description": "A protagonist follows clues toward buried treasure, a lost artifact, or a legendary fortune."
+  },
+  {
+    "key": "redemption",
+    "label": "Redemption",
+    "description": "A compromised or disgraced protagonist seeks atonement through a second chance or difficult act."
+  },
+  {
+    "key": "outsider-vs-institution",
+    "label": "Outsider versus institution",
+    "description": "A maverick or outsider challenges a powerful system, authority, company, or establishment."
+  },
+  {
+    "key": "political-rebellion",
+    "label": "Political rebellion",
+    "description": "A protagonist joins or leads a revolt, resistance, uprising, or struggle to overthrow power."
+  },
+  {
+    "key": "wartime-mission",
+    "label": "Wartime mission",
+    "description": "A protagonist carries out a mission amid organized war, military conflict, or battle."
+  },
+  {
+    "key": "disaster-response",
+    "label": "Disaster response",
+    "description": "A protagonist responds to a natural, technological, or planetary catastrophe."
+  },
+  {
+    "key": "monster-threat",
+    "label": "Monster threat",
+    "description": "A protagonist confronts a creature, alien, supernatural force, or other inhuman threat."
+  },
+  {
+    "key": "supernatural-bargain",
+    "label": "Supernatural bargain",
+    "description": "A protagonist accepts a magical, demonic, or otherwise supernatural bargain with a cost."
+  },
+  {
+    "key": "time-pressure",
+    "label": "Race against time",
+    "description": "A deadline or countdown compresses the protagonist's choices and action."
+  },
+  {
+    "key": "sports-underdog",
+    "label": "Sports underdog",
+    "description": "An unlikely athlete or team fights through competition toward a meaningful win."
+  },
+  {
+    "key": "performance-competition",
+    "label": "Performance competition",
+    "description": "Performers or artists compete for a role, contest, audience, or breakthrough."
+  },
+  {
+    "key": "mentor-protege",
+    "label": "Mentor and protégé",
+    "description": "An experienced guide trains, protects, or transforms a less experienced protagonist."
+  },
+  {
+    "key": "power-struggle",
+    "label": "Power struggle",
+    "description": "Competing figures or factions fight to control a family, organization, territory, or public role."
+  },
+  {
+    "key": "second-chance",
+    "label": "Second chance",
+    "description": "A protagonist is given an unusual opportunity to correct, revisit, or relive a former failure."
+  }
+]

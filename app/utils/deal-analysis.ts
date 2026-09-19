@@ -9,6 +9,20 @@ export interface AnalysisBar {
   ids: string[]
 }
 
+export type GenreTrendPoint = AnalysisBar
+
+export interface GenreTrendYear {
+  year: number
+  label: string
+  total: number
+  points: GenreTrendPoint[]
+}
+
+export interface GenreTrend {
+  series: { key: string, label: string }[]
+  years: GenreTrendYear[]
+}
+
 const stopWords = new Set('a an and are as at be been being but by can could did do does for from had has have he her him his how if in into is it its just me more most my no not of off on one or our out she so some than that the their them then there they this through to too under up was we were what when where which who will with would you your after all also about against among around back before between each few down first last new old other once only same such very while without'.split(' '))
 
 export function wordCount(value: string) {
@@ -46,6 +60,38 @@ export function patternRows(source: Deal[]) {
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
 }
 
+export function genreTrendRows(source: Deal[], firstYear: number, lastYear: number, limit = 10): GenreTrend {
+  const rankedGenres = rankField(source, 'genre')
+  const primaryGenres = rankedGenres.slice(0, limit).map(row => ({ key: row.key, label: row.label }))
+  const primaryKeys = new Set(primaryGenres.map(series => series.key))
+  const remainingGenres = rankedGenres.some(row => !primaryKeys.has(row.key))
+  const hasUnspecified = source.some(deal => !deal.genreGroup)
+  const series = [
+    ...primaryGenres,
+    ...(remainingGenres ? [{ key: '__other__', label: 'Other' }] : []),
+    ...(hasUnspecified ? [{ key: '__unspecified__', label: 'Unspecified' }] : [])
+  ]
+
+  const years = Array.from({ length: Math.max(0, lastYear - firstYear + 1) }, (_, index) => {
+    const year = firstYear + index
+    const yearDeals = source.filter(deal => deal.year === year)
+    const points = series.map(({ key, label }) => {
+      const matches = yearDeals.filter((deal) => {
+        const genre = deal.genreGroup
+        if (key === '__other__') return genre !== null && !primaryKeys.has(genre)
+        if (key === '__unspecified__') return !deal.genreGroup
+        return genre === key
+      })
+
+      return analysisRow(key, label, matches, yearDeals.length)
+    })
+
+    return { year, label: String(year), total: yearDeals.length, points }
+  })
+
+  return { series, years }
+}
+
 export function analyzeDeals(source: Deal[], firstYear: number, lastYear: number) {
   const lengths = source.map(deal => wordCount(deal.logline)).sort((a, b) => a - b)
   const middle = Math.floor(lengths.length / 2)
@@ -71,6 +117,7 @@ export function analyzeDeals(source: Deal[], firstYear: number, lastYear: number
     median,
     average: lengths.length ? +(lengths.reduce((a, b) => a + b, 0) / lengths.length).toFixed(1) : null,
     genres: rankField(source, 'genre'),
+    genreTrend: genreTrendRows(source, firstYear, lastYear),
     years: Array.from({ length: Math.max(0, lastYear - firstYear + 1) }, (_, index) => {
       const year = firstYear + index
       return analysisRow(String(year), String(year), source.filter(deal => deal.year === year), source.length)

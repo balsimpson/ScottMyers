@@ -1,42 +1,35 @@
 <script setup lang="ts">
 import type { ChartData, ChartOptions } from 'chart.js'
-import { Line } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 import type { AnalysisBar } from '~/utils/deal-analysis'
 import { formatCount } from '~/utils/deal-analysis'
 
 const props = defineProps<{ rows: AnalysisBar[] }>()
 const emit = defineEmits<{ select: [row: AnalysisBar] }>()
 const { theme, reducedMotion, withAlpha } = useAnalysisChartTheme()
-const chartLabel = computed(() => `Entries by year: ${props.rows.map(row => `${row.label}, ${row.count} entries`).join('; ')}`)
+const chartLabel = computed(() => `Logline length distribution: ${props.rows.map(row => `${row.label}, ${row.count} entries`).join('; ')}`)
 
-const chartData = computed<ChartData<'line', number[], string>>(() => ({
+const chartData = computed<ChartData<'bar', number[], string>>(() => ({
   labels: props.rows.map(row => row.label),
   datasets: [{
-    label: 'Entries',
+    label: 'Loglines',
     data: props.rows.map(row => row.count),
+    backgroundColor: props.rows.map((_row, index) => index === 2 ? theme.value.accentStrong : withAlpha(theme.value.accent, 0.68)),
     borderColor: theme.value.accentStrong,
-    backgroundColor: withAlpha(theme.value.accent, 0.16),
-    borderWidth: 2,
-    pointBackgroundColor: theme.value.paper,
-    pointBorderColor: theme.value.accentStrong,
-    pointBorderWidth: 2,
-    pointRadius: props.rows.length > 24 ? 2 : 3,
-    pointHoverRadius: 5,
-    tension: 0.28,
-    fill: true
+    borderWidth: 1,
+    borderRadius: 4,
+    borderSkipped: false,
+    barPercentage: 0.7,
+    categoryPercentage: 0.72
   }]
 }))
 
-const chartOptions = computed<ChartOptions<'line'>>(() => ({
+const chartOptions = computed<ChartOptions<'bar'>>(() => ({
   responsive: true,
   maintainAspectRatio: false,
   animation: {
-    duration: reducedMotion.value ? 0 : 650,
+    duration: reducedMotion.value ? 0 : 560,
     easing: 'easeOutCubic'
-  },
-  interaction: {
-    mode: 'nearest',
-    intersect: false
   },
   plugins: {
     legend: { display: false },
@@ -52,15 +45,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
   scales: {
     x: {
       grid: { display: false },
-      ticks: {
-        color: theme.value.muted,
-        autoSkip: false,
-        maxRotation: 0,
-        callback: (_value, index) => {
-          const row = props.rows[index]
-          return row && (index === 0 || index === props.rows.length - 1 || Number(row.key) % 5 === 0) ? row.label : ''
-        }
-      }
+      ticks: { color: theme.value.inkSoft }
     },
     y: {
       beginAtZero: true,
@@ -83,11 +68,11 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
 <template>
   <figure
     v-if="rows.length"
-    class="analysis-chart analysis-year-figure"
+    class="analysis-chart analysis-distribution-figure"
   >
-    <div class="analysis-canvas-wrap analysis-canvas-wrap--year">
+    <div class="analysis-canvas-wrap analysis-canvas-wrap--distribution">
       <ClientOnly>
-        <Line
+        <Bar
           :data="chartData"
           :options="chartOptions"
           :aria-label="chartLabel"
@@ -104,6 +89,6 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
       :rows="rows"
       @select="row => emit('select', row)"
     />
-    <figcaption>Choose a year to read its entries. Counts describe this collection’s coverage, not total market activity.</figcaption>
+    <figcaption>Shorter and longer loglines are grouped into five word-count ranges.</figcaption>
   </figure>
 </template>

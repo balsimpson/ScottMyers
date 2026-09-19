@@ -22,6 +22,7 @@ const {
 const searchInput = ref<{ $el?: HTMLElement } | null>(null)
 const infoOpen = ref(false)
 const analysisOpen = ref(false)
+const analysisSectionTitle = ref('Story patterns')
 
 const showSearchResults = computed(() => searchOpen.value && hasFilters.value && searchResults.value.length > 0)
 
@@ -51,7 +52,9 @@ function toggleInfo() {
 }
 
 function toggleAnalysis() {
-  analysisOpen.value = !analysisOpen.value
+  const nextOpen = !analysisOpen.value
+  analysisOpen.value = nextOpen
+  if (nextOpen) analysisSectionTitle.value = 'Story patterns'
   searchOpen.value = false
   infoOpen.value = false
 }
@@ -123,10 +126,11 @@ defineShortcuts({
         <div v-else-if="analysisOpen" key="analysis" class="archive-analysis-surface">
           <div class="archive-analysis-surface-header">
             <UColorModeButton class="archive-analysis-color-mode" color="neutral" variant="ghost" />
-            <UButton class="archive-info-close" color="neutral" variant="ghost" size="lg" icon="i-lucide-x"
+            <h2 class="archive-analysis-surface-title" aria-live="polite">{{ analysisSectionTitle }}</h2>
+            <UButton class="archive-info-close archive-analysis-close" color="neutral" variant="ghost" size="lg" icon="i-lucide-x"
               aria-label="Close archive analysis" title="Close archive analysis" @click="closeSearch" />
           </div>
-          <ArchiveAnalysis />
+          <ArchiveAnalysis @section-change="analysisSectionTitle = $event" />
         </div>
 
         <div v-else-if="!showSearchResults" ref="feedViewport" key="feed" class="archive-feed">

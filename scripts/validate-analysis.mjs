@@ -8,12 +8,16 @@ const { analyzeDeals, comparePeriods, patternRows, rankField } = await jiti.impo
 const { storyPatterns, storyReviewFor, patternsFor, storyCoverage } = await jiti.import('../app/utils/story-patterns.ts')
 const deals = JSON.parse(fs.readFileSync(new URL('../data/deals.json', import.meta.url), 'utf8'))
 const reviews = JSON.parse(fs.readFileSync(new URL('../data/story-reviews.json', import.meta.url), 'utf8'))
+const taxonomy = JSON.parse(fs.readFileSync(new URL('../data/story-patterns.json', import.meta.url), 'utf8'))
 const byId = new Map(deals.map(deal => [deal.id, deal]))
 const keys = new Set(storyPatterns.map(pattern => pattern.key))
 const reviewedIds = new Set()
 assert([3, 4].includes(reviews.version), 'Expected enriched saved-analysis schema')
 assert.equal(reviews.records.length, deals.length, 'Every source entry must have a saved analysis')
 assert.equal(reviews.sourceCount, deals.length)
+assert.equal(storyPatterns.length, taxonomy.length, 'UI taxonomy must match the canonical pattern catalog')
+assert.deepEqual(storyPatterns.map(pattern => pattern.key), taxonomy.map(pattern => pattern.key), 'Canonical pattern order changed between catalog and UI')
+assert(!reviews.method.includes('phrase') && !reviews.method.includes('motif'), 'Saved analysis must not describe literal phrase mining')
 const sourceFingerprint = createHash('sha256').update(JSON.stringify(deals.map(({ id, logline }) => ({ id, logline })).sort((a, b) => a.id.localeCompare(b.id)))).digest('hex')
 assert.equal(reviews.sourceSha256, sourceFingerprint, 'Source loglines changed since the saved analysis')
 
@@ -92,4 +96,16 @@ assert(storyReviewFor(unchanged), 'Unchanged loglines must reuse saved analysis'
 const unknown = { ...byId.get(reviewed.id), id: 'new-unanalysed-entry' }
 assert.equal(storyReviewFor(unknown), undefined)
 assert.equal(storyCoverage([unknown]).missing, 1)
-console.log(`Analysis checks passed: ${deals.length}/${deals.length} current saved analyses; source excerpts, counts, percentages, drilldowns, periods, empty data and stale-tag handling verified.`)
+
+const reviewById = new Map(reviews.records.map(review => [review.id, review]))
+for (const id of ['1994-51-shelter', '1994-59-into-thin-air', '1997-88-34th-floor', '2000-14-curtis-and-chloe-s-big-blind']) {
+  assert(reviewById.get(id)?.patterns.includes('witness-protection'), `Expected canonical witness-protection pattern: ${id}`)
+}
+assert(reviews.records.every(review => review.patterns.every(pattern => !/program|motif|phrase/i.test(pattern))), 'Pattern keys must remain canonical screenplay labels')
+for (const id of ['1992-11-kidstuff', '1994-43-the-next-best-thing', '1997-16-bounce', '2002-39-no-place-like-home']) {
+  assert(!reviewById.get(id)?.patterns.includes('wartime-mission'), `Generic battle/war wording must not create a wartime mission: ${id}`)
+  assert(!reviewById.get(id)?.patterns.includes('supernatural-bargain'), `Generic deal wording must not create a supernatural bargain: ${id}`)
+}
+assert(!reviewById.get('2007-45-mental')?.patterns.includes('disaster-response'), 'Generic disaster wording must not create a disaster-response pattern')
+const usedKeys = new Set(reviews.records.flatMap(review => review.patterns))
+console.log(`Analysis checks passed: ${deals.length}/${deals.length} current saved analyses; ${usedKeys.size}/${taxonomy.length} canonical patterns used; source excerpts, counts, percentages, drilldowns, periods, empty data and stale-tag handling verified.`)
