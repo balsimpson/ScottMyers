@@ -5,9 +5,56 @@ import { metadataFor } from '~/utils/deal-formatting'
 
 const open = defineModel<boolean>('open', { default: false })
 const props = defineProps<{ title: string, deals: Deal[] }>()
-const visibleCount = ref(20)
-watch(() => [props.title, open.value], () => {
-  visibleCount.value = 20
+const batchSize = 20
+const visibleCount = ref(batchSize)
+const visibleDeals = computed(() => props.deals.slice(0, visibleCount.value))
+const hasMoreDeals = computed(() => visibleCount.value < props.deals.length)
+const loadMoreSentinel = ref<HTMLElement | null>(null)
+let observer: IntersectionObserver | null = null
+let loadFrame: number | null = null
+
+function loadMoreDeals() {
+  if (!hasMoreDeals.value || loadFrame !== null) {
+    return
+  }
+
+  loadFrame = window.requestAnimationFrame(() => {
+    visibleCount.value = Math.min(visibleCount.value + batchSize, props.deals.length)
+    loadFrame = null
+  })
+}
+
+function observeLoadMoreSentinel() {
+  if (!import.meta.client) {
+    return
+  }
+
+  observer?.disconnect()
+  if (!loadMoreSentinel.value || !hasMoreDeals.value) {
+    return
+  }
+
+  observer = new IntersectionObserver((entries) => {
+    if (entries.some(entry => entry.isIntersecting)) {
+      loadMoreDeals()
+    }
+  }, { rootMargin: '0px 0px 320px' })
+  observer.observe(loadMoreSentinel.value)
+}
+
+watch([() => props.title, () => props.deals, open], async () => {
+  visibleCount.value = Math.min(batchSize, props.deals.length)
+  await nextTick()
+  observeLoadMoreSentinel()
+}, { immediate: true })
+
+onMounted(observeLoadMoreSentinel)
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  if (loadFrame !== null) {
+    window.cancelAnimationFrame(loadFrame)
+  }
 })
 </script>
 
@@ -19,7 +66,7 @@ watch(() => [props.title, open.value], () => {
     </template>
     <template #body>
       <ol class="analysis-deal-list">
-        <li v-for="deal in deals.slice(0, visibleCount)" :key="deal.id">
+        <li v-for="deal in visibleDeals" :key="deal.id">
           <article>
             <p class="analysis-deal-meta">
               <span>{{ deal.year }}</span>
@@ -43,11 +90,12 @@ watch(() => [props.title, open.value], () => {
           </article>
         </li>
       </ol>
-      <div v-if="visibleCount < deals.length" class="analysis-more">
-        <UButton color="neutral" variant="outline" @click="visibleCount += 20">
-          Show <strong>20</strong> more
-        </UButton>
-      </div>
+      <div
+        v-if="hasMoreDeals"
+        ref="loadMoreSentinel"
+        class="analysis-list-sentinel"
+        aria-hidden="true"
+      />
     </template>
   </USlideover>
 </template>

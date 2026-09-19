@@ -1619,6 +1619,12 @@
   padding-block: 0.75rem;
 }
 
+.analysis-list-sentinel {
+  min-height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .analysis-drawer-body {
     scroll-behavior: auto;

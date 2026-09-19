@@ -9,7 +9,7 @@ const MIN_LOADING_DURATION = 2500
 
 export function useDealFeed() {
   const feedViewport = ref<HTMLElement | null>(null)
-  const shuffledDeals = useState<Deal[]>('archive-shuffled-deals', () => deals)
+  const shuffledDeals = useState<Deal[]>('archive-shuffled-deals', () => [])
   const renderIndex = useState('archive-render-index', () => 0)
   const detailsReady = useState('archive-details-ready', () => false)
   const loadingStarted = ref(false)
@@ -22,6 +22,8 @@ export function useDealFeed() {
   let supportsScrollEnd = false
   let initialLoadStartedAt = 0
   let initialReadyTimer: ReturnType<typeof setTimeout> | undefined
+  let resizeObserver: ResizeObserver | undefined
+  let attachedViewport: HTMLElement | null = null
   let disposed = false
 
   function createShuffleSeed() {
@@ -71,10 +73,19 @@ export function useDealFeed() {
     const viewport = feedViewport.value
     if (!viewport || viewport.clientHeight === 0) return
 
+    const firstScreen = viewport.querySelector<HTMLElement>('.deal-screen')
+    const screenHeight = firstScreen?.getBoundingClientRect().height || viewport.clientHeight
+    if (screenHeight === 0 || shuffledDeals.value.length === 0) return
+
     renderIndex.value = Math.min(
-      Math.max(Math.round(viewport.scrollTop / viewport.clientHeight), 0),
+      Math.max(Math.round(viewport.scrollTop / screenHeight), 0),
       shuffledDeals.value.length - 1
     )
+  }
+
+  function getCurrentDealId() {
+    updateRenderIndex()
+    return shuffledDeals.value[renderIndex.value]?.id ?? null
   }
 
   function scheduleRenderUpdate() {
@@ -109,6 +120,46 @@ export function useDealFeed() {
   function handleFeedScrollEnd() {
     clearScrollEndTimer()
     settleActiveDeal()
+  }
+
+  function detachFeedViewport() {
+    if (!attachedViewport) return
+
+    attachedViewport.removeEventListener('scroll', handleFeedScroll)
+    if (supportsScrollEnd) attachedViewport.removeEventListener('scrollend', handleFeedScrollEnd)
+    resizeObserver?.disconnect()
+    resizeObserver = undefined
+    attachedViewport = null
+    supportsScrollEnd = false
+  }
+
+  function attachFeedViewport(viewport: HTMLElement | null) {
+    if (!viewport || attachedViewport === viewport) return
+
+    detachFeedViewport()
+    attachedViewport = viewport
+    supportsScrollEnd = 'onscrollend' in window
+    viewport.addEventListener('scroll', handleFeedScroll, { passive: true })
+    if (supportsScrollEnd) viewport.addEventListener('scrollend', handleFeedScrollEnd)
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(scheduleRenderUpdate)
+      resizeObserver.observe(viewport)
+    }
+    scheduleRenderUpdate()
+  }
+
+  async function restoreFeedPosition(dealId: string | null) {
+    if (!dealId) return null
+
+    for (let attempt = 0; attempt < 90; attempt += 1) {
+      await nextTick()
+      if (feedViewport.value && document.getElementById(`deal-${dealId}`)) {
+        return navigateToDeal(dealId)
+      }
+      await new Promise<void>(resolve => requestAnimationFrame(() => resolve()))
+    }
+
+    return null
   }
 
   function revealInitialFeed() {
@@ -243,26 +294,27 @@ export function useDealFeed() {
     return Math.abs(index - renderIndex.value) <= RENDER_RADIUS
   }
 
+  watch(feedViewport, (viewport) => {
+    if (viewport) {
+      attachFeedViewport(viewport)
+    } else {
+      detachFeedViewport()
+    }
+  }, { flush: 'post' })
+
   onMounted(() => {
     disposed = false
     const shouldInitialize = !detailsReady.value
     initialLoadStartedAt = performance.now()
     loadingStarted.value = shouldInitialize
-    const viewport = feedViewport.value
-    if (!viewport) return
-
-    supportsScrollEnd = 'onscrollend' in window
-    viewport.addEventListener('scroll', handleFeedScroll, { passive: true })
-    if (supportsScrollEnd) viewport.addEventListener('scrollend', handleFeedScrollEnd)
     window.addEventListener('keydown', handleFeedKeydown)
+    attachFeedViewport(feedViewport.value)
     if (shouldInitialize) shuffleFeed()
   })
 
   onUnmounted(() => {
     disposed = true
-    const viewport = feedViewport.value
-    viewport?.removeEventListener('scroll', handleFeedScroll)
-    if (supportsScrollEnd) viewport?.removeEventListener('scrollend', handleFeedScrollEnd)
+    detachFeedViewport()
     window.removeEventListener('keydown', handleFeedKeydown)
     clearScrollEndTimer()
     if (initialReadyTimer !== undefined) clearTimeout(initialReadyTimer)
@@ -274,9 +326,11 @@ export function useDealFeed() {
   return {
     detailsReady,
     feedViewport,
+    getCurrentDealId,
     isDealRendered,
     loadingStarted,
     navigateToDeal,
+    restoreFeedPosition,
     shuffledDeals,
     shuffleFeed
   }

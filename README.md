@@ -1,64 +1,58 @@
-# Nuxt Starter Template
+# Scott Myers spec script archive
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+The [Scott Myers Spec Script Deals archive](https://scottmyers.vercel.app/) is a searchable reading tool for 2,562 deal records and loglines collected from 1991 through 2025.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+It keeps the source records together with writers, genres, agencies, studios, sale details, and saved story-pattern analysis. The homepage opens as a shuffled reading feed, with search and analysis controls in the dock.
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+## What is included
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png" width="830" height="466">
-  </picture>
-</a>
+- A full-screen feed for browsing the archive one logline at a time.
+- Search across titles, loglines, writers, companies, genres, agencies, notes, and sale details.
+- An analysis panel with saved story patterns, word counts, year trends, genre comparisons, and source-entry drilldowns.
+- A local `/qa/deals` editor for correcting source-backed fields in `data/deals.json`.
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+The archive is based on Scott Myers' [Spec Script Deals download](https://www.patreon.com/GoIntoTheStory/posts/download-spec-168834157). It is a structured interpretation of the recorded source material, not a review of the full screenplays or a prediction of commercial outcomes.
 
-## Quick Start
+## Local development
 
-```bash [Terminal]
-npm create nuxt@latest -- -t ui
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
-
-## Setup
-
-Make sure to install the dependencies:
+Install dependencies with npm:
 
 ```bash
-pnpm install
+npm install
+npm run dev
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Open `http://localhost:3000` in a browser. Run the production build and preview with:
 
 ```bash
-pnpm dev
+npm run build
+npm run preview -- --host localhost --port 4173
 ```
 
-## Production
+## Data and analysis
 
-Build the application for production:
+- `data/deals.json` is the canonical archive of source records.
+- `data/story-reviews.json` stores the saved analysis for the current loglines.
+- `data/story-patterns.json` contains the shared story-pattern definitions.
+
+The analysis is read from JSON at runtime. It is not regenerated on page load or during a normal build. If a logline changes, run the pending report before deciding whether to refresh its saved analysis.
+
+## Useful checks
 
 ```bash
-pnpm build
+npm run typecheck
+npm run lint
+npm run data:validate
+npm run analysis:validate
+npm run analysis:pending
 ```
 
-Locally preview production build:
+`npm run analysis:enrich` writes refreshed saved analysis. `npm run analysis:enrich:ai` calls an external AI service, so run it only when an intentional data update is in scope.
 
-```bash
-pnpm preview
-```
+## Stack
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-## Renovate integration
-
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+- Nuxt 4
+- Vue and TypeScript
+- Nuxt UI 4
+- Tailwind CSS 4
+- Chart.js and Vue Chart.js

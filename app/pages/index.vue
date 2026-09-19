@@ -13,8 +13,10 @@ const {
 const {
   detailsReady,
   feedViewport,
+  getCurrentDealId,
   isDealRendered,
   navigateToDeal,
+  restoreFeedPosition,
   shuffledDeals,
   shuffleFeed
 } = useDealFeed()
@@ -23,6 +25,7 @@ const searchInput = ref<{ $el?: HTMLElement } | null>(null)
 const infoOpen = ref(false)
 const analysisOpen = ref(false)
 const analysisSectionTitle = ref('Story patterns')
+const analysisReturnDealId = ref<string | null>(null)
 
 const showSearchResults = computed(() => searchOpen.value && hasFilters.value && searchResults.value.length > 0)
 
@@ -32,6 +35,19 @@ const resultLabel = computed(() => {
   return 'Recent additions'
 })
 
+function dealTitleClass(title: string | null) {
+  const length = title?.length ?? 0
+  if (length > 100) return 'deal-title--epic'
+  if (length > 64) return 'deal-title--long'
+  return ''
+}
+
+function dealLoglineClass(logline: string) {
+  if (logline.length > 700) return 'deal-logline--epic'
+  if (logline.length > 500) return 'deal-logline--long'
+  return ''
+}
+
 async function selectDeal(deal: { id: string }) {
   clearSearch()
   searchOpen.value = false
@@ -39,10 +55,14 @@ async function selectDeal(deal: { id: string }) {
   await navigateToDeal(deal.id)
 }
 
-function closeSearch() {
+async function closeSearch() {
+  const dealIdToRestore = analysisOpen.value ? analysisReturnDealId.value : null
   searchOpen.value = false
   infoOpen.value = false
   analysisOpen.value = false
+  analysisReturnDealId.value = null
+
+  if (dealIdToRestore) await restoreFeedPosition(dealIdToRestore)
 }
 
 function toggleInfo() {
@@ -52,9 +72,14 @@ function toggleInfo() {
 }
 
 function toggleAnalysis() {
-  const nextOpen = !analysisOpen.value
-  analysisOpen.value = nextOpen
-  if (nextOpen) analysisSectionTitle.value = 'Story patterns'
+  if (analysisOpen.value) {
+    void closeSearch()
+    return
+  }
+
+  analysisReturnDealId.value = getCurrentDealId()
+  analysisOpen.value = true
+  analysisSectionTitle.value = 'Story patterns'
   searchOpen.value = false
   infoOpen.value = false
 }
@@ -137,8 +162,51 @@ defineShortcuts({
           <section v-for="(deal, dealIndex) in shuffledDeals" :id="`deal-${deal.id}`" :key="deal.id" class="deal-screen"
             :aria-label="deal.title || deal.logline">
             <div class="archive-frame">
-              <DealPanel v-if="isDealRendered(dealIndex)" :deal="deal" />
-              <span v-else class="deal-screen-accessible">{{ deal.title || 'Untitled deal' }}. {{ deal.logline }}</span>
+              <DealPanel
+                v-if="isDealRendered(dealIndex)"
+                :deal="deal"
+              />
+              <div
+                v-else
+                class="deal-stage deal-stage--fallback"
+                aria-hidden="true"
+              >
+                <section class="deal-copy">
+                  <div
+                    v-if="deal.year || deal.genre"
+                    class="deal-eyebrow"
+                  >
+                    <span v-if="deal.year" class="deal-eyebrow-year">{{ deal.year }}</span>
+                    <span
+                      v-if="deal.year && deal.genre"
+                      class="deal-eyebrow-separator"
+                      aria-hidden="true"
+                    >·</span>
+                    <span v-if="deal.genreGroup || deal.genre" class="deal-eyebrow-genre">{{ deal.genreGroup || deal.genre }}</span>
+                  </div>
+                  <h2
+                    v-if="deal.title"
+                    :class="['deal-title', dealTitleClass(deal.title)]"
+                  >
+                    {{ deal.title }}
+                  </h2>
+                  <div
+                    v-if="deal.writers"
+                    class="deal-byline"
+                  >
+                    <p class="deal-writers">
+                      {{ deal.writers }}
+                    </p>
+                  </div>
+                  <div class="deal-logline-wrap">
+                    <p
+                      :class="['deal-logline', dealLoglineClass(deal.logline)]"
+                    >
+                      {{ deal.logline }}
+                    </p>
+                  </div>
+                </section>
+              </div>
             </div>
           </section>
         </div>
