@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { deals } from '~/data/deals'
 
+type EngagementAction = 'thanks' | 'patreon'
+
+interface EngagementState {
+  thanksCount: number
+  patreonCount: number
+  thanked: boolean
+  patreonClicked: boolean
+}
+
 const {
   clearSearch,
   hasFilters,
@@ -15,7 +24,6 @@ const {
   feedViewport,
   getCurrentDealId,
   isDealRendered,
-  navigateToDeal,
   restoreFeedPosition,
   shuffledDeals,
   shuffleFeed
@@ -25,9 +33,19 @@ const searchInput = ref<{ $el?: HTMLElement } | null>(null)
 const infoOpen = ref(false)
 const analysisOpen = ref(false)
 const analysisSectionTitle = ref('Story patterns')
-const analysisReturnDealId = ref<string | null>(null)
+const feedReturnDealId = ref<string | null>(null)
+const engagement = ref<EngagementState | null>(null)
+const engagementLoading = ref(false)
+const engagementUnavailable = ref(false)
+const engagementPending = ref<EngagementAction | null>(null)
 
 const showSearchResults = computed(() => searchOpen.value && hasFilters.value && searchResults.value.length > 0)
+const archiveView = computed(() => {
+  if (infoOpen.value) return 'info'
+  if (analysisOpen.value) return 'analysis'
+  if (showSearchResults.value) return 'search'
+  return 'feed'
+})
 
 const resultLabel = computed(() => {
   if (hasFilters.value && matches.value.length === 0) return ''
@@ -49,26 +67,61 @@ function dealLoglineClass(logline: string) {
 }
 
 async function selectDeal(deal: { id: string }) {
+  feedReturnDealId.value = null
   clearSearch()
   searchOpen.value = false
-  await nextTick()
-  await navigateToDeal(deal.id)
+  await restoreFeedPosition(deal.id)
 }
 
-async function closeSearch() {
-  const dealIdToRestore = analysisOpen.value ? analysisReturnDealId.value : null
+function closeSearch() {
   searchOpen.value = false
   infoOpen.value = false
   analysisOpen.value = false
-  analysisReturnDealId.value = null
+}
 
-  if (dealIdToRestore) await restoreFeedPosition(dealIdToRestore)
+async function loadEngagement() {
+  if (engagementLoading.value) return
+
+  engagementLoading.value = true
+
+  try {
+    engagement.value = await $fetch<EngagementState>('/api/engagement')
+    engagementUnavailable.value = false
+  } catch {
+    engagement.value = null
+    engagementUnavailable.value = true
+  } finally {
+    engagementLoading.value = false
+  }
+}
+
+async function recordEngagement(action: EngagementAction) {
+  if (engagementUnavailable.value || engagementPending.value || engagement.value?.[action === 'thanks' ? 'thanked' : 'patreonClicked']) return
+
+  engagementPending.value = action
+
+  try {
+    engagement.value = await $fetch<EngagementState>('/api/engagement', {
+      method: 'POST',
+      body: { action }
+    })
+  } catch {
+    engagementUnavailable.value = true
+  } finally {
+    engagementPending.value = null
+  }
 }
 
 function toggleInfo() {
-  infoOpen.value = !infoOpen.value
+  if (infoOpen.value) {
+    closeSearch()
+    return
+  }
+
+  infoOpen.value = true
   searchOpen.value = false
   analysisOpen.value = false
+  void loadEngagement()
 }
 
 function toggleAnalysis() {
@@ -77,7 +130,6 @@ function toggleAnalysis() {
     return
   }
 
-  analysisReturnDealId.value = getCurrentDealId()
   analysisOpen.value = true
   analysisSectionTitle.value = 'Story patterns'
   searchOpen.value = false
@@ -86,6 +138,7 @@ function toggleAnalysis() {
 
 function focusSearch() {
   infoOpen.value = false
+  analysisOpen.value = false
   searchOpen.value = true
 
   nextTick(() => {
@@ -93,6 +146,20 @@ function focusSearch() {
     input?.focus()
   })
 }
+
+watch(archiveView, (view, previousView) => {
+  if (previousView === 'feed' && view !== 'feed') {
+    feedReturnDealId.value = getCurrentDealId()
+    return
+  }
+
+  if (previousView !== 'feed' && view === 'feed') {
+    const dealIdToRestore = feedReturnDealId.value
+    feedReturnDealId.value = null
+
+    if (dealIdToRestore) void restoreFeedPosition(dealIdToRestore)
+  }
+})
 
 defineShortcuts({
   meta_k: focusSearch,
@@ -139,12 +206,64 @@ defineShortcuts({
               tracking the market, making it one of the most complete single-source records of the spec script business
               ever assembled.
             </p>
-            <a class="archive-info-source-link"
-              href="https://www.patreon.com/GoIntoTheStory/posts/download-spec-168834157" target="_blank"
-              rel="noreferrer">
-              Join Go Into The Story on Patreon
-              <UIcon name="i-lucide-arrow-up-right" aria-hidden="true" />
-            </a>
+            <div
+              class="archive-info-engagement"
+              aria-live="polite"
+            >
+              <UButton
+                class="archive-info-thank-row"
+                color="neutral"
+                variant="ghost"
+                size="lg"
+                icon="i-lucide-heart"
+                :loading="engagementPending === 'thanks'"
+                :disabled="engagementLoading || engagementUnavailable || engagementPending !== null || engagement?.thanked"
+                @click="recordEngagement('thanks')"
+              >
+                <span class="archive-info-thank-label">
+                  {{ engagement?.thanked ? 'Thanked' : 'Thank Scott Myers' }}
+                </span>
+              </UButton>
+              <p
+                class="archive-info-engagement-count archive-info-engagement-slot"
+                :class="{ 'archive-info-engagement-slot--empty': !engagement }"
+                :aria-hidden="!engagement"
+              >
+                <template v-if="engagement">
+                  {{ engagement.thanksCount.toLocaleString() }}
+                  {{ engagement.thanksCount === 1 ? 'person has' : 'people have' }} thanked Scott
+                </template>
+                <template v-else>
+                  0 people have thanked Scott
+                </template>
+              </p>
+              <a
+                class="archive-info-source-link"
+                href="https://www.patreon.com/GoIntoTheStory/posts/download-spec-168834157"
+                target="_blank"
+                rel="noreferrer"
+                @click="recordEngagement('patreon')"
+              >
+                <span class="archive-info-source-link-copy">Join Patreon to support Scott Myers</span>
+                <UIcon
+                  name="i-lucide-arrow-up-right"
+                  aria-hidden="true"
+                />
+              </a>
+              <p
+                class="archive-info-patreon-count archive-info-engagement-slot"
+                :class="{ 'archive-info-engagement-slot--empty': !engagement }"
+                :aria-hidden="!engagement"
+              >
+                <template v-if="engagement">
+                  {{ engagement.patreonCount.toLocaleString() }}
+                  {{ engagement.patreonCount === 1 ? 'person has' : 'people have' }} clicked to join Patreon
+                </template>
+                <template v-else>
+                  0 people have clicked to join Patreon
+                </template>
+              </p>
+            </div>
           </div>
         </div>
 

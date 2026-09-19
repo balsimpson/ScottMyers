@@ -799,22 +799,89 @@ textarea {
 }
 
 .archive-info-source-link {
-  display: inline-flex;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3.25rem;
   align-items: center;
-  gap: 0.45rem;
-  margin-top: 2rem;
-  color: var(--archive-ink);
-  font-size: 0.76rem;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: color-mix(in srgb, var(--archive-accent) 12%, transparent);
+  color: var(--archive-ink-soft);
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  text-decoration-color: var(--archive-accent-strong);
-  text-underline-offset: 0.3rem;
+  text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, opacity 160ms ease;
 }
 
+.archive-info-engagement {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 2.2rem;
+}
+
+.archive-info-thank-row {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  border: 0;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: color-mix(in srgb, var(--archive-accent) 18%, transparent);
+  color: var(--archive-ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: left;
+  transition: background 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.archive-info-thank-row .archive-info-thank-label,
+.archive-info-source-link-copy {
+  flex: 1 1 auto;
+}
+
+.archive-info-thank-label {
+  white-space: nowrap;
+}
+
+.archive-info-engagement-count,
+.archive-info-patreon-count {
+  margin: 0;
+  color: var(--archive-muted);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.035em;
+  line-height: 1.45;
+}
+
+.archive-info-engagement-slot {
+  min-height: 1.1rem;
+}
+
+.archive-info-engagement-slot--empty {
+  visibility: hidden;
+}
+
+.archive-info-thank-row:hover:not(:disabled),
 .archive-info-source-link:hover {
-  color: var(--archive-accent-strong);
+  background: color-mix(in srgb, var(--archive-accent) 28%, transparent);
+  color: var(--archive-ink);
 }
 
+.archive-info-thank-row:disabled {
+  opacity: 0.58;
+}
+
+.archive-info-thank-row:focus-visible,
 .archive-info-source-link:focus-visible {
   outline: 2px solid var(--archive-accent-strong);
   outline-offset: 4px;
