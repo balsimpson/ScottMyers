@@ -14,14 +14,6 @@ const reviewedPercentage = computed(() => percentage(coverage.value.reviewed, an
 const activePatternCount = computed(() => patterns.value.filter(row => row.count > 0).length)
 const buyerLabel = computed(() => buyerField.value === 'studio' ? 'studio' : 'production company')
 const buyerTitle = computed(() => buyerField.value === 'studio' ? 'Studio' : 'Production company')
-const selectedYearSpan = computed(() => {
-  const selectedYears = [...new Set(filtered.value.map(deal => deal.year))].sort((a, b) => a - b)
-  const first = selectedYears[0]
-  const last = selectedYears.at(-1)
-
-  if (first === undefined || last === undefined) return '—'
-  return first === last ? String(first) : `${first}–${last}`
-})
 const analysisContent = ref<HTMLElement | null>(null)
 const drawerScrollTop = ref<number | null>(null)
 const defaultSectionTitle = 'Story patterns'
@@ -210,31 +202,6 @@ onBeforeUnmount(() => {
                   :ui="{ base: 'analysis-select', content: 'analysis-select-menu', input: 'w-full' }"
                 />
               </UFormField>
-            </div>
-          </div>
-          <div
-            class="analysis-overview"
-            aria-label="Selection summary"
-          >
-            <div class="analysis-overview-item analysis-overview-item--primary">
-              <span>Entries</span>
-              <strong>{{ formatCount(analysis.total) }}</strong>
-              <small>in this selection</small>
-            </div>
-            <div class="analysis-overview-item">
-              <span>Year span</span>
-              <strong>{{ selectedYearSpan }}</strong>
-              <small>selected archive</small>
-            </div>
-            <div class="analysis-overview-item">
-              <span>Median logline</span>
-              <strong>{{ analysis.median ?? '—' }}</strong>
-              <small>words</small>
-            </div>
-            <div class="analysis-overview-item">
-              <span>Saved analysis</span>
-              <strong>{{ reviewedPercentage }}%</strong>
-              <small>{{ formatCount(coverage.reviewed) }} entries</small>
             </div>
           </div>
           <section

@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import type { ChartData, ChartOptions } from 'chart.js'
-import { Line } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 import type { AnalysisBar, GenreTrend } from '~/utils/deal-analysis'
 import { formatCount } from '~/utils/deal-analysis'
 
 const props = defineProps<{ trend: GenreTrend }>()
 const emit = defineEmits<{ select: [row: AnalysisBar, title: string] }>()
 const { theme, reducedMotion, withAlpha } = useAnalysisChartTheme()
-const palette = ['#d7aa00', '#bc9000', '#8e6047', '#5e7c70', '#766b8f', '#ad6a5a', '#66788a', '#9c8549', '#8a6b62', '#557c8a', '#9a6a38', '#6b7187']
+const palette = ['#d7aa00', '#8e6047', '#5e7c70', '#766b8f', '#66788a', '#ad6a5a', '#9c8549', '#8a6b62', '#557c8a', '#6b7187']
 
 const chartLabel = computed(() => `Genre share by year: ${props.trend.series.map(series => series.label).join(', ')}`)
 
-function genreColor(index: number) {
+function genreColor(index: number, key?: string) {
+  if (key === '__other__') return '#9b9588'
+  if (key === '__unspecified__') return '#c4beb1'
   return palette[index % palette.length] ?? theme.value.accent
 }
 
@@ -28,40 +30,33 @@ function selectPoint(yearIndex: number, seriesIndex: number) {
   emit('select', point, `Genre: ${point.label} · ${year.label}`)
 }
 
-const chartData = computed<ChartData<'line', number[], string>>(() => ({
+const chartData = computed<ChartData<'bar', number[], string>>(() => ({
   labels: props.trend.years.map(year => year.label),
   datasets: props.trend.series.map((series, seriesIndex) => {
-    const color = genreColor(seriesIndex)
+    const color = genreColor(seriesIndex, series.key)
 
     return {
       label: series.label,
       data: props.trend.years.map((_year, yearIndex) => pointFor(yearIndex, seriesIndex)?.share ?? 0),
-      borderColor: color,
-      backgroundColor: withAlpha(color, 0.14),
+      borderColor: theme.value.paper,
+      backgroundColor: withAlpha(color, 0.88),
       borderWidth: 1.5,
-      pointBackgroundColor: theme.value.paper,
-      pointBorderColor: color,
-      pointBorderWidth: 1.5,
-      pointRadius: props.trend.years.length > 24 ? 0 : 2,
-      pointHoverRadius: 4,
-      pointHitRadius: 8,
-      tension: 0.28,
-      fill: true
+      borderRadius: 2,
+      borderSkipped: false,
+      barPercentage: 0.92,
+      categoryPercentage: 0.9
     }
   })
 }))
 
-const chartOptions = computed<ChartOptions<'line'>>(() => ({
+const chartOptions = computed<ChartOptions<'bar'>>(() => ({
   responsive: true,
   maintainAspectRatio: false,
   animation: {
     duration: reducedMotion.value ? 0 : 650,
     easing: 'easeOutCubic'
   },
-  interaction: {
-    mode: 'index',
-    intersect: false
-  },
+  interaction: { mode: 'nearest', intersect: true },
   plugins: {
     legend: {
       position: 'top',
@@ -81,12 +76,17 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
         label: (context) => {
           const point = pointFor(context.dataIndex, context.datasetIndex)
           return `${context.dataset.label}: ${point?.share ?? Number(context.parsed.y).toFixed(1)}% · ${formatCount(point?.count ?? 0)} entries`
+        },
+        footer: (items) => {
+          const year = props.trend.years[items[0]?.dataIndex ?? 0]
+          return year ? `Year total: ${formatCount(year.total)} entries` : ''
         }
       }
     }
   },
   scales: {
     x: {
+      stacked: true,
       grid: { display: false },
       ticks: {
         color: theme.value.muted,
@@ -99,6 +99,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
       }
     },
     y: {
+      stacked: true,
       beginAtZero: true,
       max: 100,
       grid: { color: theme.value.ruleSoft },
@@ -141,7 +142,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
     >
       <div class="analysis-canvas-wrap analysis-canvas-wrap--comparison">
         <ClientOnly>
-          <Line
+          <Bar
             :data="chartData"
             :options="chartOptions"
             :aria-label="chartLabel"
@@ -175,7 +176,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
                   v-for="(series, seriesIndex) in trend.series"
                   :key="series.key"
                   scope="col"
-                  :style="{ color: genreColor(seriesIndex) }"
+                  :style="{ color: genreColor(seriesIndex, series.key) }"
                 >
                   {{ series.label }}
                 </th>
@@ -199,7 +200,7 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
                   <button
                     type="button"
                     :disabled="!pointFor(yearIndex, seriesIndex)?.count"
-                    :style="{ color: genreColor(seriesIndex) }"
+                    :style="{ color: genreColor(seriesIndex, series.key) }"
                     :aria-label="`${series.label}, ${row.label}: ${pointFor(yearIndex, seriesIndex)?.count ?? 0} entries. View entries`"
                     @click="selectPoint(yearIndex, seriesIndex)"
                   >

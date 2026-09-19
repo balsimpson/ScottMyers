@@ -10,6 +10,10 @@
   --ui-text-dimmed: var(--archive-muted);
   --ui-border: var(--archive-rule);
   --ui-border-accented: var(--archive-rule);
+  --ui-primary: var(--archive-accent);
+  --ui-primary-hover: var(--archive-accent-strong);
+  --ui-primary-active: var(--archive-accent-strong);
+  --ui-focus: var(--archive-focus-ring);
   color: var(--archive-ink);
   font-variant-numeric: tabular-nums;
 }
@@ -52,7 +56,7 @@
   border-radius: 1rem;
   background: color-mix(in srgb, var(--archive-paper-deep) 80%, var(--archive-paper));
   padding: 0.9rem 1rem;
-  box-shadow: 0 0.7rem 1.5rem rgba(23, 23, 22, 0.04);
+  box-shadow: 0 0.7rem 1.5rem var(--archive-shadow-soft);
 }
 
 .analysis-stat-card--primary {

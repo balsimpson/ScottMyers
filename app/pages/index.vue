@@ -212,12 +212,15 @@ defineShortcuts({
             >
               <UButton
                 class="archive-info-thank-row"
+                :class="{ 'archive-info-thank-row--active': engagement?.thanked }"
                 color="neutral"
                 variant="ghost"
                 size="lg"
+                :ui="{ base: 'p-0' }"
                 icon="i-lucide-heart"
                 :loading="engagementPending === 'thanks'"
                 :disabled="engagementLoading || engagementUnavailable || engagementPending !== null || engagement?.thanked"
+                :aria-label="engagement?.thanked ? 'Thanked Scott Myers' : 'Thank Scott Myers'"
                 @click="recordEngagement('thanks')"
               >
                 <span class="archive-info-thank-label">
@@ -244,9 +247,19 @@ defineShortcuts({
                 rel="noreferrer"
                 @click="recordEngagement('patreon')"
               >
-                <span class="archive-info-source-link-copy">Join Patreon to support Scott Myers</span>
+                <span class="archive-info-source-link-mark" aria-hidden="true">
+                  <UIcon
+                    name="i-simple-icons-patreon"
+                    class="archive-info-source-link-icon"
+                  />
+                </span>
+                <span class="archive-info-source-link-body">
+                  <span class="archive-info-source-link-kicker">Support the source</span>
+                  <span class="archive-info-source-link-copy">Scott Myers publishes the original archive on Patreon</span>
+                </span>
                 <UIcon
                   name="i-lucide-arrow-up-right"
+                  class="archive-info-source-link-arrow"
                   aria-hidden="true"
                 />
               </a>
@@ -371,8 +384,8 @@ defineShortcuts({
           </UInput>
         </div>
 
-        <button type="button" class="archive-analysis-link" aria-label="Toggle archive analysis"
-          title="Toggle archive analysis" @click="toggleAnalysis">
+        <button type="button" class="archive-analysis-link" :class="{ 'archive-analysis-link--active': analysisOpen }"
+          aria-label="Toggle archive analysis" :aria-pressed="analysisOpen" title="Toggle archive analysis" @click="toggleAnalysis">
           <UIcon name="i-lucide-chart-no-axes-combined" class="size-6" aria-hidden="true" />
         </button>
 
