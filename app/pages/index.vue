@@ -236,22 +236,24 @@ defineShortcuts({
           />
 
           <div class="archive-info-surface-inner">
-            <p class="archive-info-surface-kicker">
+            <p class="archive-info-surface-kicker archive-info-stagger-item transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none">
               Scott Myers
             </p>
-            <h2>Spec Script Deals: 1991-2025</h2>
-            <p>
+            <h2 class="archive-info-stagger-item transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none">
+              Spec Script Deals: 1991-2025
+            </h2>
+            <p class="archive-info-stagger-item transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none">
               This archive is based on Scott Myers' <em>Spec Script Deals</em> download from Go Into The Story. It
               brings together a massive record of spec script activity: deal records, loglines, writers, genres,
               agencies, and sale details.
             </p>
-            <p>
+            <p class="archive-info-stagger-item transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none">
               It spans <strong>{{ deals.length.toLocaleString() }}</strong> loglines across more than 35 years of
               tracking the market, making it one of the most complete single-source records of the spec script business
               ever assembled.
             </p>
             <div
-              class="archive-info-engagement"
+              class="archive-info-engagement archive-info-stagger-item transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none"
               aria-live="polite"
             >
               <UButton
