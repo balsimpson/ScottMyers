@@ -123,9 +123,9 @@ const chartOptions = computed<ChartOptions<'line'>>(() => ({
     <div class="analysis-section-heading">
       <div>
         <h2 id="comparison-heading">
-          What changes over time?
+          Genre mix over time
         </h2>
-        <p>Genre share by year. Areas overlap so shifts in the archive's genre mix are easy to compare.</p>
+        <p>Compare the share of each genre year by year. Select a point to open the matching entries.</p>
       </div>
     </div>
     <p
